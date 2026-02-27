@@ -305,8 +305,10 @@ if ((${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU") OR (${CMAKE_CXX_COMPILER_ID} STREQ
 	# Enable openmpi
 	if(USE_MPI)
 		if((NOT "${CMAKE_C_COMPILER}" MATCHES ".*mpicc") OR
-			(NOT "${CMAKE_CXX_COMPILER}" MATCHES ".*mpic\\+\\+"))
-			message(FATAL_ERROR, "USE_MPI must be used in mpicc/mpic++.")
+			#(NOT "${CMAKE_CXX_COMPILER}" MATCHES ".*mpic\\+\\+"))
+			(NOT "${CMAKE_CXX_COMPILER}" MATCHES ".*mpicxx"))
+			#message(FATAL_ERROR, "USE_MPI must be used in mpicc/mpic++.")
+			message(FATAL_ERROR, "USE_MPI must be used in mpicc/mpicxx.")
 		endif()
 		add_compile_options("-D _USE_MPI -lmpi")
 	endif()
