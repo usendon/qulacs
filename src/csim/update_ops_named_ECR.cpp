@@ -278,15 +278,6 @@ void ECR_gate_parallel_sve(UINT target_qubit_index_0,
 
 #endif  // _USE_SVE
 
-
-
-
-#include <complex>
-#include <cstdio>
-#include <type_traits>
-
-
-
 #ifdef _USE_MPI
 #include <bitset>
 
@@ -415,7 +406,7 @@ void _ECR_gate_mpi(CTYPE* t, CTYPE* si, ITYPE dim, ITYPE rtgt_blk_dim) {
            
             const ITYPE idx0 = state_index + offset; 
             const ITYPE idx1 = idx0 + rtgt_blk_dim; 
-            const std::complex<double> si0 = si[idx0];
+            const CPPCTYPE si0 = si[idx0];
 
             si[idx0] = (si[idx1] + t[idx1] * 1i) * sqrt2inv;
 
