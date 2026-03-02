@@ -395,18 +395,25 @@ void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
 }
 
 void _ECR_gate_mpi(CTYPE* t, CTYPE* si, ITYPE dim, ITYPE rtgt_blk_dim) {
+    std::cout << "dim = " << dim << std::endl;
+    std::cout << "rtgt_blk_dim = " << rtgt_blk_dim << std::endl;
     const double sqrt2inv = 1. / sqrt(2.);
     ITYPE state_index = 0;
     const ITYPE amplitude_block_size = rtgt_blk_dim << 1; 
+    std::cout << "amplitude_block_size = " << amplitude_block_size << std::endl;
 
 #pragma omp parallel for
     for (state_index = 0; state_index < dim;
         state_index += amplitude_block_size) {
+        std::cout << "state_index = " << state_index << std::endl;
         for (ITYPE offset = 0; offset < rtgt_blk_dim; ++offset) {
+            std::cout << "offset = " << offset << std::endl;
            
             const ITYPE idx0 = state_index + offset; 
+            std::cout << "idx0 = " << idx0 << std::endl;
             const ITYPE idx1 = idx0 + rtgt_blk_dim; 
-            const CPPCTYPE si0 = si[idx0];
+            std::cout << "idx1 = " << idx1 << std::endl;
+            const CTYPE si0 = si[idx0];
 
             si[idx0] = (si[idx1] + t[idx1] * 1i) * sqrt2inv;
 
