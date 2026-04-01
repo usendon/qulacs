@@ -184,18 +184,56 @@ void ECR_gate_parallel_simd(UINT target_qubit_index_0,
 
 #ifdef _USE_SVE
 
+/////////////////////
+
+#include <inttypes.h>  // para PRIu64 (portable)
+
+static void print_svuint64(svuint64_t v) {
+    uint64_t tmp[svcntd()];                // buffer temporal
+    svst1(svptrue_b64(), tmp, v);          // volcar a memoria
+
+    int n = svcntd();
+    for (int i = 0; i < n; i++) {
+        printf("%" PRIu64 " ", tmp[i]);    // impresión portable
+    }
+    printf("\n");
+}
+
+////////////////////
+
 static inline svfloat64_t mul_by_i(svbool_t pg, svfloat64_t x) {
-    svuint64_t tbl_idx = svindex_u64(0, 1);      
+    svuint64_t tbl_idx = svindex_u64(0, 1);   
+    std::cout << "tbl_idx" << std::endl;
+    print_svuint64(tbl_idx);
     tbl_idx = sveor_z(pg, tbl_idx, svdup_u64(1));
+    std::cout << "tbl_idx con OR bit a bit" << std::endl;
+    print_svuint64(tbl_idx);
 
     svfloat64_t swapped = svtbl_f64(x, tbl_idx);
 
     svbool_t odd = svcmpne(pg, svand_z(pg, tbl_idx, svdup_u64(1)), svdup_u64(0));
+    std::cout << "tbl_idx con AND" << std::endl;
+    print_svuint64(svand_z(pg, tbl_idx, svdup_u64(1)));
 
     svfloat64_t sign = svsel(odd, svdup_f64(-1.0), svdup_f64(1.0));
 
     return svmul_x(pg, swapped, sign);
 }
+
+//////////////////////////
+
+static void print_svfloat64(svfloat64_t v) {
+    double tmp[svcntd()];              // tamaño dinámico del vector
+    svst1(svptrue_b64(), tmp, v);      // copiar a memoria
+
+    int n = svcntd();
+    for (int i = 0; i < n; i++) {
+        printf("%f ", tmp[i]);
+    }
+    printf("\n");
+}
+
+/////////////////////////
 
 
 void ECR_gate_parallel_sve(UINT target_qubit_index_0,
@@ -237,6 +275,8 @@ void ECR_gate_parallel_sve(UINT target_qubit_index_0,
 
 
             svfloat64_t input00 = svld1(svptrue_b64(), (double*)&state[basis_index_00]);
+            std::cout << "input00" << std::endl;
+            print_svfloat64(input00);
             svfloat64_t input01 = svld1(svptrue_b64(), (double*)&state[basis_index_01]);
             svfloat64_t input10 = svld1(svptrue_b64(), (double*)&state[basis_index_10]);
             svfloat64_t input11 = svld1(svptrue_b64(), (double*)&state[basis_index_11]);
