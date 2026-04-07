@@ -52,7 +52,7 @@ void ECR_gate(UINT target_qubit_index_0, UINT target_qubit_index_1,
 
 void ECR_gate_parallel_unroll(UINT target_qubit_index_0,
     UINT target_qubit_index_1, CTYPE* state, ITYPE dim) {
-    
+
     const ITYPE loop_dim = dim / 4;
 
     const ITYPE mask_0 = 1ULL << target_qubit_index_0;
@@ -102,31 +102,18 @@ void ECR_gate_parallel_unroll(UINT target_qubit_index_0,
 } 
 
 #ifdef _USE_SIMD
-static void print_m256d(__m256d v, const char* name) {
-    double tmp[4];
-    _mm256_storeu_pd(tmp, v);
-    std::cout << name << " = [";
-    for (int i = 0; i < 4; ++i) {
-        std::cout << tmp[i];
-        if (i != 3) std::cout << ", ";
-    }
-    std::cout << "]" << std::endl;
-}
 void ECR_gate_parallel_simd(UINT target_qubit_index_0,
     UINT target_qubit_index_1, CTYPE* state, ITYPE dim) {
-
-
     const ITYPE loop_dim = dim / 4;
+
     const ITYPE mask_0 = 1ULL << target_qubit_index_0;
     const ITYPE mask_1 = 1ULL << target_qubit_index_1;
     const ITYPE mask = mask_0 + mask_1;
 
     const UINT min_qubit_index =
         get_min_ui(target_qubit_index_0, target_qubit_index_1);
-
     const UINT max_qubit_index =
         get_max_ui(target_qubit_index_0, target_qubit_index_1);
-
     const ITYPE min_qubit_mask = 1ULL << min_qubit_index;
     const ITYPE max_qubit_mask = 1ULL << (max_qubit_index - 1);
     const ITYPE low_mask = min_qubit_mask - 1;
@@ -159,11 +146,6 @@ void ECR_gate_parallel_simd(UINT target_qubit_index_0,
             __m256d b_lo = _mm256_loadu_pd(ptr10); 
             __m256d b_hi = _mm256_loadu_pd(ptr11); 
 
-            //print_m256d(a_lo, "a_lo");
-            //print_m256d(a_hi, "a_hi");
-            //print_m256d(b_lo, "b_lo");
-            //print_m256d(b_hi, "b_hi");
-
             auto mul_by_i_256 = [](const __m256d& x) -> __m256d {
                 __m256d swapped = _mm256_permute_pd(x, 0b0101); // swap Re <-> Im
                 const __m256d sign = _mm256_set_pd(1.0, -1.0, 1.0, -1.0);
@@ -174,13 +156,11 @@ void ECR_gate_parallel_simd(UINT target_qubit_index_0,
             __m256d i_b_lo = mul_by_i_256(b_lo);
             __m256d i_a_hi = mul_by_i_256(a_hi);
             __m256d i_a_lo = mul_by_i_256(a_lo);
-            //print_m256d(i_a_lo, "i_a_lo");
 
             __m256d tmp_new_v00 = _mm256_add_pd(a_hi, i_b_hi);
             __m256d tmp_new_v01 = _mm256_sub_pd(a_lo, i_b_lo);
             __m256d tmp_new_v10 = _mm256_add_pd(b_hi, i_a_hi);
             __m256d tmp_new_v11 = _mm256_sub_pd(b_lo, i_a_lo);
-
 
             __m256d svec = _mm256_set1_pd(sqrt2inv);
             tmp_new_v00 = _mm256_mul_pd(tmp_new_v00, svec);
