@@ -320,6 +320,7 @@ void ECR_gate_parallel_sve(UINT target_qubit_index_0,
 void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
     CTYPE* state, ITYPE dim, UINT inner_qc) {
     UINT left_qubit, right_qubit;
+    std::cout << "Entra en MPI" << std::endl;
     if (target_qubit_index_0 > target_qubit_index_1) {
         left_qubit = target_qubit_index_0;
         right_qubit = target_qubit_index_1;
@@ -345,7 +346,7 @@ void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
 
         for (UINT i = 0; i < (UINT)num_work; ++i) {
             m.m_DC_sendrecv(si, t, dim_work, pair_rank);
-            _ECR_gate_mpi_local_global(t, si, dim_work, rtgt_blk_dim, is_lower_rank);
+            _ECR_gate_mpi_local_global(target_qubit_index_0, target_qubit_index_1, t, si, dim_work, rtgt_blk_dim, is_lower_rank);
             si += dim_work;
         }
 
@@ -388,7 +389,7 @@ void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
     }
 }
 
-void _ECR_gate_mpi_local_global(CTYPE* t, CTYPE* si, ITYPE dim, ITYPE rtgt_blk_dim, bool is_lower_rank) {
+void _ECR_gate_mpi_local_global(UINT target_qubit_index_0, UINT target_qubit_index_1, CTYPE* t, CTYPE* si, ITYPE dim, ITYPE rtgt_blk_dim, bool is_lower_rank) {
     const double sqrt2inv = 1. / sqrt(2.);
     const ITYPE amplitude_block_size = rtgt_blk_dim << 1; 
 
