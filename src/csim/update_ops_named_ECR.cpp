@@ -52,7 +52,6 @@ void ECR_gate(UINT target_qubit_index_0, UINT target_qubit_index_1,
 
 void ECR_gate_parallel_unroll(UINT target_qubit_index_0,
     UINT target_qubit_index_1, CTYPE* state, ITYPE dim) {
-
     const ITYPE loop_dim = dim / 4;
 
     const ITYPE mask_0 = 1ULL << target_qubit_index_0;
@@ -235,7 +234,6 @@ static void print_svfloat64(svfloat64_t v) {
 void ECR_gate_parallel_sve(UINT target_qubit_index_0,
                            UINT target_qubit_index_1,
                            CTYPE* state, ITYPE dim) {
-
     const ITYPE loop_dim = dim / 4;
     const ITYPE mask_0 = 1ULL << target_qubit_index_0;
     const ITYPE mask_1 = 1ULL << target_qubit_index_1;
@@ -314,13 +312,13 @@ void ECR_gate_parallel_sve(UINT target_qubit_index_0,
 
 #endif  // _USE_SVE
 
+
 #ifdef _USE_MPI
-#include <bitset>
 
 void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
     CTYPE* state, ITYPE dim, UINT inner_qc) {
+    // ordeo os qubits de xeito que o de maior índice se almacene en left_qubit e o de menor índice en right_qubit.
     UINT left_qubit, right_qubit;
-    std::cout << "Entra en MPI" << std::endl;
     if (target_qubit_index_0 > target_qubit_index_1) {
         left_qubit = target_qubit_index_0;
         right_qubit = target_qubit_index_1;
@@ -329,40 +327,122 @@ void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
         right_qubit = target_qubit_index_0;
     }
 
-    if (left_qubit < inner_qc) {
+    if (left_qubit < inner_qc) { // os dous qubits son internos ao proceso
+        // Non ten sentido aplicar MPI, uso a función ECR_gate que xa teño definida e fago os cálculos nunha única CPU.
         ECR_gate(target_qubit_index_0, target_qubit_index_1, state, dim);
 
     } else if (right_qubit < inner_qc) {  // one target is outer
-        MPIutil& m = MPIutil::get_inst();
-        const UINT rank = m.get_rank();
-        ITYPE dim_work = dim;
-        ITYPE num_work = 0;
-        CTYPE* t = m.get_workarea(&dim_work, &num_work);
-        const ITYPE tgt_rank_bit = 1 << (left_qubit - inner_qc);
-        const ITYPE rtgt_blk_dim = 1 << right_qubit;
-        const int pair_rank = rank ^ tgt_rank_bit;
-        bool is_lower_rank = !(rank & tgt_rank_bit);
-        CTYPE* si = state;
+        /* Neste caso un dos qubits é interno (está dentro do propio proceso) e o outro é externo. 
+        Precísase unha comunicación entre procesos. */
 
-        for (UINT i = 0; i < (UINT)num_work; ++i) {
-            m.m_DC_sendrecv(si, t, dim_work, pair_rank);
-            _ECR_gate_mpi_local_global(target_qubit_index_0, target_qubit_index_1, t, si, dim_work, rtgt_blk_dim, is_lower_rank);
-            si += dim_work;
+        MPIutil& m = MPIutil::get_inst();
+        const UINT rank = m.get_rank(); // obtén o rank de cada proceso
+        ITYPE dim_work = dim; // inicialízase a dim_work como a dim de cada proceso
+        ITYPE num_work = 1; // inicialízase o número de traballos por proceso a 1
+        /* old_si vai facer unha copia do fragmento de state de cada proceso. Isto é necesario porque en
+        _ECR_gate_mpi_local_global vanse modificar directamente os valores de si, e para seguir calculando
+        son necesarios os seus valores iniciais*/
+        ITYPE rw;
+        
+        /* O seguinte é equivalente a malloc e mempcy. CTYPE é std::complex<double> (definido noutros arquivos,
+        por exemplo en util_common.h).
+        */
+        std::vector<CTYPE> old_si_buf(state, state + dim);
+        CTYPE* old_si = old_si_buf.data();
+
+        std::vector<CTYPE> t_buf;
+        CTYPE* t;
+        /* Para definir t teño que distinguir entre se o índice do target_qubit_index_0 é máis grande ou máis pequeno
+        que o do target_qubit_index_1. Se target_qubit_index_0 < target_qubit_index_1 para calcular cada unha das
+        compoñentes finais do vector de estado úsanse tanto as amplitudes iniciais do propio proceso como as do proceso
+        par (aquel co que se comunica). No caso de que target_qubit_index_0 > target_qubit_index_1 para calcular unha 
+        amplitude final úsanse só as amplitudes do proceso par, as do propio proceso non se usan. Debido a isto, os procesos
+        precisan todas as amplitudes dos seus procesos pares, non se pode dividir cada proceso en varios traballos (por
+        que senón o si (state) sería só de cada traballo e non tería todas as amplitudes necesarias para o cálculo).
+        t vaise usar para almacenar temporalmente as amplitudes do proceso par e poder facer cálculos con elas na función
+        _ECR_gate_mpi_local_global.
+        */
+        if (target_qubit_index_0 < target_qubit_index_1) {
+            t = m.get_workarea(&dim_work, &num_work); /* t neste caso é un punteiro a un bloque de memoria (zona de traballo)
+            que devolve get_workarea. Esta función vai axustar automaticamente num_work e dim_work segundo o descrito no
+            ficheiro MPIutil.cpp, de xeito que agora o valor de num_work pode ser 1 ou distinto de 1 e dim_work axustarase de
+            xeito que num_work*dim_work = dim (dimensión en cada proceso). A dimensión total do vector de estado será num_work*dim_work*mpi_size.
+            */
+        } else {
+            t_buf.resize(dim);
+            t = t_buf.data();
+            // t neste caso inicialízase como unha reserva de memoria que permita almacenar o 
+            // fragmento do vector de estado correspondente a un proceso completo.
+        } 
+
+        /* Cada proceso contén as amplitudes dos qubits internos e o valor dos qubits externos está codificado no número de rank. left_qubit por 
+        definición é o qubit de maior índice, polo tanto neste caso corresponderase co qubit externo.
+        O proceso par a un dado é aquel que ten invertido o left_qubit. */
+        const ITYPE tgt_rank_bit = 1 << (left_qubit - inner_qc); /* crease unha máscara de bits que marque a 1 a posición do left_qubit (ignorando os
+        qubits internos). inner_qc é o número de qubits internos correspondente e calcúlase como "const UINT inner_qc = n - log_nodes;", onde n é o
+        número total de qubits do sistema.
+        */
+        const int pair_rank = rank ^ tgt_rank_bit; // calcúlase o proceso par (pair_rank) a un proceso (rank) determinado invertindo o valor do left_qubit.
+        
+        /* Agora fago un bucle que percorra para cada proceso todos os traballos (works). Para cada un dos traballos hai que facer o envío e recibo de
+        datos correspondente e chamar á función que aplica a matriz (_ECR_gate_mpi_local_global).*/
+        for (ITYPE w = 0; w < num_work; ++w) {
+            CTYPE* si;
+            if (num_work > 1) { /* No caso de que o número de traballos por proceso sexa maior que 1 entre o rank e o pair_rank xa non se compartirán todas as
+                amplitudes do vector de estado. Hai que asegurarse entón de que se comunican os work que toca e para iso hai que escoller con coidado a onde
+                se apunta co si dun dos procesos. */
+                if (rank < (UINT)pair_rank) {
+                    si = state + w*dim_work; // os si dun dos procesos involucrados na comunicación (hai varios si porque hai varios works) poden escollerse de 
+                    //forma que apunten á primeira posición do seu vector de estado correspondente. 
+                    rw = w;
+                } else {
+                    /* Os si do outro proceso (aquel co que se comunican os que entran no if anterior) teñen que escollerse con máis coidado para asegurarnos de
+                    que estamos comunicando os bloques de amplitudes que se necesitan.
+                    */
+
+                    ITYPE ideal_global_index_work = ((ITYPE)rank*num_work + w) * dim_work; /* ideal_global_index_work vai almacenar o enteiro que corresponde á posición global 
+                    (posición respecto ao vector de estado completo) na que estou. Almacena a posición global correspondente ao primeiro valor do work w
+                    no que me atopo. É a posición "ideal", é dicir, só é a posición global real se os works se comunican por orde (o worker 0 dun proceso co worker 0 do outro, o worker 1 co 1...).
+                    */
+                    ITYPE my_target_index = ideal_global_index_work ^ ((1ULL << target_qubit_index_0) + (1ULL << target_qubit_index_1)); /* my_target_index vai calcular
+                    a posición global que se obtén ao invertir os dous qubits sobre os que se aplica a porta. Marca a primeira posición do bloque par co que quero
+                    comunicar o bloque actual.
+                    */
+
+                    si = state + (my_target_index%dim); /* my_target_index%dim devolve o resto de dividir my_target_index entre dim e isto representa a posición do 
+                    my_target_index referida ao proceso concreto no que estou (posición local). state apunta á primeira posición do vector de estado local ao 
+                    proceso no que me atope.
+                    */
+                   rw = (ITYPE)(my_target_index%dim)/dim_work;
+                }
+            } else { /* se o número de traballos por proceso é un entón o vector de estado de cada traballo é igual ao vector de estado de cada proceso.
+                O rank e o pair_rank vanse comunicar e compartir todos os elementos dos seus vectores de estado.
+                */
+                si = state;
+            }
+            
+            m.m_DC_sendrecv(si, t, dim_work, pair_rank); // fago o sendrecv enviando o que hai en si e recibindo en t entre o rank e o pair_rank. Vaise enviando
+            // a información en bloques de tamaño dim_work (que se corresponde coa dimensión do proceso só se num_work = 1).
+      
+            _ECR_gate_mpi_local_global(rw, rank, target_qubit_index_0, target_qubit_index_1, left_qubit, right_qubit, old_si, si, t, dim, dim_work, num_work);
+            // por último chámase á función que vai permitir aplicar a porta.
+
         }
 
+
     } else {  // both targets are outer
+        // Os dous qubits son externos ao proceso MPI. Precísanse entón dúas comunicacións.
         MPIutil& m = MPIutil::get_inst();
         const UINT rank = m.get_rank();
-        int world_size_int = 0;
-        MPI_Comm_size(MPI_COMM_WORLD, &world_size_int); 
-        const int world_size = world_size_int; 
         ITYPE dim_work = dim;
         ITYPE num_work = 0;
         const UINT tgt0_rank_bit = 1 << (target_qubit_index_0 - inner_qc);  
         const UINT tgt1_rank_bit = 1 << (target_qubit_index_1 - inner_qc);  
         const UINT tgt_rank_bit = tgt0_rank_bit + tgt1_rank_bit; 
-        const int pair_rank = rank ^ tgt0_rank_bit;  
-        const int pair_rank1 = rank ^ tgt_rank_bit;  
+        const int pair_rank = rank ^ tgt0_rank_bit;  // calcúlase o proceso par (pair_rank) a un proceso (rank) determinado invertindo o valor do target_qubit_index_0.
+        const int pair_rank1 = rank ^ tgt_rank_bit;  /* calcúlase o proceso par (pair_rank1) a un proceso (rank) determinado invertindo o valor tanto do target_qubit_index_0
+        como do target_qubit_index_1.
+        */
         CTYPE* tmp = m.get_workarea(
             &dim_work, &num_work); 
         (void)tmp;            
@@ -370,57 +450,73 @@ void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
         std::vector<CTYPE> t2_buf(dim_work);
         CTYPE* t1 = t1_buf.data();
         CTYPE* t2 = t2_buf.data();
-        CTYPE* si = state; 
-
-        for (UINT i = 0; i < (UINT)num_work; ++i) {
-            CTYPE* si_i = state + i * dim_work; 
-            m.m_DC_sendrecv(si_i, t1, dim_work, pair_rank);
+        CTYPE* si = state;
+        
+        bool is_lower_rank = !(rank & tgt0_rank_bit); // devolve True se o target_qubit_index_0 está a 0 no rank.
+        for (ITYPE i = 0; i < num_work; ++i) {
+            m.m_DC_sendrecv(si, t1, dim_work, pair_rank);
+            m.m_DC_sendrecv(si, t2, dim_work, pair_rank1);
+            _ECR_gate_mpi_external(t1, t2, si, dim_work, is_lower_rank);
+            si += dim_work;
         }
 
-        for (UINT j = 0; j < (UINT)num_work; ++j) {
-            CTYPE* si_j = state + j * dim_work;  
-            m.m_DC_sendrecv(si_j, t2, dim_work, pair_rank1);
-        }
-
-        const UINT local_qc = (UINT)std::log2(dim);
-        bool is_lower_rank = !(rank & tgt0_rank_bit);
-        _ECR_gate_mpi_external(t1, t2, si, dim_work, is_lower_rank);
-        si += dim_work;
     }
 }
 
-void _ECR_gate_mpi_local_global(UINT target_qubit_index_0, UINT target_qubit_index_1, CTYPE* t, CTYPE* si, ITYPE dim, ITYPE rtgt_blk_dim, bool is_lower_rank) {
-    const double sqrt2inv = 1. / sqrt(2.);
-    const ITYPE amplitude_block_size = rtgt_blk_dim << 1; 
+/* Vou definir unha función que concatena o valor dos dous qubits sobre os que se aplica a porta. Os qubits están ordeados: primeiro vai o left_qubit, que é o de
+maior índice e despois o right_qubit, que é o de menor índice.*/
+static inline ITYPE combine_qubit_bits(ITYPE N, const UINT right_qubit, const UINT left_qubit) {
+    ITYPE r_bit = (N >> right_qubit) & 1; // extrae o valor do right_qubit
+    ITYPE l_bit = (N >> left_qubit) & 1; // extrae o valor do left_qubit
+    ITYPE value = (l_bit << 1) | r_bit; // concatena o valor dos dous qubits, primeiro left_qubit e despois right_qubit.
+    return value;
+}
 
-#pragma omp parallel for
-    for (ITYPE k = 0; k < dim/2; ++k) {
-            const ITYPE state_index = k/rtgt_blk_dim * amplitude_block_size;
-            const ITYPE offset = k%rtgt_blk_dim;
-            const ITYPE idx0 = state_index + offset; 
-            const ITYPE idx1 = idx0 + rtgt_blk_dim; 
-            if (target_qubit_index_0 < target_qubit_index_1) {
-                const CTYPE si0 = si[idx0];
-                si[idx0] = (si[idx1] + t[idx1] * 1i) * sqrt2inv;
-                si[idx1] = (si0 - t[idx0] * 1i) * sqrt2inv;
-            } else {
-                if (is_lower_rank) {
-                    si[idx0] = ( t[idx0] + t[idx1] * 1i) * sqrt2inv; 
-                    si[idx1] = ( t[idx0] * 1i + t[idx1]) * sqrt2inv;   
-                } else {
-                    si[idx0] = ( t[idx0] - t[idx1] * 1i) * sqrt2inv;
-                    si[idx1] = (-t[idx0] * 1i + t[idx1]) * sqrt2inv;
-                }
+static const double sqrt2inv = 1. / sqrt(2.);
+
+void _ECR_gate_mpi_local_global(ITYPE rw, UINT rank, UINT target_qubit_index_0, UINT target_qubit_index_1, UINT left_qubit, UINT right_qubit, const CTYPE* old_si, CTYPE* si, CTYPE* t, ITYPE dim, ITYPE dim_work, ITYPE num_work) {
+    /* Para aplicar a matriz divido en dous casos. Para target_qubit_index_0 < target_qubit_index_1 úsanse tanto as amplitudes do propio proceso como as do proceso par
+    e num_work pode ser 1 ou distinto de 1. Para target_qubit_index_0 > target_qubit_index_1 úsanse só as amplitudes do proceso par pero non as do propio proceso e está
+    establecido que num_work = 1.*/
+    if (target_qubit_index_0 < target_qubit_index_1) {
+            for (ITYPE j = 0; j < dim_work; j++) { // fago un bucle que percorra todos os valores dentro dun work
+                ITYPE global_position = j + dim*(ITYPE)rank + dim_work*w; // calculo a posición global da posición do vector de estado na que me atopo.
+                ITYPE bitflip_0 = global_position ^ (1ULL << target_qubit_index_0); // calculo a posición global resultante de invertir o qubit dado por target_qubit_index_0
+                ITYPE bitflip_0_1 = global_position ^ ((1ULL << target_qubit_index_0) + (1ULL << target_qubit_index_1)); // calculo a posición global resultante de invertir o
+                // qubit dado por target_qubit_index_0 e target_qubit_index_1
+                ITYPE si_target_index = bitflip_0%dim; // Os índices de old_si son locais respecto ao proceso porque old_si é unha copia do state completo de cada proceso. 
+                ITYPE t_target_index = (bitflip_0_1%dim)%dim_work; /* teño que convertir a posición global calculada a unha posición local respecto ao traballo no que me atope.
+                t ten índices locais a cada work porque no sendrecv envíanse todos os elementos dun work, pero non todos os do proceso.
+                */
+                /* Para cada unha das catro combinacións posibles de valores entre right_qubit e left_qubit aplícase unha fórmula diferente. Utilizo a función combine_qubit_bits
+                para saber que combinación hai en cada caso e aplicar a fórmula que corresponda. */
+
+                ITYPE cb = combine_qubit_bits(global_position, target_qubit_index_0, target_qubit_index_1);
+                int sign = (cb % 2 == 0) ? 1 : -1;
+                si[j] = sqrt2inv * old_si[si_target_index] + sign * sqrt2inv * 1i * t[t_target_index];
             }
-    }  
+    } else {
+            for (ITYPE j = 0; j < dim; j++) { 
+                ITYPE global_position = j + dim*(ITYPE)rank; // aquí non hai que ter en conta dim_work porque agora hai só un work entón dim_work = dim.
+                ITYPE bitflip_0 = global_position ^ (1ULL << target_qubit_index_0); 
+                ITYPE bitflip_0_1 = global_position ^ ((1ULL << target_qubit_index_0) + (1ULL << target_qubit_index_1)); 
+                ITYPE target_index_bitflip_0 = bitflip_0%dim;
+                ITYPE target_index_bitflip_0_1 = bitflip_0_1%dim;
+                // Neste caso os índices de t son locais ao proceso. Só hai un work por proceso.
+
+                ITYPE cb = combine_qubit_bits(global_position, target_qubit_index_1, target_qubit_index_0);
+                int sign = (cb % 2 == 0) ? 1 : -1; // se o resultado da división enteira (sen decimais) de cb/2 é cero
+                // o signo é positivo e se é 1
+                si[j] = sqrt2inv * t[target_index_bitflip_0] + sign * sqrt2inv * 1i * t[target_index_bitflip_0_1];
+            }
+    }
 }
 
 void _ECR_gate_mpi_external(
     CTYPE* t1, CTYPE* t2, CTYPE* si, ITYPE dim, bool is_lower_rank) {
-    const double sqrt2inv = 1. / sqrt(2.);
-    ITYPE state_index = 0;
     #pragma omp parallel for
         for (ITYPE i = 0; i < dim; ++i) {
+            // hai dúas fórmulas diferentes dependendo de se o target_qubit_index_0 está a 0 ou a 1 no rank
             if (is_lower_rank) {
                 si[i] = (t1[i] + t2[i] * 1i) * sqrt2inv;
             } else {
