@@ -480,7 +480,7 @@ void _ECR_gate_mpi_local_global(ITYPE rw, UINT rank, UINT target_qubit_index_0, 
     establecido que num_work = 1.*/
     if (target_qubit_index_0 < target_qubit_index_1) {
             for (ITYPE j = 0; j < dim_work; j++) { // fago un bucle que percorra todos os valores dentro dun work
-                ITYPE global_position = j + dim*(ITYPE)rank + dim_work*w; // calculo a posición global da posición do vector de estado na que me atopo.
+                ITYPE global_position = j + dim*(ITYPE)rank + dim_work*rw; // calculo a posición global da posición do vector de estado na que me atopo.
                 ITYPE bitflip_0 = global_position ^ (1ULL << target_qubit_index_0); // calculo a posición global resultante de invertir o qubit dado por target_qubit_index_0
                 ITYPE bitflip_0_1 = global_position ^ ((1ULL << target_qubit_index_0) + (1ULL << target_qubit_index_1)); // calculo a posición global resultante de invertir o
                 // qubit dado por target_qubit_index_0 e target_qubit_index_1
