@@ -366,7 +366,7 @@ void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
             t = m.get_workarea(&dim_work, &num_work); /* t neste caso é un punteiro a un bloque de memoria (zona de traballo)
             que devolve get_workarea. Esta función vai axustar automaticamente num_work e dim_work segundo o descrito no
             ficheiro MPIutil.cpp, de xeito que agora o valor de num_work pode ser 1 ou distinto de 1 e dim_work axustarase de
-            xeito que num_work*dim_work = dim (dimensión en cada proceso). A dimensión total do vector de estado será num_work*dim_work*mpi_size.
+            xeito que num_work*dim_work = dim (dimensión en cada proceso). A dimensión total do vector de estado será num_work*dim_work*mpi_size (número de procesos MPI).
             */
         } else {
             t_buf.resize(dim);
@@ -402,20 +402,17 @@ void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
 
                     ITYPE ideal_global_index_work = ((ITYPE)rank*num_work + w) * dim_work; /* ideal_global_index_work vai almacenar o enteiro que corresponde á posición global 
                     (posición respecto ao vector de estado completo) na que estou. Almacena a posición global correspondente ao primeiro valor do work w
-                    no que me atopo. É a posición "ideal", é dicir, só é a posición global real se os works se comunican por orde (o worker 0 dun proceso co worker 0 do outro, o worker 1 co 1...).
+                    no que me atopo. É a posición "ideal", é dicir, só é a posición global real se os works se comunican por orde (o worker 0 dun proceso co worker 0 do outro, o worker 1 co 1...). Aínda que non sexa a posición real do primeiro elemento do work co que comunico funciona igual por simetría (ver debuxo libreta).
                     */
                     ITYPE my_target_index = ideal_global_index_work ^ ((1ULL << target_qubit_index_0) + (1ULL << target_qubit_index_1)); /* my_target_index vai calcular
                     a posición global que se obtén ao invertir os dous qubits sobre os que se aplica a porta. Marca a primeira posición do bloque par co que quero
                     comunicar o bloque actual.
                     */
 
-                    si = state + (my_target_index%dim); /* my_target_index%dim devolve o resto de dividir my_target_index entre dim e isto representa a posición do 
-                    my_target_index referida ao proceso concreto no que estou (posición local). state apunta á primeira posición do vector de estado local ao 
-                    proceso no que me atope.
-                    */
-                   rw = (ITYPE)(my_target_index%dim)/dim_work;
+                    rw = (ITYPE)(my_target_index%dim)/dim_work; // calcula o índice correspondente ao work real, non ao ideal.
+                    si = state + rw*dim_work; // fago que si apunte ao inicio do anaco de state que ten cada work
                 }
-            } else { /* se o número de traballos por proceso é un entón o vector de estado de cada traballo é igual ao vector de estado de cada proceso.
+            } else { /* se o número de traballos por proceso é 1 entón o vector de estado de cada traballo é igual ao vector de estado de cada proceso.
                 O rank e o pair_rank vanse comunicar e compartir todos os elementos dos seus vectores de estado.
                 */
                 si = state;
@@ -423,7 +420,7 @@ void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
             
             m.m_DC_sendrecv(si, t, dim_work, pair_rank); // fago o sendrecv enviando o que hai en si e recibindo en t entre o rank e o pair_rank. Vaise enviando
             // a información en bloques de tamaño dim_work (que se corresponde coa dimensión do proceso só se num_work = 1).
-      
+
             _ECR_gate_mpi_local_global(rw, rank, target_qubit_index_0, target_qubit_index_1, left_qubit, right_qubit, old_si, si, t, dim, dim_work, num_work);
             // por último chámase á función que vai permitir aplicar a porta.
 
@@ -504,12 +501,13 @@ void _ECR_gate_mpi_local_global(ITYPE rw, UINT rank, UINT target_qubit_index_0, 
                 ITYPE target_index_bitflip_0_1 = bitflip_0_1%dim;
                 // Neste caso os índices de t son locais ao proceso. Só hai un work por proceso.
 
-                ITYPE cb = combine_qubit_bits(global_position, target_qubit_index_1, target_qubit_index_0);
+                ITYPE cb = combine_qubit_bits(global_position, target_qubit_index_0, target_qubit_index_1);
                 int sign = (cb % 2 == 0) ? 1 : -1; // se o resultado da división enteira (sen decimais) de cb/2 é cero
                 // o signo é positivo e se é 1
                 si[j] = sqrt2inv * t[target_index_bitflip_0] + sign * sqrt2inv * 1i * t[target_index_bitflip_0_1];
             }
     }
+
 }
 
 void _ECR_gate_mpi_external(
