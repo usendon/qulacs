@@ -1,0 +1,67 @@
+qmio/hpc unloaded
+autotools loaded
+prun/2.2 loaded
+gnu12/12.2.0 loaded
+hwloc/2.7.2 loaded
+ucx/1.11.2 loaded
+libfabric/1.13.0 loaded
+openmpi4/4.1.4 loaded
+ohpc loaded
+autotools loaded
+prun/2.2 loaded
+gnu12/12.2.0 loaded
+hwloc/2.7.2 loaded
+ucx/1.11.2 loaded
+libfabric/1.13.0 loaded
+openmpi4/4.1.4 loaded
+ohpc loaded
+gnu12/12.2.0 unloaded
+hwloc/2.7.2 unloaded
+ucx/1.11.2 unloaded
+libfabric/1.13.0 unloaded
+openmpi4/4.1.4 unloaded
+gnu12/12.2.0 loaded
+hwloc/2.7.2 loaded
+ucx/1.11.2 loaded
+libfabric/1.13.0 loaded
+openmpi4/4.1.4 loaded
+hwloc/2.7.2 unloaded
+ucx/1.11.2 unloaded
+libfabric/1.13.0 unloaded
+openmpi4/4.1.4 unloaded
+hwloc/2.7.2 loaded
+ucx/1.11.2 loaded
+libfabric/1.13.0 loaded
+openmpi4/4.1.4 loaded
+boost/1.80.0 loaded
+cmake/3.24.2 loaded
++ GCC_COMMAND=gcc
++ GXX_COMMAND=g++
++ USE_TEST=No
++ USE_GPU=No
++ USE_MPI=No
++ COVERAGE=No
++ CMAKE_OPS='-D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D CMAKE_BUILD_TYPE=Release'
++ CMAKE_OPS='-D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D CMAKE_BUILD_TYPE=Release -D USE_MPI=No -D USE_GPU=No'
++ CMAKE_OPS='-D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D CMAKE_BUILD_TYPE=Release -D USE_MPI=No -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No'
++ CMAKE_OPS='-D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D CMAKE_BUILD_TYPE=Release -D USE_MPI=No -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No -D USE_PYTHON=OFF'
++ mkdir -p ./build_arm
++ cd ./build_arm
++ '[' __UNSET__ = __UNSET__ ']'
++ cmake -G 'Unix Makefiles' -D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D CMAKE_BUILD_TYPE=Release -D USE_MPI=No -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No -D USE_PYTHON=OFF ..
+++ nproc
++ make -j 48
+/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp:222:13: warning: 'void print_svfloat64(svfloat64_t)' defined but not used [-Wunused-function]
+  222 | static void print_svfloat64(svfloat64_t v) {
+      |             ^~~~~~~~~~~~~~~
+/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp:188:13: warning: 'void print_svuint64(svuint64_t)' defined but not used [-Wunused-function]
+  188 | static void print_svuint64(svuint64_t v) {
+      |             ^~~~~~~~~~~~~~
++ cd ../
++ WORKDIR=/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/usendon_tests/tests_random_tempos
++ cd /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/usendon_tests/tests_random_tempos
++ g++ -O2 -I../../include -I/opt/cesga/qmio/hpc/software/Compiler/gcccore/12.3.0/nlohmann_json/3.11.3/include/ -L../../lib proba_ECR_gate_sve.cpp -o proba_ECR_gate_sve -lvqcsim_static -lcppsim_static -lcsim_static -fopenmp -D_USE_SVE -Wl,-rpath,/opt/cesga/qmio/hpc/software/Compiler/gcccore/12.3.0/nlohmann_json/3.11.3/include/
++ NQUBITS=20
++ N_REPS=400
++ echo '=== ECR gate: 400 repeticiones con qubits aleatorios ==='
++ srun ./proba_ECR_gate_sve 20 400

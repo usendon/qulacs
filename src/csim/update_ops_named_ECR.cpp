@@ -52,6 +52,7 @@ void ECR_gate(UINT target_qubit_index_0, UINT target_qubit_index_1,
 
 void ECR_gate_parallel_unroll(UINT target_qubit_index_0,
     UINT target_qubit_index_1, CTYPE* state, ITYPE dim) {
+    //std::cout << "Entra en ECR_gate_parallel_unroll" << std::endl;
     const ITYPE loop_dim = dim / 4;
 
     const ITYPE mask_0 = 1ULL << target_qubit_index_0;
@@ -103,6 +104,7 @@ void ECR_gate_parallel_unroll(UINT target_qubit_index_0,
 #ifdef _USE_SIMD
 void ECR_gate_parallel_simd(UINT target_qubit_index_0,
     UINT target_qubit_index_1, CTYPE* state, ITYPE dim) {
+    //std::cout << "Entra en ECR_gate_parallel_simd" << std::endl;
     const ITYPE loop_dim = dim / 4;
 
     const ITYPE mask_0 = 1ULL << target_qubit_index_0;
@@ -198,17 +200,17 @@ static void print_svuint64(svuint64_t v) {
 
 static inline svfloat64_t mul_by_i(svbool_t pg, svfloat64_t x) {
     svuint64_t tbl_idx = svindex_u64(0, 1);   
-    std::cout << "tbl_idx" << std::endl;
-    print_svuint64(tbl_idx);
+    //std::cout << "tbl_idx" << std::endl;
+    //print_svuint64(tbl_idx);
     tbl_idx = sveor_z(pg, tbl_idx, svdup_u64(1));
-    std::cout << "tbl_idx con OR bit a bit" << std::endl;
-    print_svuint64(tbl_idx);
+    //std::cout << "tbl_idx con OR bit a bit" << std::endl;
+    //print_svuint64(tbl_idx);
 
     svfloat64_t swapped = svtbl_f64(x, tbl_idx);
 
     svbool_t odd = svcmpne(pg, svand_z(pg, tbl_idx, svdup_u64(1)), svdup_u64(0));
-    std::cout << "tbl_idx con AND" << std::endl;
-    print_svuint64(svand_z(pg, tbl_idx, svdup_u64(1)));
+    //std::cout << "tbl_idx con AND" << std::endl;
+    //print_svuint64(svand_z(pg, tbl_idx, svdup_u64(1)));
 
     svfloat64_t sign = svsel(odd, svdup_f64(-1.0), svdup_f64(1.0));
 
@@ -234,6 +236,7 @@ static void print_svfloat64(svfloat64_t v) {
 void ECR_gate_parallel_sve(UINT target_qubit_index_0,
                            UINT target_qubit_index_1,
                            CTYPE* state, ITYPE dim) {
+    //std::cout << "Entra en ECR_gate_parallel_sve" << std::endl;
     const ITYPE loop_dim = dim / 4;
     const ITYPE mask_0 = 1ULL << target_qubit_index_0;
     const ITYPE mask_1 = 1ULL << target_qubit_index_1;
@@ -269,8 +272,8 @@ void ECR_gate_parallel_sve(UINT target_qubit_index_0,
 
 
             svfloat64_t input00 = svld1(svptrue_b64(), (double*)&state[basis_index_00]);
-            std::cout << "input00" << std::endl;
-            print_svfloat64(input00);
+            //std::cout << "input00" << std::endl;
+            //print_svfloat64(input00);
             svfloat64_t input01 = svld1(svptrue_b64(), (double*)&state[basis_index_01]);
             svfloat64_t input10 = svld1(svptrue_b64(), (double*)&state[basis_index_10]);
             svfloat64_t input11 = svld1(svptrue_b64(), (double*)&state[basis_index_11]);
@@ -317,6 +320,7 @@ void ECR_gate_parallel_sve(UINT target_qubit_index_0,
 
 void ECR_gate_mpi(UINT target_qubit_index_0, UINT target_qubit_index_1,
     CTYPE* state, ITYPE dim, UINT inner_qc) {
+    //std::cout << "Entra en ECR_gate_mpi" << std::endl;
     // ordeo os qubits de xeito que o de maior índice se almacene en left_qubit e o de menor índice en right_qubit.
     UINT left_qubit, right_qubit;
     if (target_qubit_index_0 > target_qubit_index_1) {

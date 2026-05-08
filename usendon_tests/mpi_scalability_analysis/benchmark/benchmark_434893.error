@@ -1,0 +1,245 @@
+qmio/hpc unloaded
+        Preparing the environment for use of the sistema software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+qmio/hpc loaded
+gcccore/12.3.0 loaded
+binutils/2.40 loaded
+gcc/12.3.0 loaded
+gcccore/12.3.0 unloaded
+binutils/2.40 unloaded
+gcccore/12.3.0 loaded
+binutils/2.40 loaded
+impi/2021.13.0 loaded
+boost/1.85.0 loaded
+cmake/3.27.6 loaded
+nlohmann_json/3.11.3 loaded
+sqlite/3.45.3 loaded
+libffi/3.4.2 loaded
+python/3.9.9 loaded
++ GCC_COMMAND=mpicc
++ GXX_COMMAND=mpicxx
++ USE_TEST=No
++ USE_GPU=No
++ USE_MPI=Yes
++ COVERAGE=No
++ CMAKE_OPS='-D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx -D CMAKE_BUILD_TYPE=Release'
++ CMAKE_OPS='-D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx -D CMAKE_BUILD_TYPE=Release -D USE_MPI=Yes -D USE_GPU=No'
++ CMAKE_OPS='-D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx -D CMAKE_BUILD_TYPE=Release -D USE_MPI=Yes -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No'
++ mkdir -p ./build
++ cd ./build
++ '[' __UNSET__ = __UNSET__ ']'
++ cmake -G 'Unix Makefiles' -D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx -D CMAKE_BUILD_TYPE=Release -D USE_MPI=Yes -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No ..
+CMake Warning (dev) at CMakeLists.txt:152 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/boost/1.85.0
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+++ nproc
++ make -j 1
+make[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 0.045 s in the future
+make[2]: Warning: File 'CMakeFiles/eigen.dir/progress.make' has modification time 0.0029 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'src/csim/CMakeFiles/csim_static.dir/compiler_depend.make' has modification time 0.065 s in the future
+In file included from /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/MPIutil.hpp:9,
+                 from /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp:12:
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3151:5: warning: redundant redeclaration of 'int PMPI_Reduce_local(const void*, void*, int, MPI_Datatype, MPI_Op)' in same scope [-Wredundant-decls]
+ 3151 | int PMPI_Reduce_local(const void *inbuf, void *inoutbuf, int count, MPI_Datatype datatype,
+      |     ^~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:2244:5: note: previous declaration of 'int PMPI_Reduce_local(const void*, void*, int, MPI_Datatype, MPI_Op)'
+ 2244 | int PMPI_Reduce_local(const void *inbuf, void *inoutbuf, int count, MPI_Datatype datatype,
+      |     ^~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3160:5: warning: redundant redeclaration of 'int PMPI_Reduce_scatter_block(const void*, void*, int, MPI_Datatype, MPI_Op, MPI_Comm)' in same scope [-Wredundant-decls]
+ 3160 | int PMPI_Reduce_scatter_block(const void *sendbuf, void *recvbuf, int recvcount,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:2251:5: note: previous declaration of 'int PMPI_Reduce_scatter_block(const void*, void*, int, MPI_Datatype, MPI_Op, MPI_Comm)'
+ 2251 | int PMPI_Reduce_scatter_block(const void *sendbuf, void *recvbuf, int recvcount,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3226:5: warning: redundant redeclaration of 'int PMPI_Bsend(const void*, int, MPI_Datatype, int, int, MPI_Comm)' in same scope [-Wredundant-decls]
+ 3226 | int PMPI_Bsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm)
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1840:5: note: previous declaration of 'int PMPI_Bsend(const void*, int, MPI_Datatype, int, int, MPI_Comm)'
+ 1840 | int PMPI_Bsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3230:5: warning: redundant redeclaration of 'int PMPI_Bsend_init(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3230 | int PMPI_Bsend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1877:5: note: previous declaration of 'int PMPI_Bsend_init(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1877 | int PMPI_Bsend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3236:5: warning: redundant redeclaration of 'int PMPI_Buffer_attach(void*, int)' in same scope [-Wredundant-decls]
+ 3236 | int PMPI_Buffer_attach(void *buffer, int size) MPICH_API_PUBLIC;
+      |     ^~~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1846:5: note: previous declaration of 'int PMPI_Buffer_attach(void*, int)'
+ 1846 | int PMPI_Buffer_attach(void *buffer, int size) MPICH_API_PUBLIC;
+      |     ^~~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3238:5: warning: redundant redeclaration of 'int PMPI_Buffer_detach(void*, int*)' in same scope [-Wredundant-decls]
+ 3238 | int PMPI_Buffer_detach(void *buffer_addr, int *size) MPICH_API_PUBLIC;
+      |     ^~~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1847:5: note: previous declaration of 'int PMPI_Buffer_detach(void*, int*)'
+ 1847 | int PMPI_Buffer_detach(void *buffer_addr, int *size) MPICH_API_PUBLIC;
+      |     ^~~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3240:5: warning: redundant redeclaration of 'int PMPI_Ibsend(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3240 | int PMPI_Ibsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm,
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1850:5: note: previous declaration of 'int PMPI_Ibsend(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1850 | int PMPI_Ibsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3245:5: warning: redundant redeclaration of 'int PMPI_Improbe(int, int, MPI_Comm, int*, MPI_Message*, MPI_Status*)' in same scope [-Wredundant-decls]
+ 3245 | int PMPI_Improbe(int source, int tag, MPI_Comm comm, int *flag, MPI_Message *message,
+      |     ^~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:2267:5: note: previous declaration of 'int PMPI_Improbe(int, int, MPI_Comm, int*, MPI_Message*, MPI_Status*)'
+ 2267 | int PMPI_Improbe(int source, int tag, MPI_Comm comm, int *flag, MPI_Message *message,
+      |     ^~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3247:5: warning: redundant redeclaration of 'int PMPI_Imrecv(void*, int, MPI_Datatype, MPI_Message*, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3247 | int PMPI_Imrecv(void *buf, int count, MPI_Datatype datatype, MPI_Message *message,
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:2269:5: note: previous declaration of 'int PMPI_Imrecv(void*, int, MPI_Datatype, MPI_Message*, MPI_Request*)'
+ 2269 | int PMPI_Imrecv(void *buf, int count, MPI_Datatype datatype, MPI_Message *message,
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3251:5: warning: redundant redeclaration of 'int PMPI_Iprobe(int, int, MPI_Comm, int*, MPI_Status*)' in same scope [-Wredundant-decls]
+ 3251 | int PMPI_Iprobe(int source, int tag, MPI_Comm comm, int *flag, MPI_Status *status)
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1871:5: note: previous declaration of 'int PMPI_Iprobe(int, int, MPI_Comm, int*, MPI_Status*)'
+ 1871 | int PMPI_Iprobe(int source, int tag, MPI_Comm comm, int *flag, MPI_Status *status) MPICH_API_PUBLIC;
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3253:5: warning: redundant redeclaration of 'int PMPI_Irecv(void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3253 | int PMPI_Irecv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm,
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1856:5: note: previous declaration of 'int PMPI_Irecv(void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1856 | int PMPI_Irecv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3258:5: warning: redundant redeclaration of 'int PMPI_Irsend(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3258 | int PMPI_Irsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm,
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1854:5: note: previous declaration of 'int PMPI_Irsend(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1854 | int PMPI_Irsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3263:5: warning: redundant redeclaration of 'int PMPI_Isend(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3263 | int PMPI_Isend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm,
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1848:5: note: previous declaration of 'int PMPI_Isend(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1848 | int PMPI_Isend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3268:5: warning: redundant redeclaration of 'int PMPI_Issend(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3268 | int PMPI_Issend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm,
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1852:5: note: previous declaration of 'int PMPI_Issend(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1852 | int PMPI_Issend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3273:5: warning: redundant redeclaration of 'int PMPI_Mprobe(int, int, MPI_Comm, MPI_Message*, MPI_Status*)' in same scope [-Wredundant-decls]
+ 3273 | int PMPI_Mprobe(int source, int tag, MPI_Comm comm, MPI_Message *message, MPI_Status *status)
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:2271:5: note: previous declaration of 'int PMPI_Mprobe(int, int, MPI_Comm, MPI_Message*, MPI_Status*)'
+ 2271 | int PMPI_Mprobe(int source, int tag, MPI_Comm comm, MPI_Message *message, MPI_Status *status) MPICH_API_PUBLIC;
+      |     ^~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3275:5: warning: redundant redeclaration of 'int PMPI_Mrecv(void*, int, MPI_Datatype, MPI_Message*, MPI_Status*)' in same scope [-Wredundant-decls]
+ 3275 | int PMPI_Mrecv(void *buf, int count, MPI_Datatype datatype, MPI_Message *message,
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:2272:5: note: previous declaration of 'int PMPI_Mrecv(void*, int, MPI_Datatype, MPI_Message*, MPI_Status*)'
+ 2272 | int PMPI_Mrecv(void *buf, int count, MPI_Datatype datatype, MPI_Message *message,
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3279:5: warning: redundant redeclaration of 'int PMPI_Probe(int, int, MPI_Comm, MPI_Status*)' in same scope [-Wredundant-decls]
+ 3279 | int PMPI_Probe(int source, int tag, MPI_Comm comm, MPI_Status *status) MPICH_API_PUBLIC;
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1872:5: note: previous declaration of 'int PMPI_Probe(int, int, MPI_Comm, MPI_Status*)'
+ 1872 | int PMPI_Probe(int source, int tag, MPI_Comm comm, MPI_Status *status) MPICH_API_PUBLIC;
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3280:5: warning: redundant redeclaration of 'int PMPI_Recv(void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Status*)' in same scope [-Wredundant-decls]
+ 3280 | int PMPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm,
+      |     ^~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1823:5: note: previous declaration of 'int PMPI_Recv(void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Status*)'
+ 1823 | int PMPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
+      |     ^~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3285:5: warning: redundant redeclaration of 'int PMPI_Recv_init(void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3285 | int PMPI_Recv_init(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm,
+      |     ^~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1883:5: note: previous declaration of 'int PMPI_Recv_init(void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1883 | int PMPI_Recv_init(void *buf, int count, MPI_Datatype datatype, int source, int tag,
+      |     ^~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3290:5: warning: redundant redeclaration of 'int PMPI_Rsend(const void*, int, MPI_Datatype, int, int, MPI_Comm)' in same scope [-Wredundant-decls]
+ 3290 | int PMPI_Rsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm)
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1844:5: note: previous declaration of 'int PMPI_Rsend(const void*, int, MPI_Datatype, int, int, MPI_Comm)'
+ 1844 | int PMPI_Rsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3294:5: warning: redundant redeclaration of 'int PMPI_Rsend_init(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3294 | int PMPI_Rsend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1881:5: note: previous declaration of 'int PMPI_Rsend_init(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1881 | int PMPI_Rsend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3300:5: warning: redundant redeclaration of 'int PMPI_Send(const void*, int, MPI_Datatype, int, int, MPI_Comm)' in same scope [-Wredundant-decls]
+ 3300 | int PMPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm)
+      |     ^~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1821:5: note: previous declaration of 'int PMPI_Send(const void*, int, MPI_Datatype, int, int, MPI_Comm)'
+ 1821 | int PMPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3304:5: warning: redundant redeclaration of 'int PMPI_Send_init(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3304 | int PMPI_Send_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1875:5: note: previous declaration of 'int PMPI_Send_init(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1875 | int PMPI_Send_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3310:5: warning: redundant redeclaration of 'int PMPI_Sendrecv(const void*, int, MPI_Datatype, int, int, void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Status*)' in same scope [-Wredundant-decls]
+ 3310 | int PMPI_Sendrecv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, int dest, int sendtag,
+      |     ^~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1887:5: note: previous declaration of 'int PMPI_Sendrecv(const void*, int, MPI_Datatype, int, int, void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Status*)'
+ 1887 | int PMPI_Sendrecv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, int dest,
+      |     ^~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3318:5: warning: redundant redeclaration of 'int PMPI_Sendrecv_replace(void*, int, MPI_Datatype, int, int, int, int, MPI_Comm, MPI_Status*)' in same scope [-Wredundant-decls]
+ 3318 | int PMPI_Sendrecv_replace(void *buf, int count, MPI_Datatype datatype, int dest, int sendtag,
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1892:5: note: previous declaration of 'int PMPI_Sendrecv_replace(void*, int, MPI_Datatype, int, int, int, int, MPI_Comm, MPI_Status*)'
+ 1892 | int PMPI_Sendrecv_replace(void *buf, int count, MPI_Datatype datatype, int dest,
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3325:5: warning: redundant redeclaration of 'int PMPI_Ssend(const void*, int, MPI_Datatype, int, int, MPI_Comm)' in same scope [-Wredundant-decls]
+ 3325 | int PMPI_Ssend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm)
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1842:5: note: previous declaration of 'int PMPI_Ssend(const void*, int, MPI_Datatype, int, int, MPI_Comm)'
+ 1842 | int PMPI_Ssend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3329:5: warning: redundant redeclaration of 'int PMPI_Ssend_init(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)' in same scope [-Wredundant-decls]
+ 3329 | int PMPI_Ssend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:1879:5: note: previous declaration of 'int PMPI_Ssend_init(const void*, int, MPI_Datatype, int, int, MPI_Comm, MPI_Request*)'
+ 1879 | int PMPI_Ssend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
+      |     ^~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:3340:5: warning: redundant redeclaration of 'int PMPI_Get_elements_x(const MPI_Status*, MPI_Datatype, MPI_Count*)' in same scope [-Wredundant-decls]
+ 3340 | int PMPI_Get_elements_x(const MPI_Status *status, MPI_Datatype datatype, MPI_Count *count)
+      |     ^~~~~~~~~~~~~~~~~~~
+/opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/impi/2021.13.0/mpi/2021.13/include/mpi.h:2283:5: note: previous declaration of 'int PMPI_Get_elements_x(const MPI_Status*, MPI_Datatype, MPI_Count*)'
+ 2283 | int PMPI_Get_elements_x(const MPI_Status *status, MPI_Datatype datatype, MPI_Count *count) MPICH_API_PUBLIC;
+      |     ^~~~~~~~~~~~~~~~~~~
+/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp: In function 'void _ECR_gate_mpi_local_global(ITYPE, UINT, UINT, UINT, UINT, UINT, const CTYPE*, CTYPE*, CTYPE*, ITYPE, ITYPE, ITYPE)':
+/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp:478:113: warning: unused parameter 'left_qubit' [-Wunused-parameter]
+  478 | void _ECR_gate_mpi_local_global(ITYPE rw, UINT rank, UINT target_qubit_index_0, UINT target_qubit_index_1, UINT left_qubit, UINT right_qubit, const CTYPE* old_si, CTYPE* si, CTYPE* t, ITYPE dim, ITYPE dim_work, ITYPE num_work) {
+      |                                                                                                            ~~~~~^~~~~~~~~~
+/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp:478:130: warning: unused parameter 'right_qubit' [-Wunused-parameter]
+  478 | void _ECR_gate_mpi_local_global(ITYPE rw, UINT rank, UINT target_qubit_index_0, UINT target_qubit_index_1, UINT left_qubit, UINT right_qubit, const CTYPE* old_si, CTYPE* si, CTYPE* t, ITYPE dim, ITYPE dim_work, ITYPE num_work) {
+      |                                                                                                                             ~~~~~^~~~~~~~~~~
+/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp:478:218: warning: unused parameter 'num_work' [-Wunused-parameter]
+  478 | void _ECR_gate_mpi_local_global(ITYPE rw, UINT rank, UINT target_qubit_index_0, UINT target_qubit_index_1, UINT left_qubit, UINT right_qubit, const CTYPE* old_si, CTYPE* si, CTYPE* t, ITYPE dim, ITYPE dim_work, ITYPE num_work) {
+      |                                                                                                                                                                                                                    ~~~~~~^~~~~~~~
+/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp: In function 'void ECR_gate_mpi(UINT, UINT, CTYPE*, ITYPE, UINT)':
+/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp:428:39: warning: 'rw' may be used uninitialized [-Wmaybe-uninitialized]
+  428 |             _ECR_gate_mpi_local_global(rw, rank, target_qubit_index_0, target_qubit_index_1, left_qubit, right_qubit, old_si, si, t, dim, dim_work, num_work);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/src/csim/update_ops_named_ECR.cpp:349:15: note: 'rw' was declared here
+  349 |         ITYPE rw;
+      |               ^~
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'src/cppsim/CMakeFiles/cppsim_static.dir/compiler_depend.make' has modification time 0.033 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'src/vqcsim/CMakeFiles/vqcsim_static.dir/compiler_depend.make' has modification time 0.064 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
++ cd ../

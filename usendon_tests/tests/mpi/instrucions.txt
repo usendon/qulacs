@@ -1,0 +1,13 @@
+
+Para ver se o resultado de executar con MPI é o mesmo que o que obteño executando con unha única cpu teño que seguir
+estes pasos:
+
+1. Cambiar no script ordear.py o nome do input_file ao que me interese en cada caso.
+2. Executar este ordear.py.
+3. Crease un arquivo output.txt que contén todos os vectores de estado que existiran no input file ordeados.
+4. Entón agora teño que coller todo o contido deste output e pegalo noutro documento aparte. 
+5. Executo o mesmo problema con single cpu (por exemplo coa función unroll) e gardo os resultados nun .out.
+6. Vou poñendo o resultado de single cpu onde corresponda no documento no que peguei os resultados que obtiven con multi-cpu.
+7. Poño dentro de compare_states_txt.cpp o nome do arquivo onde puxen os resultados de multi-cpu e os de single-cpu intercalados, na liña std::ifstream file("comparar_estados.txt").
+8. Compilo compare_states_txt.cpp con g++ compare_states_txt.cpp -o compare_states_txt.
+9. Executo con ./compare_states_txt. Isto xa me vai devolver se os vectores son iguais ou distintos en todos os casos.

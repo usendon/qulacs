@@ -1,0 +1,46 @@
+cesga/2020 unloaded
+        Preparing the environment for use of the CESGA 2020 software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+cesga/2020 loaded
+nvcc uses g++ as the default host compiler. If you want to use icpc as a host compiler you can load the compiler module and use nvcc_icpc (or -ccbin=icpc). For completeness and convenience nvcc_g++ is also provided. 
+cuda/11.5.0 loaded
+cmake/3.23.1 loaded
+gcccore/system loaded
+gcc/system loaded
+hwloc/2.2.0 loaded
+ucx/1.11.2_hwl loaded
+slurm/cesga loaded
+openmpi/4.1.1_hwl loaded
+gompi/2020.4.1_hwl loaded
+++ GCC_COMMAND=gcc
+++ GXX_COMMAND=g++
+++ OPT_FLAGS='-mtune=native -march=native -mfpmath=both'
+++ mkdir -p ./build
+++ cd ./build
+++ cmake -G 'Unix Makefiles' -D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D 'OPT_FLAGS=-mtune=native -march=native -mfpmath=both' -D CMAKE_BUILD_TYPE=Release -D USE_GPU:STR=Yes -D USE_TEST=No ..
+FATAL_ERROR,USE_MPI must be used in mpicc/mpicxx.
++++ nproc
+++ make -j 16
++++ nproc
+++ make python -j 16
+++ cd ../
++ echo 'Exit code del build: 0'
++ WORKDIR=/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/usendon_tests/tests
++ cd /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/usendon_tests/tests
++ nvcc -ccbin mpicxx -O2 -std=c++17 -I /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/include proba_ECR_gate_host.cpp -o proba_ECR_gate_host -L /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/lib -lgpusim_static -lvqcsim_static -lcppsim_static -lcsim_static -lcudart -lcublas -Xcompiler -fopenmp -D_USE_GPU
++ EXECUTABLE=./proba_ECR_gate_host
++ NQUBITS=7
++ (( i=3 ))
++ (( i<4 ))
++ (( j=6 ))
++ (( j<7 ))
++ '[' 3 -ne 6 ']'
++ echo '=== ECR gate en qubits 3 6 ==='
++ ./proba_ECR_gate_host 7 3 6
++ (( j++ ))
++ (( j<7 ))
++ (( i++ ))
++ (( i<4 ))
++ echo 'Exit code final del script: 0'
++ echo 'Job terminado'
