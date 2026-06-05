@@ -1,0 +1,14 @@
+nqubits,nprocs,m,q1,q2,tipo,mean_time_s,stddev_s
+# === STRONG SCALING (n=30) ===
+# 1 nodo (m=30): solo LL
+10,1,10,0,1,LL,6.832e-06,1.55358e-07
+# 2 nodos (m=29): LL y LG
+10,2,9,0,1,LL,1.1754e-05,6.33612e-07
+10,2,9,0,9,LG,4.90422e-05,8.11051e-07
+# 4 nodos (m=28): LL, LG y GG
+10,4,8,0,1,LL,1.88662e-05,2.47139e-07
+10,4,8,0,8,LG,4.66802e-05,1.07895e-06
+10,4,8,8,9,GG,6.13584e-05,1.20972e-06
+# 8 nodos (m=27): LL, LG y GG
+10,8,7,0,1,LL,2.1566e-05,3.54754e-06
+7 total processes killed (some possibly by mpirun during cleanup)

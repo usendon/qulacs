@@ -1,0 +1,5 @@
+cesga/2020 unloaded
+        Preparing the environment for use of the CESGA 2020 software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+slurmstepd: error: *** JOB 6938330 ON t4-5 CANCELLED AT 2026-05-13T10:31:48 ***

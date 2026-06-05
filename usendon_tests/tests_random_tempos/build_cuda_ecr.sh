@@ -3,11 +3,11 @@
 #SBATCH -o cuda/cuda_%j.out
 #SBATCH -e cuda/cuda_%j.error
 ##SBATCH --gres=gpu:a100:1   # Request 1 GPU of 2 available on an average A100 node
-#SBATCH --gres=gpu:1 # cambio temporal para ver se entra antes
+#SBATCH --gres=gpu:t4:1 # cambio temporal para ver se entra antes
 #SBATCH -p viz
-#SBATCH -c 16             # Cores per task requested
+#SBATCH -c 16           # Cores per task requested
 #SBATCH --time=03:00:00       # Run time (hh:mm:ss) 
-#SBATCH --mem-per-cpu=3G    # Memory per core demandes (96 GB = 3GB * 32 cores)
+#SBATCH --mem=24G    # Memory per core demandes (96 GB = 3GB * 32 cores)
 #SBATCH --exclusive
 
 ##SBATCH --mail-user=usendon@cesga.es

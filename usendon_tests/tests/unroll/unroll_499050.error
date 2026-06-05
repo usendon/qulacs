@@ -1,0 +1,64 @@
+qmio/hpc unloaded
+        Preparing the environment for use of the sistema software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+qmio/hpc loaded
+gcccore/12.3.0 loaded
+binutils/2.40 loaded
+gcc/12.3.0 loaded
+gcccore/12.3.0 unloaded
+binutils/2.40 unloaded
+gcccore/12.3.0 loaded
+binutils/2.40 loaded
+impi/2021.13.0 loaded
+boost/1.85.0 loaded
+cmake/3.27.6 loaded
+nlohmann_json/3.11.3 loaded
+sqlite/3.45.3 loaded
+libffi/3.4.2 loaded
+python/3.9.9 loaded
+++ GCC_COMMAND=gcc
+++ GXX_COMMAND=g++
+++ USE_TEST=No
+++ USE_GPU=No
+++ USE_MPI=No
+++ COVERAGE=No
+++ CMAKE_OPS='-D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D CMAKE_BUILD_TYPE=Release'
+++ CMAKE_OPS='-D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D CMAKE_BUILD_TYPE=Release -D USE_MPI=No -D USE_GPU=No'
+++ CMAKE_OPS='-D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D CMAKE_BUILD_TYPE=Release -D USE_MPI=No -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No'
+++ mkdir -p ./build
+++ cd ./build
+++ '[' __UNSET__ = __UNSET__ ']'
+++ cmake -G 'Unix Makefiles' -D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D CMAKE_BUILD_TYPE=Release -D USE_MPI=No -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No ..
+CMake Warning (dev) at CMakeLists.txt:152 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  Environment variable BOOST_ROOT is set to:
+
+    /opt/cesga/qmio/hpc/software/Compiler/gcc/12.3.0/boost/1.85.0
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
++++ nproc
+++ make -j 1
+++ cd ../
++ WORKDIR=/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/usendon_tests/tests
++ cd /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/usendon_tests/tests
++ g++ -O2 -I /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/include -L /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/lib proba_ECR_gate_unroll.cpp -o proba_unroll -lvqcsim_static -lcppsim_static -lcsim_static -fopenmp -lmpi
++ EXECUTABLE=./proba_unroll
++ NQUBITS=7
++ (( i=3 ))
++ (( i<4 ))
++ (( j=6 ))
++ (( j<7 ))
++ '[' 3 -ne 6 ']'
++ echo '=== ECR gate en qubits 3 6 ==='
++ ./proba_unroll 7 3 6
++ (( j++ ))
++ (( j<7 ))
++ (( i++ ))
++ (( i<4 ))

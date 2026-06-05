@@ -16,7 +16,7 @@ def rounded_box(
     fc="#eef7f3",
     ec="#4b9b7f",
     lw=1.5,
-    fontsize=11,
+    fontsize=13,
     textcolor="#2b2b2b",
     radius=0.08,
     alpha=1.0,
@@ -108,7 +108,7 @@ for i, lab in enumerate(labels_local):
         text=lab,
         fc=local_fill,
         ec=local_edge,
-        fontsize=11,
+        fontsize=13,
         radius=0.07
     )
 
@@ -146,7 +146,7 @@ for i, lab in enumerate(labels_global):
         text=lab,
         fc=global_fill,
         ec=global_edge,
-        fontsize=11,
+        fontsize=13,
         radius=0.07
     )
 
@@ -180,11 +180,12 @@ center_x = (local_left + global_right) / 2
 ax.text(
     center_x,
     11.2,
-    "Local vs global qubit operations",
+    "Local vs global qubit operations for a single-qubit gate",
     fontsize=18,
     ha="center"
 )
 
+'''
 ax.text(
     center_x,
     10.8,
@@ -193,6 +194,7 @@ ax.text(
     ha="center",
     color="dimgray"
 )
+'''
 
 
 # =========================================================
@@ -223,9 +225,9 @@ ax.plot(
 ax.text(
     local_center,
     9.35,
-    "local (0 ≤ q < m)",
+    "local qubits (0 ≤ q < m)",
     ha="center",
-    fontsize=11
+    fontsize=13
 )
 
 ax.plot(
@@ -245,9 +247,9 @@ ax.plot(
 ax.text(
     global_center,
     9.35,
-    "global (m ≤ q < n)",
+    "global qubits (m ≤ q < n)",
     ha="center",
-    fontsize=11
+    fontsize=13
 )
 
 
@@ -268,17 +270,22 @@ local_box_h = 4.5
 
 local_box_x = local_center - local_box_w / 2
 
+new_h = local_box_h * 0.73
+
+y_new = 3.5 + (local_box_h - new_h)  # ajusta hacia abajo
+
 rounded_box(
     ax,
     local_box_x,
-    3.5,
+    y_new,
     local_box_w,
-    local_box_h,
+    new_h,
     fc="#eef7f3",
     ec=local_edge,
     radius=0.18,
     lw=2
 )
+
 
 ax.text(
     local_center,
@@ -289,14 +296,16 @@ ax.text(
     color="#2f7f66"
 )
 
+'''
 ax.text(
     local_center,
     7.15,
     "owns 2ᵐ amplitudes",
-    fontsize=11,
+    fontsize=13,
     ha="center",
     color="#2f7f66"
 )
+'''
 
 
 # =========================================================
@@ -306,10 +315,10 @@ ax.text(
 rounded_box(
     ax,
     local_center - 1.7,
-    5.7,
+    6.4,
     1.6,
     0.8,
-    text=r"$\alpha_{·0·}$",
+    text=r"$\alpha_{...0...}$",
     fc="#f6fbf9",
     ec=local_edge,
     fontsize=18,
@@ -319,10 +328,10 @@ rounded_box(
 rounded_box(
     ax,
     local_center + 0.3,
-    5.7,
+    6.4,
     1.6,
     0.8,
-    text=r"$\alpha_{·1·}$",
+    text=r"$\alpha_{...1...}$",
     fc="#f6fbf9",
     ec=local_edge,
     fontsize=18,
@@ -333,8 +342,8 @@ rounded_box(
 # Arrow between amplitudes
 ax.annotate(
     "",
-    xy=(local_center + 0.25, 6.1),
-    xytext=(local_center - 0.1, 6.1),
+    xy=(local_center + 0.25, 6.8),
+    xytext=(local_center - 0.1, 6.8),
     arrowprops=dict(
         arrowstyle="<->",
         color=local_edge,
@@ -344,26 +353,27 @@ ax.annotate(
 
 ax.text(
     local_center,
-    4.95,
+    5.8,
     "both in same process\nbit q is a local index bit",
-    fontsize=11,
+    fontsize=13,
     ha="center",
-    color="#3f3f3f"
+    color="#2f7f66"
 )
 
 rounded_box(
     ax,
     local_center - 1.0,
-    4.0,
+    5.0,
     2.0,
     0.55,
     text="gate acts locally",
-    fc="#eef7f3",
+    fc="#f6fbf9",
     ec=local_edge,
-    fontsize=11,
+    fontsize=13,
     radius=0.08
 )
 
+'''
 rounded_box(
     ax,
     local_center - 1.7,
@@ -376,6 +386,7 @@ rounded_box(
     fontsize=12,
     radius=0.08
 )
+'''
 
 
 # =========================================================
@@ -425,7 +436,7 @@ ax.text(
     global_center,
     7.15,
     "bit q = 0 in rank index",
-    fontsize=11,
+    fontsize=13,
     ha="center",
     color="#8f5fc5"
 )
@@ -436,7 +447,7 @@ rounded_box(
     6.05,
     3.1,
     0.65,
-    text=r"$\alpha_{·0·}$  lives here",
+    text=r"$\alpha_{...0...}$",
     fc="#faf9ff",
     ec=global_edge,
     fontsize=16,
@@ -473,7 +484,7 @@ ax.text(
     global_center,
     4.15,
     "bit q = 1 in rank index",
-    fontsize=11,
+    fontsize=13,
     ha="center",
     color="#8f5fc5"
 )
@@ -484,7 +495,7 @@ rounded_box(
     3.05,
     3.1,
     0.65,
-    text=r"$\alpha_{·1·}$  lives here",
+    text=r"$\alpha_{...1...}$",
     fc="#faf9ff",
     ec=global_edge,
     fontsize=16,
@@ -518,19 +529,23 @@ rounded_box(
     fc="#f2f1ff",
     ec=global_edge,
     fontsize=10,
+    textcolor="#8f5fc5",
     radius=0.05,
     zorder=5
 )
 
+'''
 ax.text(
     global_center,
     2.3,
     "p and p' are any two partner ranks\n(determined by bit q)",
-    fontsize=11,
+    fontsize=13,
     ha="center",
     color="#3f3f3f"
 )
+'''
 
+'''
 rounded_box(
     ax,
     global_center - 1.6,
@@ -540,21 +555,23 @@ rounded_box(
     text="MPI communication required",
     fc="#f2f1ff",
     ec=global_edge,
-    fontsize=11,
+    fontsize=13,
     radius=0.08
 )
+'''
 
 
 # =========================================================
 # Footer / legend
 # =========================================================
-
+'''
 ax.plot(
     [1.0, 11.2],
     [1.2, 1.2],
     color="gray",
     lw=0.8
 )
+
 
 ax.text(
     1.2,
@@ -563,11 +580,12 @@ ax.text(
     fontsize=9,
     color="dimgray"
 )
+'''
 
 rounded_box(
     ax,
     1.2,
-    0.35,
+    1.8,
     0.22,
     0.22,
     fc=local_fill,
@@ -577,7 +595,7 @@ rounded_box(
 
 ax.text(
     1.55,
-    0.46,
+    1.9,
     "Local qubit / no comm.",
     fontsize=10,
     va="center"
@@ -586,7 +604,7 @@ ax.text(
 rounded_box(
     ax,
     4.3,
-    0.35,
+    1.8,
     0.22,
     0.22,
     fc=global_fill,
@@ -596,7 +614,7 @@ rounded_box(
 
 ax.text(
     4.65,
-    0.46,
+    1.9,
     "Global qubit",
     fontsize=10,
     va="center"

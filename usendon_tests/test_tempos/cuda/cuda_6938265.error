@@ -1,0 +1,4742 @@
+cesga/2020 unloaded
+        Preparing the environment for use of the CESGA 2020 software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+cesga/2020 loaded
+nvcc uses g++ as the default host compiler. If you want to use icpc as a host compiler you can load the compiler module and use nvcc_icpc (or -ccbin=icpc). For completeness and convenience nvcc_g++ is also provided. 
+cuda/11.5.0 loaded
+cmake/3.23.1 loaded
+gcccore/system loaded
+gcc/system loaded
+hwloc/2.2.0 loaded
+ucx/1.11.2_hwl loaded
+slurm/cesga loaded
+openmpi/4.1.1_hwl loaded
+gompi/2020.4.1_hwl loaded
+++ GCC_COMMAND=gcc
+++ GXX_COMMAND=g++
+++ OPT_FLAGS='-mtune=native -march=native -mfpmath=both'
+++ mkdir -p ./build
+++ cd ./build
+++ cmake -G 'Unix Makefiles' -D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ -D 'OPT_FLAGS=-mtune=native -march=native -mfpmath=both' -D CMAKE_BUILD_TYPE=Release -D USE_GPU:STR=Yes -D USE_TEST=No ..
++++ nproc
+++ make -j 32
++++ nproc
+++ make python -j 32
+++ cd ../
++ echo 'Exit code del build: 0'
++ WORKDIR=/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/usendon_tests/test_tempos
++ cd /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/usendon_tests/test_tempos
++ nvcc -ccbin mpicxx -O2 -std=c++17 -I /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/include proba_ECR_gate_host.cpp -o proba_ECR_gate_host -L /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/lib -lgpusim_static -lvqcsim_static -lcppsim_static -lcsim_static -lcudart -lcublas -Xcompiler -fopenmp -D_USE_GPU
++ EXECUTABLE=./proba_ECR_gate_host
++ NQUBITS=20
++ TOTAL=0
++ COUNT=0
++ (( i=0 ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 0 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 1 ']'
++ echo '=== ECR gate en qubits 0 1 ==='
+++ ./proba_ECR_gate_host 20 0 1
++ out=67285.000000
++ t=67285.000000
++ echo 'tiempo = 67285.000000'
+++ echo '0 + 67285.000000'
+++ bc
++ TOTAL=67285.000000
++ COUNT=1
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 2 ']'
++ echo '=== ECR gate en qubits 0 2 ==='
+++ ./proba_ECR_gate_host 20 0 2
++ out=45086.000000
++ t=45086.000000
++ echo 'tiempo = 45086.000000'
+++ echo '67285.000000 + 45086.000000'
+++ bc
++ TOTAL=112371.000000
++ COUNT=2
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 3 ']'
++ echo '=== ECR gate en qubits 0 3 ==='
+++ ./proba_ECR_gate_host 20 0 3
++ out=39577.000000
++ t=39577.000000
++ echo 'tiempo = 39577.000000'
+++ echo '112371.000000 + 39577.000000'
+++ bc
++ TOTAL=151948.000000
++ COUNT=3
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 4 ']'
++ echo '=== ECR gate en qubits 0 4 ==='
+++ ./proba_ECR_gate_host 20 0 4
++ out=36789.000000
++ t=36789.000000
++ echo 'tiempo = 36789.000000'
+++ echo '151948.000000 + 36789.000000'
+++ bc
++ TOTAL=188737.000000
++ COUNT=4
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 5 ']'
++ echo '=== ECR gate en qubits 0 5 ==='
+++ ./proba_ECR_gate_host 20 0 5
++ out=35339.000000
++ t=35339.000000
++ echo 'tiempo = 35339.000000'
+++ echo '188737.000000 + 35339.000000'
+++ bc
++ TOTAL=224076.000000
++ COUNT=5
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 6 ']'
++ echo '=== ECR gate en qubits 0 6 ==='
+++ ./proba_ECR_gate_host 20 0 6
++ out=37319.000000
++ t=37319.000000
++ echo 'tiempo = 37319.000000'
+++ echo '224076.000000 + 37319.000000'
+++ bc
++ TOTAL=261395.000000
++ COUNT=6
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 7 ']'
++ echo '=== ECR gate en qubits 0 7 ==='
+++ ./proba_ECR_gate_host 20 0 7
++ out=37371.000000
++ t=37371.000000
++ echo 'tiempo = 37371.000000'
+++ echo '261395.000000 + 37371.000000'
+++ bc
++ TOTAL=298766.000000
++ COUNT=7
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 8 ']'
++ echo '=== ECR gate en qubits 0 8 ==='
+++ ./proba_ECR_gate_host 20 0 8
++ out=38252.000000
++ t=38252.000000
++ echo 'tiempo = 38252.000000'
+++ echo '298766.000000 + 38252.000000'
+++ bc
++ TOTAL=337018.000000
++ COUNT=8
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 9 ']'
++ echo '=== ECR gate en qubits 0 9 ==='
+++ ./proba_ECR_gate_host 20 0 9
++ out=37776.000000
++ t=37776.000000
++ echo 'tiempo = 37776.000000'
+++ echo '337018.000000 + 37776.000000'
+++ bc
++ TOTAL=374794.000000
++ COUNT=9
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 10 ']'
++ echo '=== ECR gate en qubits 0 10 ==='
+++ ./proba_ECR_gate_host 20 0 10
++ out=35016.000000
++ t=35016.000000
++ echo 'tiempo = 35016.000000'
+++ echo '374794.000000 + 35016.000000'
+++ bc
++ TOTAL=409810.000000
++ COUNT=10
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 11 ']'
++ echo '=== ECR gate en qubits 0 11 ==='
+++ ./proba_ECR_gate_host 20 0 11
++ out=36938.000000
++ t=36938.000000
++ echo 'tiempo = 36938.000000'
+++ echo '409810.000000 + 36938.000000'
+++ bc
++ TOTAL=446748.000000
++ COUNT=11
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 12 ']'
++ echo '=== ECR gate en qubits 0 12 ==='
+++ ./proba_ECR_gate_host 20 0 12
++ out=34831.000000
++ t=34831.000000
++ echo 'tiempo = 34831.000000'
+++ echo '446748.000000 + 34831.000000'
+++ bc
++ TOTAL=481579.000000
++ COUNT=12
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 13 ']'
++ echo '=== ECR gate en qubits 0 13 ==='
+++ ./proba_ECR_gate_host 20 0 13
++ out=34205.000000
++ t=34205.000000
++ echo 'tiempo = 34205.000000'
+++ echo '481579.000000 + 34205.000000'
+++ bc
++ TOTAL=515784.000000
++ COUNT=13
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 14 ']'
++ echo '=== ECR gate en qubits 0 14 ==='
+++ ./proba_ECR_gate_host 20 0 14
++ out=36407.000000
++ t=36407.000000
++ echo 'tiempo = 36407.000000'
+++ echo '515784.000000 + 36407.000000'
+++ bc
++ TOTAL=552191.000000
++ COUNT=14
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 15 ']'
++ echo '=== ECR gate en qubits 0 15 ==='
+++ ./proba_ECR_gate_host 20 0 15
++ out=35346.000000
++ t=35346.000000
++ echo 'tiempo = 35346.000000'
+++ echo '552191.000000 + 35346.000000'
+++ bc
++ TOTAL=587537.000000
++ COUNT=15
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 16 ']'
++ echo '=== ECR gate en qubits 0 16 ==='
+++ ./proba_ECR_gate_host 20 0 16
++ out=36033.000000
++ t=36033.000000
++ echo 'tiempo = 36033.000000'
+++ echo '587537.000000 + 36033.000000'
+++ bc
++ TOTAL=623570.000000
++ COUNT=16
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 17 ']'
++ echo '=== ECR gate en qubits 0 17 ==='
+++ ./proba_ECR_gate_host 20 0 17
++ out=33657.000000
++ t=33657.000000
++ echo 'tiempo = 33657.000000'
+++ echo '623570.000000 + 33657.000000'
+++ bc
++ TOTAL=657227.000000
++ COUNT=17
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 18 ']'
++ echo '=== ECR gate en qubits 0 18 ==='
+++ ./proba_ECR_gate_host 20 0 18
++ out=43109.000000
++ t=43109.000000
++ echo 'tiempo = 43109.000000'
+++ echo '657227.000000 + 43109.000000'
+++ bc
++ TOTAL=700336.000000
++ COUNT=18
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 0 -ne 19 ']'
++ echo '=== ECR gate en qubits 0 19 ==='
+++ ./proba_ECR_gate_host 20 0 19
++ out=37223.000000
++ t=37223.000000
++ echo 'tiempo = 37223.000000'
+++ echo '700336.000000 + 37223.000000'
+++ bc
++ TOTAL=737559.000000
++ COUNT=19
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 0 ']'
++ echo '=== ECR gate en qubits 1 0 ==='
+++ ./proba_ECR_gate_host 20 1 0
++ out=41972.000000
++ t=41972.000000
++ echo 'tiempo = 41972.000000'
+++ echo '737559.000000 + 41972.000000'
+++ bc
++ TOTAL=779531.000000
++ COUNT=20
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 1 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 2 ']'
++ echo '=== ECR gate en qubits 1 2 ==='
+++ ./proba_ECR_gate_host 20 1 2
++ out=29997.000000
++ t=29997.000000
++ echo 'tiempo = 29997.000000'
+++ echo '779531.000000 + 29997.000000'
+++ bc
++ TOTAL=809528.000000
++ COUNT=21
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 3 ']'
++ echo '=== ECR gate en qubits 1 3 ==='
+++ ./proba_ECR_gate_host 20 1 3
++ out=27068.000000
++ t=27068.000000
++ echo 'tiempo = 27068.000000'
+++ echo '809528.000000 + 27068.000000'
+++ bc
++ TOTAL=836596.000000
++ COUNT=22
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 4 ']'
++ echo '=== ECR gate en qubits 1 4 ==='
+++ ./proba_ECR_gate_host 20 1 4
++ out=26425.000000
++ t=26425.000000
++ echo 'tiempo = 26425.000000'
+++ echo '836596.000000 + 26425.000000'
+++ bc
++ TOTAL=863021.000000
++ COUNT=23
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 5 ']'
++ echo '=== ECR gate en qubits 1 5 ==='
+++ ./proba_ECR_gate_host 20 1 5
++ out=34574.000000
++ t=34574.000000
++ echo 'tiempo = 34574.000000'
+++ echo '863021.000000 + 34574.000000'
+++ bc
++ TOTAL=897595.000000
++ COUNT=24
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 6 ']'
++ echo '=== ECR gate en qubits 1 6 ==='
+++ ./proba_ECR_gate_host 20 1 6
++ out=25792.000000
++ t=25792.000000
++ echo 'tiempo = 25792.000000'
+++ echo '897595.000000 + 25792.000000'
+++ bc
++ TOTAL=923387.000000
++ COUNT=25
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 7 ']'
++ echo '=== ECR gate en qubits 1 7 ==='
+++ ./proba_ECR_gate_host 20 1 7
++ out=25679.000000
++ t=25679.000000
++ echo 'tiempo = 25679.000000'
+++ echo '923387.000000 + 25679.000000'
+++ bc
++ TOTAL=949066.000000
++ COUNT=26
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 8 ']'
++ echo '=== ECR gate en qubits 1 8 ==='
+++ ./proba_ECR_gate_host 20 1 8
++ out=30158.000000
++ t=30158.000000
++ echo 'tiempo = 30158.000000'
+++ echo '949066.000000 + 30158.000000'
+++ bc
++ TOTAL=979224.000000
++ COUNT=27
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 9 ']'
++ echo '=== ECR gate en qubits 1 9 ==='
+++ ./proba_ECR_gate_host 20 1 9
++ out=25982.000000
++ t=25982.000000
++ echo 'tiempo = 25982.000000'
+++ echo '979224.000000 + 25982.000000'
+++ bc
++ TOTAL=1005206.000000
++ COUNT=28
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 10 ']'
++ echo '=== ECR gate en qubits 1 10 ==='
+++ ./proba_ECR_gate_host 20 1 10
++ out=27434.000000
++ t=27434.000000
++ echo 'tiempo = 27434.000000'
+++ echo '1005206.000000 + 27434.000000'
+++ bc
++ TOTAL=1032640.000000
++ COUNT=29
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 11 ']'
++ echo '=== ECR gate en qubits 1 11 ==='
+++ ./proba_ECR_gate_host 20 1 11
++ out=29408.000000
++ t=29408.000000
++ echo 'tiempo = 29408.000000'
+++ echo '1032640.000000 + 29408.000000'
+++ bc
++ TOTAL=1062048.000000
++ COUNT=30
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 12 ']'
++ echo '=== ECR gate en qubits 1 12 ==='
+++ ./proba_ECR_gate_host 20 1 12
++ out=26382.000000
++ t=26382.000000
++ echo 'tiempo = 26382.000000'
+++ echo '1062048.000000 + 26382.000000'
+++ bc
++ TOTAL=1088430.000000
++ COUNT=31
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 13 ']'
++ echo '=== ECR gate en qubits 1 13 ==='
+++ ./proba_ECR_gate_host 20 1 13
++ out=28012.000000
++ t=28012.000000
++ echo 'tiempo = 28012.000000'
+++ echo '1088430.000000 + 28012.000000'
+++ bc
++ TOTAL=1116442.000000
++ COUNT=32
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 14 ']'
++ echo '=== ECR gate en qubits 1 14 ==='
+++ ./proba_ECR_gate_host 20 1 14
++ out=22577.000000
++ t=22577.000000
++ echo 'tiempo = 22577.000000'
+++ echo '1116442.000000 + 22577.000000'
+++ bc
++ TOTAL=1139019.000000
++ COUNT=33
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 15 ']'
++ echo '=== ECR gate en qubits 1 15 ==='
+++ ./proba_ECR_gate_host 20 1 15
++ out=25742.000000
++ t=25742.000000
++ echo 'tiempo = 25742.000000'
+++ echo '1139019.000000 + 25742.000000'
+++ bc
++ TOTAL=1164761.000000
++ COUNT=34
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 16 ']'
++ echo '=== ECR gate en qubits 1 16 ==='
+++ ./proba_ECR_gate_host 20 1 16
++ out=23058.000000
++ t=23058.000000
++ echo 'tiempo = 23058.000000'
+++ echo '1164761.000000 + 23058.000000'
+++ bc
++ TOTAL=1187819.000000
++ COUNT=35
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 17 ']'
++ echo '=== ECR gate en qubits 1 17 ==='
+++ ./proba_ECR_gate_host 20 1 17
++ out=25309.000000
++ t=25309.000000
++ echo 'tiempo = 25309.000000'
+++ echo '1187819.000000 + 25309.000000'
+++ bc
++ TOTAL=1213128.000000
++ COUNT=36
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 18 ']'
++ echo '=== ECR gate en qubits 1 18 ==='
+++ ./proba_ECR_gate_host 20 1 18
++ out=28684.000000
++ t=28684.000000
++ echo 'tiempo = 28684.000000'
+++ echo '1213128.000000 + 28684.000000'
+++ bc
++ TOTAL=1241812.000000
++ COUNT=37
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 1 -ne 19 ']'
++ echo '=== ECR gate en qubits 1 19 ==='
+++ ./proba_ECR_gate_host 20 1 19
++ out=29589.000000
++ t=29589.000000
++ echo 'tiempo = 29589.000000'
+++ echo '1241812.000000 + 29589.000000'
+++ bc
++ TOTAL=1271401.000000
++ COUNT=38
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 0 ']'
++ echo '=== ECR gate en qubits 2 0 ==='
+++ ./proba_ECR_gate_host 20 2 0
++ out=45506.000000
++ t=45506.000000
++ echo 'tiempo = 45506.000000'
+++ echo '1271401.000000 + 45506.000000'
+++ bc
++ TOTAL=1316907.000000
++ COUNT=39
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 1 ']'
++ echo '=== ECR gate en qubits 2 1 ==='
+++ ./proba_ECR_gate_host 20 2 1
++ out=33562.000000
++ t=33562.000000
++ echo 'tiempo = 33562.000000'
+++ echo '1316907.000000 + 33562.000000'
+++ bc
++ TOTAL=1350469.000000
++ COUNT=40
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 2 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 3 ']'
++ echo '=== ECR gate en qubits 2 3 ==='
+++ ./proba_ECR_gate_host 20 2 3
++ out=25202.000000
++ t=25202.000000
++ echo 'tiempo = 25202.000000'
+++ echo '1350469.000000 + 25202.000000'
+++ bc
++ TOTAL=1375671.000000
++ COUNT=41
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 4 ']'
++ echo '=== ECR gate en qubits 2 4 ==='
+++ ./proba_ECR_gate_host 20 2 4
++ out=29103.000000
++ t=29103.000000
++ echo 'tiempo = 29103.000000'
+++ echo '1375671.000000 + 29103.000000'
+++ bc
++ TOTAL=1404774.000000
++ COUNT=42
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 5 ']'
++ echo '=== ECR gate en qubits 2 5 ==='
+++ ./proba_ECR_gate_host 20 2 5
++ out=32181.000000
++ t=32181.000000
++ echo 'tiempo = 32181.000000'
+++ echo '1404774.000000 + 32181.000000'
+++ bc
++ TOTAL=1436955.000000
++ COUNT=43
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 6 ']'
++ echo '=== ECR gate en qubits 2 6 ==='
+++ ./proba_ECR_gate_host 20 2 6
++ out=26276.000000
++ t=26276.000000
++ echo 'tiempo = 26276.000000'
+++ echo '1436955.000000 + 26276.000000'
+++ bc
++ TOTAL=1463231.000000
++ COUNT=44
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 7 ']'
++ echo '=== ECR gate en qubits 2 7 ==='
+++ ./proba_ECR_gate_host 20 2 7
++ out=26298.000000
++ t=26298.000000
++ echo 'tiempo = 26298.000000'
+++ echo '1463231.000000 + 26298.000000'
+++ bc
++ TOTAL=1489529.000000
++ COUNT=45
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 8 ']'
++ echo '=== ECR gate en qubits 2 8 ==='
+++ ./proba_ECR_gate_host 20 2 8
++ out=28578.000000
++ t=28578.000000
++ echo 'tiempo = 28578.000000'
+++ echo '1489529.000000 + 28578.000000'
+++ bc
++ TOTAL=1518107.000000
++ COUNT=46
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 9 ']'
++ echo '=== ECR gate en qubits 2 9 ==='
+++ ./proba_ECR_gate_host 20 2 9
++ out=27774.000000
++ t=27774.000000
++ echo 'tiempo = 27774.000000'
+++ echo '1518107.000000 + 27774.000000'
+++ bc
++ TOTAL=1545881.000000
++ COUNT=47
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 10 ']'
++ echo '=== ECR gate en qubits 2 10 ==='
+++ ./proba_ECR_gate_host 20 2 10
++ out=28082.000000
++ t=28082.000000
++ echo 'tiempo = 28082.000000'
+++ echo '1545881.000000 + 28082.000000'
+++ bc
++ TOTAL=1573963.000000
++ COUNT=48
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 11 ']'
++ echo '=== ECR gate en qubits 2 11 ==='
+++ ./proba_ECR_gate_host 20 2 11
++ out=26365.000000
++ t=26365.000000
++ echo 'tiempo = 26365.000000'
+++ echo '1573963.000000 + 26365.000000'
+++ bc
++ TOTAL=1600328.000000
++ COUNT=49
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 12 ']'
++ echo '=== ECR gate en qubits 2 12 ==='
+++ ./proba_ECR_gate_host 20 2 12
++ out=24126.000000
++ t=24126.000000
++ echo 'tiempo = 24126.000000'
+++ echo '1600328.000000 + 24126.000000'
+++ bc
++ TOTAL=1624454.000000
++ COUNT=50
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 13 ']'
++ echo '=== ECR gate en qubits 2 13 ==='
+++ ./proba_ECR_gate_host 20 2 13
++ out=23272.000000
++ t=23272.000000
++ echo 'tiempo = 23272.000000'
+++ echo '1624454.000000 + 23272.000000'
+++ bc
++ TOTAL=1647726.000000
++ COUNT=51
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 14 ']'
++ echo '=== ECR gate en qubits 2 14 ==='
+++ ./proba_ECR_gate_host 20 2 14
++ out=23011.000000
++ t=23011.000000
++ echo 'tiempo = 23011.000000'
+++ echo '1647726.000000 + 23011.000000'
+++ bc
++ TOTAL=1670737.000000
++ COUNT=52
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 15 ']'
++ echo '=== ECR gate en qubits 2 15 ==='
+++ ./proba_ECR_gate_host 20 2 15
++ out=29424.000000
++ t=29424.000000
++ echo 'tiempo = 29424.000000'
+++ echo '1670737.000000 + 29424.000000'
+++ bc
++ TOTAL=1700161.000000
++ COUNT=53
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 16 ']'
++ echo '=== ECR gate en qubits 2 16 ==='
+++ ./proba_ECR_gate_host 20 2 16
++ out=28441.000000
++ t=28441.000000
++ echo 'tiempo = 28441.000000'
+++ echo '1700161.000000 + 28441.000000'
+++ bc
++ TOTAL=1728602.000000
++ COUNT=54
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 17 ']'
++ echo '=== ECR gate en qubits 2 17 ==='
+++ ./proba_ECR_gate_host 20 2 17
++ out=27150.000000
++ t=27150.000000
++ echo 'tiempo = 27150.000000'
+++ echo '1728602.000000 + 27150.000000'
+++ bc
++ TOTAL=1755752.000000
++ COUNT=55
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 18 ']'
++ echo '=== ECR gate en qubits 2 18 ==='
+++ ./proba_ECR_gate_host 20 2 18
++ out=25807.000000
++ t=25807.000000
++ echo 'tiempo = 25807.000000'
+++ echo '1755752.000000 + 25807.000000'
+++ bc
++ TOTAL=1781559.000000
++ COUNT=56
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 2 -ne 19 ']'
++ echo '=== ECR gate en qubits 2 19 ==='
+++ ./proba_ECR_gate_host 20 2 19
++ out=24468.000000
++ t=24468.000000
++ echo 'tiempo = 24468.000000'
+++ echo '1781559.000000 + 24468.000000'
+++ bc
++ TOTAL=1806027.000000
++ COUNT=57
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 0 ']'
++ echo '=== ECR gate en qubits 3 0 ==='
+++ ./proba_ECR_gate_host 20 3 0
++ out=39461.000000
++ t=39461.000000
++ echo 'tiempo = 39461.000000'
+++ echo '1806027.000000 + 39461.000000'
+++ bc
++ TOTAL=1845488.000000
++ COUNT=58
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 1 ']'
++ echo '=== ECR gate en qubits 3 1 ==='
+++ ./proba_ECR_gate_host 20 3 1
++ out=28629.000000
++ t=28629.000000
++ echo 'tiempo = 28629.000000'
+++ echo '1845488.000000 + 28629.000000'
+++ bc
++ TOTAL=1874117.000000
++ COUNT=59
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 2 ']'
++ echo '=== ECR gate en qubits 3 2 ==='
+++ ./proba_ECR_gate_host 20 3 2
++ out=27741.000000
++ t=27741.000000
++ echo 'tiempo = 27741.000000'
+++ echo '1874117.000000 + 27741.000000'
+++ bc
++ TOTAL=1901858.000000
++ COUNT=60
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 3 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 4 ']'
++ echo '=== ECR gate en qubits 3 4 ==='
+++ ./proba_ECR_gate_host 20 3 4
++ out=26362.000000
++ t=26362.000000
++ echo 'tiempo = 26362.000000'
+++ echo '1901858.000000 + 26362.000000'
+++ bc
++ TOTAL=1928220.000000
++ COUNT=61
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 5 ']'
++ echo '=== ECR gate en qubits 3 5 ==='
+++ ./proba_ECR_gate_host 20 3 5
++ out=24636.000000
++ t=24636.000000
++ echo 'tiempo = 24636.000000'
+++ echo '1928220.000000 + 24636.000000'
+++ bc
++ TOTAL=1952856.000000
++ COUNT=62
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 6 ']'
++ echo '=== ECR gate en qubits 3 6 ==='
+++ ./proba_ECR_gate_host 20 3 6
++ out=27334.000000
++ t=27334.000000
++ echo 'tiempo = 27334.000000'
+++ echo '1952856.000000 + 27334.000000'
+++ bc
++ TOTAL=1980190.000000
++ COUNT=63
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 7 ']'
++ echo '=== ECR gate en qubits 3 7 ==='
+++ ./proba_ECR_gate_host 20 3 7
++ out=24536.000000
++ t=24536.000000
++ echo 'tiempo = 24536.000000'
+++ echo '1980190.000000 + 24536.000000'
+++ bc
++ TOTAL=2004726.000000
++ COUNT=64
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 8 ']'
++ echo '=== ECR gate en qubits 3 8 ==='
+++ ./proba_ECR_gate_host 20 3 8
++ out=26831.000000
++ t=26831.000000
++ echo 'tiempo = 26831.000000'
+++ echo '2004726.000000 + 26831.000000'
+++ bc
++ TOTAL=2031557.000000
++ COUNT=65
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 9 ']'
++ echo '=== ECR gate en qubits 3 9 ==='
+++ ./proba_ECR_gate_host 20 3 9
++ out=26399.000000
++ t=26399.000000
++ echo 'tiempo = 26399.000000'
+++ echo '2031557.000000 + 26399.000000'
+++ bc
++ TOTAL=2057956.000000
++ COUNT=66
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 10 ']'
++ echo '=== ECR gate en qubits 3 10 ==='
+++ ./proba_ECR_gate_host 20 3 10
++ out=26004.000000
++ t=26004.000000
++ echo 'tiempo = 26004.000000'
+++ echo '2057956.000000 + 26004.000000'
+++ bc
++ TOTAL=2083960.000000
++ COUNT=67
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 11 ']'
++ echo '=== ECR gate en qubits 3 11 ==='
+++ ./proba_ECR_gate_host 20 3 11
++ out=31492.000000
++ t=31492.000000
++ echo 'tiempo = 31492.000000'
+++ echo '2083960.000000 + 31492.000000'
+++ bc
++ TOTAL=2115452.000000
++ COUNT=68
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 12 ']'
++ echo '=== ECR gate en qubits 3 12 ==='
+++ ./proba_ECR_gate_host 20 3 12
++ out=24895.000000
++ t=24895.000000
++ echo 'tiempo = 24895.000000'
+++ echo '2115452.000000 + 24895.000000'
+++ bc
++ TOTAL=2140347.000000
++ COUNT=69
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 13 ']'
++ echo '=== ECR gate en qubits 3 13 ==='
+++ ./proba_ECR_gate_host 20 3 13
++ out=26722.000000
++ t=26722.000000
++ echo 'tiempo = 26722.000000'
+++ echo '2140347.000000 + 26722.000000'
+++ bc
++ TOTAL=2167069.000000
++ COUNT=70
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 14 ']'
++ echo '=== ECR gate en qubits 3 14 ==='
+++ ./proba_ECR_gate_host 20 3 14
++ out=26908.000000
++ t=26908.000000
++ echo 'tiempo = 26908.000000'
+++ echo '2167069.000000 + 26908.000000'
+++ bc
++ TOTAL=2193977.000000
++ COUNT=71
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 15 ']'
++ echo '=== ECR gate en qubits 3 15 ==='
+++ ./proba_ECR_gate_host 20 3 15
++ out=26822.000000
++ t=26822.000000
++ echo 'tiempo = 26822.000000'
+++ echo '2193977.000000 + 26822.000000'
+++ bc
++ TOTAL=2220799.000000
++ COUNT=72
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 16 ']'
++ echo '=== ECR gate en qubits 3 16 ==='
+++ ./proba_ECR_gate_host 20 3 16
++ out=28854.000000
++ t=28854.000000
++ echo 'tiempo = 28854.000000'
+++ echo '2220799.000000 + 28854.000000'
+++ bc
++ TOTAL=2249653.000000
++ COUNT=73
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 17 ']'
++ echo '=== ECR gate en qubits 3 17 ==='
+++ ./proba_ECR_gate_host 20 3 17
++ out=28145.000000
++ t=28145.000000
++ echo 'tiempo = 28145.000000'
+++ echo '2249653.000000 + 28145.000000'
+++ bc
++ TOTAL=2277798.000000
++ COUNT=74
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 18 ']'
++ echo '=== ECR gate en qubits 3 18 ==='
+++ ./proba_ECR_gate_host 20 3 18
++ out=26636.000000
++ t=26636.000000
++ echo 'tiempo = 26636.000000'
+++ echo '2277798.000000 + 26636.000000'
+++ bc
++ TOTAL=2304434.000000
++ COUNT=75
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 3 -ne 19 ']'
++ echo '=== ECR gate en qubits 3 19 ==='
+++ ./proba_ECR_gate_host 20 3 19
++ out=24105.000000
++ t=24105.000000
++ echo 'tiempo = 24105.000000'
+++ echo '2304434.000000 + 24105.000000'
+++ bc
++ TOTAL=2328539.000000
++ COUNT=76
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 0 ']'
++ echo '=== ECR gate en qubits 4 0 ==='
+++ ./proba_ECR_gate_host 20 4 0
++ out=40316.000000
++ t=40316.000000
++ echo 'tiempo = 40316.000000'
+++ echo '2328539.000000 + 40316.000000'
+++ bc
++ TOTAL=2368855.000000
++ COUNT=77
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 1 ']'
++ echo '=== ECR gate en qubits 4 1 ==='
+++ ./proba_ECR_gate_host 20 4 1
++ out=26471.000000
++ t=26471.000000
++ echo 'tiempo = 26471.000000'
+++ echo '2368855.000000 + 26471.000000'
+++ bc
++ TOTAL=2395326.000000
++ COUNT=78
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 2 ']'
++ echo '=== ECR gate en qubits 4 2 ==='
+++ ./proba_ECR_gate_host 20 4 2
++ out=29912.000000
++ t=29912.000000
++ echo 'tiempo = 29912.000000'
+++ echo '2395326.000000 + 29912.000000'
+++ bc
++ TOTAL=2425238.000000
++ COUNT=79
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 3 ']'
++ echo '=== ECR gate en qubits 4 3 ==='
+++ ./proba_ECR_gate_host 20 4 3
++ out=26305.000000
++ t=26305.000000
++ echo 'tiempo = 26305.000000'
+++ echo '2425238.000000 + 26305.000000'
+++ bc
++ TOTAL=2451543.000000
++ COUNT=80
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 4 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 5 ']'
++ echo '=== ECR gate en qubits 4 5 ==='
+++ ./proba_ECR_gate_host 20 4 5
++ out=28890.000000
++ t=28890.000000
++ echo 'tiempo = 28890.000000'
+++ echo '2451543.000000 + 28890.000000'
+++ bc
++ TOTAL=2480433.000000
++ COUNT=81
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 6 ']'
++ echo '=== ECR gate en qubits 4 6 ==='
+++ ./proba_ECR_gate_host 20 4 6
++ out=27636.000000
++ t=27636.000000
++ echo 'tiempo = 27636.000000'
+++ echo '2480433.000000 + 27636.000000'
+++ bc
++ TOTAL=2508069.000000
++ COUNT=82
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 7 ']'
++ echo '=== ECR gate en qubits 4 7 ==='
+++ ./proba_ECR_gate_host 20 4 7
++ out=27959.000000
++ t=27959.000000
++ echo 'tiempo = 27959.000000'
+++ echo '2508069.000000 + 27959.000000'
+++ bc
++ TOTAL=2536028.000000
++ COUNT=83
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 8 ']'
++ echo '=== ECR gate en qubits 4 8 ==='
+++ ./proba_ECR_gate_host 20 4 8
++ out=26205.000000
++ t=26205.000000
++ echo 'tiempo = 26205.000000'
+++ echo '2536028.000000 + 26205.000000'
+++ bc
++ TOTAL=2562233.000000
++ COUNT=84
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 9 ']'
++ echo '=== ECR gate en qubits 4 9 ==='
+++ ./proba_ECR_gate_host 20 4 9
++ out=24091.000000
++ t=24091.000000
++ echo 'tiempo = 24091.000000'
+++ echo '2562233.000000 + 24091.000000'
+++ bc
++ TOTAL=2586324.000000
++ COUNT=85
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 10 ']'
++ echo '=== ECR gate en qubits 4 10 ==='
+++ ./proba_ECR_gate_host 20 4 10
++ out=27117.000000
++ t=27117.000000
++ echo 'tiempo = 27117.000000'
+++ echo '2586324.000000 + 27117.000000'
+++ bc
++ TOTAL=2613441.000000
++ COUNT=86
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 11 ']'
++ echo '=== ECR gate en qubits 4 11 ==='
+++ ./proba_ECR_gate_host 20 4 11
++ out=24222.000000
++ t=24222.000000
++ echo 'tiempo = 24222.000000'
+++ echo '2613441.000000 + 24222.000000'
+++ bc
++ TOTAL=2637663.000000
++ COUNT=87
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 12 ']'
++ echo '=== ECR gate en qubits 4 12 ==='
+++ ./proba_ECR_gate_host 20 4 12
++ out=28018.000000
++ t=28018.000000
++ echo 'tiempo = 28018.000000'
+++ echo '2637663.000000 + 28018.000000'
+++ bc
++ TOTAL=2665681.000000
++ COUNT=88
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 13 ']'
++ echo '=== ECR gate en qubits 4 13 ==='
+++ ./proba_ECR_gate_host 20 4 13
++ out=25243.000000
++ t=25243.000000
++ echo 'tiempo = 25243.000000'
+++ echo '2665681.000000 + 25243.000000'
+++ bc
++ TOTAL=2690924.000000
++ COUNT=89
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 14 ']'
++ echo '=== ECR gate en qubits 4 14 ==='
+++ ./proba_ECR_gate_host 20 4 14
++ out=27399.000000
++ t=27399.000000
++ echo 'tiempo = 27399.000000'
+++ echo '2690924.000000 + 27399.000000'
+++ bc
++ TOTAL=2718323.000000
++ COUNT=90
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 15 ']'
++ echo '=== ECR gate en qubits 4 15 ==='
+++ ./proba_ECR_gate_host 20 4 15
++ out=22853.000000
++ t=22853.000000
++ echo 'tiempo = 22853.000000'
+++ echo '2718323.000000 + 22853.000000'
+++ bc
++ TOTAL=2741176.000000
++ COUNT=91
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 16 ']'
++ echo '=== ECR gate en qubits 4 16 ==='
+++ ./proba_ECR_gate_host 20 4 16
++ out=25335.000000
++ t=25335.000000
++ echo 'tiempo = 25335.000000'
+++ echo '2741176.000000 + 25335.000000'
+++ bc
++ TOTAL=2766511.000000
++ COUNT=92
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 17 ']'
++ echo '=== ECR gate en qubits 4 17 ==='
+++ ./proba_ECR_gate_host 20 4 17
++ out=23240.000000
++ t=23240.000000
++ echo 'tiempo = 23240.000000'
+++ echo '2766511.000000 + 23240.000000'
+++ bc
++ TOTAL=2789751.000000
++ COUNT=93
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 18 ']'
++ echo '=== ECR gate en qubits 4 18 ==='
+++ ./proba_ECR_gate_host 20 4 18
++ out=23728.000000
++ t=23728.000000
++ echo 'tiempo = 23728.000000'
+++ echo '2789751.000000 + 23728.000000'
+++ bc
++ TOTAL=2813479.000000
++ COUNT=94
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 4 -ne 19 ']'
++ echo '=== ECR gate en qubits 4 19 ==='
+++ ./proba_ECR_gate_host 20 4 19
++ out=29646.000000
++ t=29646.000000
++ echo 'tiempo = 29646.000000'
+++ echo '2813479.000000 + 29646.000000'
+++ bc
++ TOTAL=2843125.000000
++ COUNT=95
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 0 ']'
++ echo '=== ECR gate en qubits 5 0 ==='
+++ ./proba_ECR_gate_host 20 5 0
++ out=40906.000000
++ t=40906.000000
++ echo 'tiempo = 40906.000000'
+++ echo '2843125.000000 + 40906.000000'
+++ bc
++ TOTAL=2884031.000000
++ COUNT=96
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 1 ']'
++ echo '=== ECR gate en qubits 5 1 ==='
+++ ./proba_ECR_gate_host 20 5 1
++ out=25170.000000
++ t=25170.000000
++ echo 'tiempo = 25170.000000'
+++ echo '2884031.000000 + 25170.000000'
+++ bc
++ TOTAL=2909201.000000
++ COUNT=97
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 2 ']'
++ echo '=== ECR gate en qubits 5 2 ==='
+++ ./proba_ECR_gate_host 20 5 2
++ out=26866.000000
++ t=26866.000000
++ echo 'tiempo = 26866.000000'
+++ echo '2909201.000000 + 26866.000000'
+++ bc
++ TOTAL=2936067.000000
++ COUNT=98
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 3 ']'
++ echo '=== ECR gate en qubits 5 3 ==='
+++ ./proba_ECR_gate_host 20 5 3
++ out=24747.000000
++ t=24747.000000
++ echo 'tiempo = 24747.000000'
+++ echo '2936067.000000 + 24747.000000'
+++ bc
++ TOTAL=2960814.000000
++ COUNT=99
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 4 ']'
++ echo '=== ECR gate en qubits 5 4 ==='
+++ ./proba_ECR_gate_host 20 5 4
++ out=28789.000000
++ t=28789.000000
++ echo 'tiempo = 28789.000000'
+++ echo '2960814.000000 + 28789.000000'
+++ bc
++ TOTAL=2989603.000000
++ COUNT=100
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 5 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 6 ']'
++ echo '=== ECR gate en qubits 5 6 ==='
+++ ./proba_ECR_gate_host 20 5 6
++ out=28142.000000
++ t=28142.000000
++ echo 'tiempo = 28142.000000'
+++ echo '2989603.000000 + 28142.000000'
+++ bc
++ TOTAL=3017745.000000
++ COUNT=101
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 7 ']'
++ echo '=== ECR gate en qubits 5 7 ==='
+++ ./proba_ECR_gate_host 20 5 7
++ out=26991.000000
++ t=26991.000000
++ echo 'tiempo = 26991.000000'
+++ echo '3017745.000000 + 26991.000000'
+++ bc
++ TOTAL=3044736.000000
++ COUNT=102
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 8 ']'
++ echo '=== ECR gate en qubits 5 8 ==='
+++ ./proba_ECR_gate_host 20 5 8
++ out=24750.000000
++ t=24750.000000
++ echo 'tiempo = 24750.000000'
+++ echo '3044736.000000 + 24750.000000'
+++ bc
++ TOTAL=3069486.000000
++ COUNT=103
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 9 ']'
++ echo '=== ECR gate en qubits 5 9 ==='
+++ ./proba_ECR_gate_host 20 5 9
++ out=26842.000000
++ t=26842.000000
++ echo 'tiempo = 26842.000000'
+++ echo '3069486.000000 + 26842.000000'
+++ bc
++ TOTAL=3096328.000000
++ COUNT=104
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 10 ']'
++ echo '=== ECR gate en qubits 5 10 ==='
+++ ./proba_ECR_gate_host 20 5 10
++ out=27105.000000
++ t=27105.000000
++ echo 'tiempo = 27105.000000'
+++ echo '3096328.000000 + 27105.000000'
+++ bc
++ TOTAL=3123433.000000
++ COUNT=105
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 11 ']'
++ echo '=== ECR gate en qubits 5 11 ==='
+++ ./proba_ECR_gate_host 20 5 11
++ out=24078.000000
++ t=24078.000000
++ echo 'tiempo = 24078.000000'
+++ echo '3123433.000000 + 24078.000000'
+++ bc
++ TOTAL=3147511.000000
++ COUNT=106
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 12 ']'
++ echo '=== ECR gate en qubits 5 12 ==='
+++ ./proba_ECR_gate_host 20 5 12
++ out=29460.000000
++ t=29460.000000
++ echo 'tiempo = 29460.000000'
+++ echo '3147511.000000 + 29460.000000'
+++ bc
++ TOTAL=3176971.000000
++ COUNT=107
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 13 ']'
++ echo '=== ECR gate en qubits 5 13 ==='
+++ ./proba_ECR_gate_host 20 5 13
++ out=28079.000000
++ t=28079.000000
++ echo 'tiempo = 28079.000000'
+++ echo '3176971.000000 + 28079.000000'
+++ bc
++ TOTAL=3205050.000000
++ COUNT=108
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 14 ']'
++ echo '=== ECR gate en qubits 5 14 ==='
+++ ./proba_ECR_gate_host 20 5 14
++ out=24241.000000
++ t=24241.000000
++ echo 'tiempo = 24241.000000'
+++ echo '3205050.000000 + 24241.000000'
+++ bc
++ TOTAL=3229291.000000
++ COUNT=109
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 15 ']'
++ echo '=== ECR gate en qubits 5 15 ==='
+++ ./proba_ECR_gate_host 20 5 15
++ out=24525.000000
++ t=24525.000000
++ echo 'tiempo = 24525.000000'
+++ echo '3229291.000000 + 24525.000000'
+++ bc
++ TOTAL=3253816.000000
++ COUNT=110
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 16 ']'
++ echo '=== ECR gate en qubits 5 16 ==='
+++ ./proba_ECR_gate_host 20 5 16
++ out=27305.000000
++ t=27305.000000
++ echo 'tiempo = 27305.000000'
+++ echo '3253816.000000 + 27305.000000'
+++ bc
++ TOTAL=3281121.000000
++ COUNT=111
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 17 ']'
++ echo '=== ECR gate en qubits 5 17 ==='
+++ ./proba_ECR_gate_host 20 5 17
++ out=29969.000000
++ t=29969.000000
++ echo 'tiempo = 29969.000000'
+++ echo '3281121.000000 + 29969.000000'
+++ bc
++ TOTAL=3311090.000000
++ COUNT=112
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 18 ']'
++ echo '=== ECR gate en qubits 5 18 ==='
+++ ./proba_ECR_gate_host 20 5 18
++ out=25102.000000
++ t=25102.000000
++ echo 'tiempo = 25102.000000'
+++ echo '3311090.000000 + 25102.000000'
+++ bc
++ TOTAL=3336192.000000
++ COUNT=113
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 5 -ne 19 ']'
++ echo '=== ECR gate en qubits 5 19 ==='
+++ ./proba_ECR_gate_host 20 5 19
++ out=25792.000000
++ t=25792.000000
++ echo 'tiempo = 25792.000000'
+++ echo '3336192.000000 + 25792.000000'
+++ bc
++ TOTAL=3361984.000000
++ COUNT=114
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 0 ']'
++ echo '=== ECR gate en qubits 6 0 ==='
+++ ./proba_ECR_gate_host 20 6 0
++ out=35909.000000
++ t=35909.000000
++ echo 'tiempo = 35909.000000'
+++ echo '3361984.000000 + 35909.000000'
+++ bc
++ TOTAL=3397893.000000
++ COUNT=115
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 1 ']'
++ echo '=== ECR gate en qubits 6 1 ==='
+++ ./proba_ECR_gate_host 20 6 1
++ out=26084.000000
++ t=26084.000000
++ echo 'tiempo = 26084.000000'
+++ echo '3397893.000000 + 26084.000000'
+++ bc
++ TOTAL=3423977.000000
++ COUNT=116
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 2 ']'
++ echo '=== ECR gate en qubits 6 2 ==='
+++ ./proba_ECR_gate_host 20 6 2
++ out=26086.000000
++ t=26086.000000
++ echo 'tiempo = 26086.000000'
+++ echo '3423977.000000 + 26086.000000'
+++ bc
++ TOTAL=3450063.000000
++ COUNT=117
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 3 ']'
++ echo '=== ECR gate en qubits 6 3 ==='
+++ ./proba_ECR_gate_host 20 6 3
++ out=23907.000000
++ t=23907.000000
++ echo 'tiempo = 23907.000000'
+++ echo '3450063.000000 + 23907.000000'
+++ bc
++ TOTAL=3473970.000000
++ COUNT=118
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 4 ']'
++ echo '=== ECR gate en qubits 6 4 ==='
+++ ./proba_ECR_gate_host 20 6 4
++ out=25366.000000
++ t=25366.000000
++ echo 'tiempo = 25366.000000'
+++ echo '3473970.000000 + 25366.000000'
+++ bc
++ TOTAL=3499336.000000
++ COUNT=119
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 5 ']'
++ echo '=== ECR gate en qubits 6 5 ==='
+++ ./proba_ECR_gate_host 20 6 5
++ out=23479.000000
++ t=23479.000000
++ echo 'tiempo = 23479.000000'
+++ echo '3499336.000000 + 23479.000000'
+++ bc
++ TOTAL=3522815.000000
++ COUNT=120
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 6 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 7 ']'
++ echo '=== ECR gate en qubits 6 7 ==='
+++ ./proba_ECR_gate_host 20 6 7
++ out=29624.000000
++ t=29624.000000
++ echo 'tiempo = 29624.000000'
+++ echo '3522815.000000 + 29624.000000'
+++ bc
++ TOTAL=3552439.000000
++ COUNT=121
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 8 ']'
++ echo '=== ECR gate en qubits 6 8 ==='
+++ ./proba_ECR_gate_host 20 6 8
++ out=29689.000000
++ t=29689.000000
++ echo 'tiempo = 29689.000000'
+++ echo '3552439.000000 + 29689.000000'
+++ bc
++ TOTAL=3582128.000000
++ COUNT=122
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 9 ']'
++ echo '=== ECR gate en qubits 6 9 ==='
+++ ./proba_ECR_gate_host 20 6 9
++ out=27251.000000
++ t=27251.000000
++ echo 'tiempo = 27251.000000'
+++ echo '3582128.000000 + 27251.000000'
+++ bc
++ TOTAL=3609379.000000
++ COUNT=123
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 10 ']'
++ echo '=== ECR gate en qubits 6 10 ==='
+++ ./proba_ECR_gate_host 20 6 10
++ out=27720.000000
++ t=27720.000000
++ echo 'tiempo = 27720.000000'
+++ echo '3609379.000000 + 27720.000000'
+++ bc
++ TOTAL=3637099.000000
++ COUNT=124
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 11 ']'
++ echo '=== ECR gate en qubits 6 11 ==='
+++ ./proba_ECR_gate_host 20 6 11
++ out=26928.000000
++ t=26928.000000
++ echo 'tiempo = 26928.000000'
+++ echo '3637099.000000 + 26928.000000'
+++ bc
++ TOTAL=3664027.000000
++ COUNT=125
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 12 ']'
++ echo '=== ECR gate en qubits 6 12 ==='
+++ ./proba_ECR_gate_host 20 6 12
++ out=29967.000000
++ t=29967.000000
++ echo 'tiempo = 29967.000000'
+++ echo '3664027.000000 + 29967.000000'
+++ bc
++ TOTAL=3693994.000000
++ COUNT=126
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 13 ']'
++ echo '=== ECR gate en qubits 6 13 ==='
+++ ./proba_ECR_gate_host 20 6 13
++ out=25978.000000
++ t=25978.000000
++ echo 'tiempo = 25978.000000'
+++ echo '3693994.000000 + 25978.000000'
+++ bc
++ TOTAL=3719972.000000
++ COUNT=127
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 14 ']'
++ echo '=== ECR gate en qubits 6 14 ==='
+++ ./proba_ECR_gate_host 20 6 14
++ out=32882.000000
++ t=32882.000000
++ echo 'tiempo = 32882.000000'
+++ echo '3719972.000000 + 32882.000000'
+++ bc
++ TOTAL=3752854.000000
++ COUNT=128
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 15 ']'
++ echo '=== ECR gate en qubits 6 15 ==='
+++ ./proba_ECR_gate_host 20 6 15
++ out=24222.000000
++ t=24222.000000
++ echo 'tiempo = 24222.000000'
+++ echo '3752854.000000 + 24222.000000'
+++ bc
++ TOTAL=3777076.000000
++ COUNT=129
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 16 ']'
++ echo '=== ECR gate en qubits 6 16 ==='
+++ ./proba_ECR_gate_host 20 6 16
++ out=24745.000000
++ t=24745.000000
++ echo 'tiempo = 24745.000000'
+++ echo '3777076.000000 + 24745.000000'
+++ bc
++ TOTAL=3801821.000000
++ COUNT=130
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 17 ']'
++ echo '=== ECR gate en qubits 6 17 ==='
+++ ./proba_ECR_gate_host 20 6 17
++ out=25387.000000
++ t=25387.000000
++ echo 'tiempo = 25387.000000'
+++ echo '3801821.000000 + 25387.000000'
+++ bc
++ TOTAL=3827208.000000
++ COUNT=131
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 18 ']'
++ echo '=== ECR gate en qubits 6 18 ==='
+++ ./proba_ECR_gate_host 20 6 18
++ out=25603.000000
++ t=25603.000000
++ echo 'tiempo = 25603.000000'
+++ echo '3827208.000000 + 25603.000000'
+++ bc
++ TOTAL=3852811.000000
++ COUNT=132
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 6 -ne 19 ']'
++ echo '=== ECR gate en qubits 6 19 ==='
+++ ./proba_ECR_gate_host 20 6 19
++ out=23902.000000
++ t=23902.000000
++ echo 'tiempo = 23902.000000'
+++ echo '3852811.000000 + 23902.000000'
+++ bc
++ TOTAL=3876713.000000
++ COUNT=133
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 0 ']'
++ echo '=== ECR gate en qubits 7 0 ==='
+++ ./proba_ECR_gate_host 20 7 0
++ out=34269.000000
++ t=34269.000000
++ echo 'tiempo = 34269.000000'
+++ echo '3876713.000000 + 34269.000000'
+++ bc
++ TOTAL=3910982.000000
++ COUNT=134
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 1 ']'
++ echo '=== ECR gate en qubits 7 1 ==='
+++ ./proba_ECR_gate_host 20 7 1
++ out=30269.000000
++ t=30269.000000
++ echo 'tiempo = 30269.000000'
+++ echo '3910982.000000 + 30269.000000'
+++ bc
++ TOTAL=3941251.000000
++ COUNT=135
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 2 ']'
++ echo '=== ECR gate en qubits 7 2 ==='
+++ ./proba_ECR_gate_host 20 7 2
++ out=28766.000000
++ t=28766.000000
++ echo 'tiempo = 28766.000000'
+++ echo '3941251.000000 + 28766.000000'
+++ bc
++ TOTAL=3970017.000000
++ COUNT=136
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 3 ']'
++ echo '=== ECR gate en qubits 7 3 ==='
+++ ./proba_ECR_gate_host 20 7 3
++ out=26693.000000
++ t=26693.000000
++ echo 'tiempo = 26693.000000'
+++ echo '3970017.000000 + 26693.000000'
+++ bc
++ TOTAL=3996710.000000
++ COUNT=137
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 4 ']'
++ echo '=== ECR gate en qubits 7 4 ==='
+++ ./proba_ECR_gate_host 20 7 4
++ out=27266.000000
++ t=27266.000000
++ echo 'tiempo = 27266.000000'
+++ echo '3996710.000000 + 27266.000000'
+++ bc
++ TOTAL=4023976.000000
++ COUNT=138
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 5 ']'
++ echo '=== ECR gate en qubits 7 5 ==='
+++ ./proba_ECR_gate_host 20 7 5
++ out=27048.000000
++ t=27048.000000
++ echo 'tiempo = 27048.000000'
+++ echo '4023976.000000 + 27048.000000'
+++ bc
++ TOTAL=4051024.000000
++ COUNT=139
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 6 ']'
++ echo '=== ECR gate en qubits 7 6 ==='
+++ ./proba_ECR_gate_host 20 7 6
++ out=28937.000000
++ t=28937.000000
++ echo 'tiempo = 28937.000000'
+++ echo '4051024.000000 + 28937.000000'
+++ bc
++ TOTAL=4079961.000000
++ COUNT=140
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 7 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 8 ']'
++ echo '=== ECR gate en qubits 7 8 ==='
+++ ./proba_ECR_gate_host 20 7 8
++ out=33845.000000
++ t=33845.000000
++ echo 'tiempo = 33845.000000'
+++ echo '4079961.000000 + 33845.000000'
+++ bc
++ TOTAL=4113806.000000
++ COUNT=141
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 9 ']'
++ echo '=== ECR gate en qubits 7 9 ==='
+++ ./proba_ECR_gate_host 20 7 9
++ out=25457.000000
++ t=25457.000000
++ echo 'tiempo = 25457.000000'
+++ echo '4113806.000000 + 25457.000000'
+++ bc
++ TOTAL=4139263.000000
++ COUNT=142
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 10 ']'
++ echo '=== ECR gate en qubits 7 10 ==='
+++ ./proba_ECR_gate_host 20 7 10
++ out=26784.000000
++ t=26784.000000
++ echo 'tiempo = 26784.000000'
+++ echo '4139263.000000 + 26784.000000'
+++ bc
++ TOTAL=4166047.000000
++ COUNT=143
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 11 ']'
++ echo '=== ECR gate en qubits 7 11 ==='
+++ ./proba_ECR_gate_host 20 7 11
++ out=27450.000000
++ t=27450.000000
++ echo 'tiempo = 27450.000000'
+++ echo '4166047.000000 + 27450.000000'
+++ bc
++ TOTAL=4193497.000000
++ COUNT=144
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 12 ']'
++ echo '=== ECR gate en qubits 7 12 ==='
+++ ./proba_ECR_gate_host 20 7 12
++ out=26708.000000
++ t=26708.000000
++ echo 'tiempo = 26708.000000'
+++ echo '4193497.000000 + 26708.000000'
+++ bc
++ TOTAL=4220205.000000
++ COUNT=145
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 13 ']'
++ echo '=== ECR gate en qubits 7 13 ==='
+++ ./proba_ECR_gate_host 20 7 13
++ out=28925.000000
++ t=28925.000000
++ echo 'tiempo = 28925.000000'
+++ echo '4220205.000000 + 28925.000000'
+++ bc
++ TOTAL=4249130.000000
++ COUNT=146
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 14 ']'
++ echo '=== ECR gate en qubits 7 14 ==='
+++ ./proba_ECR_gate_host 20 7 14
++ out=30659.000000
++ t=30659.000000
++ echo 'tiempo = 30659.000000'
+++ echo '4249130.000000 + 30659.000000'
+++ bc
++ TOTAL=4279789.000000
++ COUNT=147
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 15 ']'
++ echo '=== ECR gate en qubits 7 15 ==='
+++ ./proba_ECR_gate_host 20 7 15
++ out=26914.000000
++ t=26914.000000
++ echo 'tiempo = 26914.000000'
+++ echo '4279789.000000 + 26914.000000'
+++ bc
++ TOTAL=4306703.000000
++ COUNT=148
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 16 ']'
++ echo '=== ECR gate en qubits 7 16 ==='
+++ ./proba_ECR_gate_host 20 7 16
++ out=25752.000000
++ t=25752.000000
++ echo 'tiempo = 25752.000000'
+++ echo '4306703.000000 + 25752.000000'
+++ bc
++ TOTAL=4332455.000000
++ COUNT=149
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 17 ']'
++ echo '=== ECR gate en qubits 7 17 ==='
+++ ./proba_ECR_gate_host 20 7 17
++ out=23514.000000
++ t=23514.000000
++ echo 'tiempo = 23514.000000'
+++ echo '4332455.000000 + 23514.000000'
+++ bc
++ TOTAL=4355969.000000
++ COUNT=150
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 18 ']'
++ echo '=== ECR gate en qubits 7 18 ==='
+++ ./proba_ECR_gate_host 20 7 18
++ out=28599.000000
++ t=28599.000000
++ echo 'tiempo = 28599.000000'
+++ echo '4355969.000000 + 28599.000000'
+++ bc
++ TOTAL=4384568.000000
++ COUNT=151
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 7 -ne 19 ']'
++ echo '=== ECR gate en qubits 7 19 ==='
+++ ./proba_ECR_gate_host 20 7 19
++ out=24903.000000
++ t=24903.000000
++ echo 'tiempo = 24903.000000'
+++ echo '4384568.000000 + 24903.000000'
+++ bc
++ TOTAL=4409471.000000
++ COUNT=152
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 0 ']'
++ echo '=== ECR gate en qubits 8 0 ==='
+++ ./proba_ECR_gate_host 20 8 0
++ out=33548.000000
++ t=33548.000000
++ echo 'tiempo = 33548.000000'
+++ echo '4409471.000000 + 33548.000000'
+++ bc
++ TOTAL=4443019.000000
++ COUNT=153
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 1 ']'
++ echo '=== ECR gate en qubits 8 1 ==='
+++ ./proba_ECR_gate_host 20 8 1
++ out=27473.000000
++ t=27473.000000
++ echo 'tiempo = 27473.000000'
+++ echo '4443019.000000 + 27473.000000'
+++ bc
++ TOTAL=4470492.000000
++ COUNT=154
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 2 ']'
++ echo '=== ECR gate en qubits 8 2 ==='
+++ ./proba_ECR_gate_host 20 8 2
++ out=25790.000000
++ t=25790.000000
++ echo 'tiempo = 25790.000000'
+++ echo '4470492.000000 + 25790.000000'
+++ bc
++ TOTAL=4496282.000000
++ COUNT=155
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 3 ']'
++ echo '=== ECR gate en qubits 8 3 ==='
+++ ./proba_ECR_gate_host 20 8 3
++ out=26807.000000
++ t=26807.000000
++ echo 'tiempo = 26807.000000'
+++ echo '4496282.000000 + 26807.000000'
+++ bc
++ TOTAL=4523089.000000
++ COUNT=156
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 4 ']'
++ echo '=== ECR gate en qubits 8 4 ==='
+++ ./proba_ECR_gate_host 20 8 4
++ out=27160.000000
++ t=27160.000000
++ echo 'tiempo = 27160.000000'
+++ echo '4523089.000000 + 27160.000000'
+++ bc
++ TOTAL=4550249.000000
++ COUNT=157
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 5 ']'
++ echo '=== ECR gate en qubits 8 5 ==='
+++ ./proba_ECR_gate_host 20 8 5
++ out=24316.000000
++ t=24316.000000
++ echo 'tiempo = 24316.000000'
+++ echo '4550249.000000 + 24316.000000'
+++ bc
++ TOTAL=4574565.000000
++ COUNT=158
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 6 ']'
++ echo '=== ECR gate en qubits 8 6 ==='
+++ ./proba_ECR_gate_host 20 8 6
++ out=30919.000000
++ t=30919.000000
++ echo 'tiempo = 30919.000000'
+++ echo '4574565.000000 + 30919.000000'
+++ bc
++ TOTAL=4605484.000000
++ COUNT=159
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 7 ']'
++ echo '=== ECR gate en qubits 8 7 ==='
+++ ./proba_ECR_gate_host 20 8 7
++ out=30280.000000
++ t=30280.000000
++ echo 'tiempo = 30280.000000'
+++ echo '4605484.000000 + 30280.000000'
+++ bc
++ TOTAL=4635764.000000
++ COUNT=160
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 8 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 9 ']'
++ echo '=== ECR gate en qubits 8 9 ==='
+++ ./proba_ECR_gate_host 20 8 9
++ out=28087.000000
++ t=28087.000000
++ echo 'tiempo = 28087.000000'
+++ echo '4635764.000000 + 28087.000000'
+++ bc
++ TOTAL=4663851.000000
++ COUNT=161
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 10 ']'
++ echo '=== ECR gate en qubits 8 10 ==='
+++ ./proba_ECR_gate_host 20 8 10
++ out=24763.000000
++ t=24763.000000
++ echo 'tiempo = 24763.000000'
+++ echo '4663851.000000 + 24763.000000'
+++ bc
++ TOTAL=4688614.000000
++ COUNT=162
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 11 ']'
++ echo '=== ECR gate en qubits 8 11 ==='
+++ ./proba_ECR_gate_host 20 8 11
++ out=27074.000000
++ t=27074.000000
++ echo 'tiempo = 27074.000000'
+++ echo '4688614.000000 + 27074.000000'
+++ bc
++ TOTAL=4715688.000000
++ COUNT=163
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 12 ']'
++ echo '=== ECR gate en qubits 8 12 ==='
+++ ./proba_ECR_gate_host 20 8 12
++ out=29704.000000
++ t=29704.000000
++ echo 'tiempo = 29704.000000'
+++ echo '4715688.000000 + 29704.000000'
+++ bc
++ TOTAL=4745392.000000
++ COUNT=164
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 13 ']'
++ echo '=== ECR gate en qubits 8 13 ==='
+++ ./proba_ECR_gate_host 20 8 13
++ out=28430.000000
++ t=28430.000000
++ echo 'tiempo = 28430.000000'
+++ echo '4745392.000000 + 28430.000000'
+++ bc
++ TOTAL=4773822.000000
++ COUNT=165
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 14 ']'
++ echo '=== ECR gate en qubits 8 14 ==='
+++ ./proba_ECR_gate_host 20 8 14
++ out=31134.000000
++ t=31134.000000
++ echo 'tiempo = 31134.000000'
+++ echo '4773822.000000 + 31134.000000'
+++ bc
++ TOTAL=4804956.000000
++ COUNT=166
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 15 ']'
++ echo '=== ECR gate en qubits 8 15 ==='
+++ ./proba_ECR_gate_host 20 8 15
++ out=26753.000000
++ t=26753.000000
++ echo 'tiempo = 26753.000000'
+++ echo '4804956.000000 + 26753.000000'
+++ bc
++ TOTAL=4831709.000000
++ COUNT=167
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 16 ']'
++ echo '=== ECR gate en qubits 8 16 ==='
+++ ./proba_ECR_gate_host 20 8 16
++ out=25660.000000
++ t=25660.000000
++ echo 'tiempo = 25660.000000'
+++ echo '4831709.000000 + 25660.000000'
+++ bc
++ TOTAL=4857369.000000
++ COUNT=168
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 17 ']'
++ echo '=== ECR gate en qubits 8 17 ==='
+++ ./proba_ECR_gate_host 20 8 17
++ out=26005.000000
++ t=26005.000000
++ echo 'tiempo = 26005.000000'
+++ echo '4857369.000000 + 26005.000000'
+++ bc
++ TOTAL=4883374.000000
++ COUNT=169
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 18 ']'
++ echo '=== ECR gate en qubits 8 18 ==='
+++ ./proba_ECR_gate_host 20 8 18
++ out=25071.000000
++ t=25071.000000
++ echo 'tiempo = 25071.000000'
+++ echo '4883374.000000 + 25071.000000'
+++ bc
++ TOTAL=4908445.000000
++ COUNT=170
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 8 -ne 19 ']'
++ echo '=== ECR gate en qubits 8 19 ==='
+++ ./proba_ECR_gate_host 20 8 19
++ out=26275.000000
++ t=26275.000000
++ echo 'tiempo = 26275.000000'
+++ echo '4908445.000000 + 26275.000000'
+++ bc
++ TOTAL=4934720.000000
++ COUNT=171
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 0 ']'
++ echo '=== ECR gate en qubits 9 0 ==='
+++ ./proba_ECR_gate_host 20 9 0
++ out=37761.000000
++ t=37761.000000
++ echo 'tiempo = 37761.000000'
+++ echo '4934720.000000 + 37761.000000'
+++ bc
++ TOTAL=4972481.000000
++ COUNT=172
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 1 ']'
++ echo '=== ECR gate en qubits 9 1 ==='
+++ ./proba_ECR_gate_host 20 9 1
++ out=31298.000000
++ t=31298.000000
++ echo 'tiempo = 31298.000000'
+++ echo '4972481.000000 + 31298.000000'
+++ bc
++ TOTAL=5003779.000000
++ COUNT=173
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 2 ']'
++ echo '=== ECR gate en qubits 9 2 ==='
+++ ./proba_ECR_gate_host 20 9 2
++ out=28255.000000
++ t=28255.000000
++ echo 'tiempo = 28255.000000'
+++ echo '5003779.000000 + 28255.000000'
+++ bc
++ TOTAL=5032034.000000
++ COUNT=174
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 3 ']'
++ echo '=== ECR gate en qubits 9 3 ==='
+++ ./proba_ECR_gate_host 20 9 3
++ out=26207.000000
++ t=26207.000000
++ echo 'tiempo = 26207.000000'
+++ echo '5032034.000000 + 26207.000000'
+++ bc
++ TOTAL=5058241.000000
++ COUNT=175
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 4 ']'
++ echo '=== ECR gate en qubits 9 4 ==='
+++ ./proba_ECR_gate_host 20 9 4
++ out=29654.000000
++ t=29654.000000
++ echo 'tiempo = 29654.000000'
+++ echo '5058241.000000 + 29654.000000'
+++ bc
++ TOTAL=5087895.000000
++ COUNT=176
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 5 ']'
++ echo '=== ECR gate en qubits 9 5 ==='
+++ ./proba_ECR_gate_host 20 9 5
++ out=26857.000000
++ t=26857.000000
++ echo 'tiempo = 26857.000000'
+++ echo '5087895.000000 + 26857.000000'
+++ bc
++ TOTAL=5114752.000000
++ COUNT=177
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 6 ']'
++ echo '=== ECR gate en qubits 9 6 ==='
+++ ./proba_ECR_gate_host 20 9 6
++ out=26271.000000
++ t=26271.000000
++ echo 'tiempo = 26271.000000'
+++ echo '5114752.000000 + 26271.000000'
+++ bc
++ TOTAL=5141023.000000
++ COUNT=178
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 7 ']'
++ echo '=== ECR gate en qubits 9 7 ==='
+++ ./proba_ECR_gate_host 20 9 7
++ out=28795.000000
++ t=28795.000000
++ echo 'tiempo = 28795.000000'
+++ echo '5141023.000000 + 28795.000000'
+++ bc
++ TOTAL=5169818.000000
++ COUNT=179
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 8 ']'
++ echo '=== ECR gate en qubits 9 8 ==='
+++ ./proba_ECR_gate_host 20 9 8
++ out=27816.000000
++ t=27816.000000
++ echo 'tiempo = 27816.000000'
+++ echo '5169818.000000 + 27816.000000'
+++ bc
++ TOTAL=5197634.000000
++ COUNT=180
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 9 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 10 ']'
++ echo '=== ECR gate en qubits 9 10 ==='
+++ ./proba_ECR_gate_host 20 9 10
++ out=25178.000000
++ t=25178.000000
++ echo 'tiempo = 25178.000000'
+++ echo '5197634.000000 + 25178.000000'
+++ bc
++ TOTAL=5222812.000000
++ COUNT=181
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 11 ']'
++ echo '=== ECR gate en qubits 9 11 ==='
+++ ./proba_ECR_gate_host 20 9 11
++ out=28084.000000
++ t=28084.000000
++ echo 'tiempo = 28084.000000'
+++ echo '5222812.000000 + 28084.000000'
+++ bc
++ TOTAL=5250896.000000
++ COUNT=182
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 12 ']'
++ echo '=== ECR gate en qubits 9 12 ==='
+++ ./proba_ECR_gate_host 20 9 12
++ out=24497.000000
++ t=24497.000000
++ echo 'tiempo = 24497.000000'
+++ echo '5250896.000000 + 24497.000000'
+++ bc
++ TOTAL=5275393.000000
++ COUNT=183
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 13 ']'
++ echo '=== ECR gate en qubits 9 13 ==='
+++ ./proba_ECR_gate_host 20 9 13
++ out=26627.000000
++ t=26627.000000
++ echo 'tiempo = 26627.000000'
+++ echo '5275393.000000 + 26627.000000'
+++ bc
++ TOTAL=5302020.000000
++ COUNT=184
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 14 ']'
++ echo '=== ECR gate en qubits 9 14 ==='
+++ ./proba_ECR_gate_host 20 9 14
++ out=26634.000000
++ t=26634.000000
++ echo 'tiempo = 26634.000000'
+++ echo '5302020.000000 + 26634.000000'
+++ bc
++ TOTAL=5328654.000000
++ COUNT=185
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 15 ']'
++ echo '=== ECR gate en qubits 9 15 ==='
+++ ./proba_ECR_gate_host 20 9 15
++ out=26618.000000
++ t=26618.000000
++ echo 'tiempo = 26618.000000'
+++ echo '5328654.000000 + 26618.000000'
+++ bc
++ TOTAL=5355272.000000
++ COUNT=186
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 16 ']'
++ echo '=== ECR gate en qubits 9 16 ==='
+++ ./proba_ECR_gate_host 20 9 16
++ out=25996.000000
++ t=25996.000000
++ echo 'tiempo = 25996.000000'
+++ echo '5355272.000000 + 25996.000000'
+++ bc
++ TOTAL=5381268.000000
++ COUNT=187
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 17 ']'
++ echo '=== ECR gate en qubits 9 17 ==='
+++ ./proba_ECR_gate_host 20 9 17
++ out=28755.000000
++ t=28755.000000
++ echo 'tiempo = 28755.000000'
+++ echo '5381268.000000 + 28755.000000'
+++ bc
++ TOTAL=5410023.000000
++ COUNT=188
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 18 ']'
++ echo '=== ECR gate en qubits 9 18 ==='
+++ ./proba_ECR_gate_host 20 9 18
++ out=26365.000000
++ t=26365.000000
++ echo 'tiempo = 26365.000000'
+++ echo '5410023.000000 + 26365.000000'
+++ bc
++ TOTAL=5436388.000000
++ COUNT=189
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 9 -ne 19 ']'
++ echo '=== ECR gate en qubits 9 19 ==='
+++ ./proba_ECR_gate_host 20 9 19
++ out=26955.000000
++ t=26955.000000
++ echo 'tiempo = 26955.000000'
+++ echo '5436388.000000 + 26955.000000'
+++ bc
++ TOTAL=5463343.000000
++ COUNT=190
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 0 ']'
++ echo '=== ECR gate en qubits 10 0 ==='
+++ ./proba_ECR_gate_host 20 10 0
++ out=39041.000000
++ t=39041.000000
++ echo 'tiempo = 39041.000000'
+++ echo '5463343.000000 + 39041.000000'
+++ bc
++ TOTAL=5502384.000000
++ COUNT=191
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 1 ']'
++ echo '=== ECR gate en qubits 10 1 ==='
+++ ./proba_ECR_gate_host 20 10 1
++ out=24117.000000
++ t=24117.000000
++ echo 'tiempo = 24117.000000'
+++ echo '5502384.000000 + 24117.000000'
+++ bc
++ TOTAL=5526501.000000
++ COUNT=192
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 2 ']'
++ echo '=== ECR gate en qubits 10 2 ==='
+++ ./proba_ECR_gate_host 20 10 2
++ out=27086.000000
++ t=27086.000000
++ echo 'tiempo = 27086.000000'
+++ echo '5526501.000000 + 27086.000000'
+++ bc
++ TOTAL=5553587.000000
++ COUNT=193
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 3 ']'
++ echo '=== ECR gate en qubits 10 3 ==='
+++ ./proba_ECR_gate_host 20 10 3
++ out=23951.000000
++ t=23951.000000
++ echo 'tiempo = 23951.000000'
+++ echo '5553587.000000 + 23951.000000'
+++ bc
++ TOTAL=5577538.000000
++ COUNT=194
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 4 ']'
++ echo '=== ECR gate en qubits 10 4 ==='
+++ ./proba_ECR_gate_host 20 10 4
++ out=25855.000000
++ t=25855.000000
++ echo 'tiempo = 25855.000000'
+++ echo '5577538.000000 + 25855.000000'
+++ bc
++ TOTAL=5603393.000000
++ COUNT=195
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 5 ']'
++ echo '=== ECR gate en qubits 10 5 ==='
+++ ./proba_ECR_gate_host 20 10 5
++ out=26218.000000
++ t=26218.000000
++ echo 'tiempo = 26218.000000'
+++ echo '5603393.000000 + 26218.000000'
+++ bc
++ TOTAL=5629611.000000
++ COUNT=196
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 6 ']'
++ echo '=== ECR gate en qubits 10 6 ==='
+++ ./proba_ECR_gate_host 20 10 6
++ out=25626.000000
++ t=25626.000000
++ echo 'tiempo = 25626.000000'
+++ echo '5629611.000000 + 25626.000000'
+++ bc
++ TOTAL=5655237.000000
++ COUNT=197
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 7 ']'
++ echo '=== ECR gate en qubits 10 7 ==='
+++ ./proba_ECR_gate_host 20 10 7
++ out=25717.000000
++ t=25717.000000
++ echo 'tiempo = 25717.000000'
+++ echo '5655237.000000 + 25717.000000'
+++ bc
++ TOTAL=5680954.000000
++ COUNT=198
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 8 ']'
++ echo '=== ECR gate en qubits 10 8 ==='
+++ ./proba_ECR_gate_host 20 10 8
++ out=29577.000000
++ t=29577.000000
++ echo 'tiempo = 29577.000000'
+++ echo '5680954.000000 + 29577.000000'
+++ bc
++ TOTAL=5710531.000000
++ COUNT=199
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 9 ']'
++ echo '=== ECR gate en qubits 10 9 ==='
+++ ./proba_ECR_gate_host 20 10 9
++ out=28872.000000
++ t=28872.000000
++ echo 'tiempo = 28872.000000'
+++ echo '5710531.000000 + 28872.000000'
+++ bc
++ TOTAL=5739403.000000
++ COUNT=200
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 10 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 11 ']'
++ echo '=== ECR gate en qubits 10 11 ==='
+++ ./proba_ECR_gate_host 20 10 11
++ out=25454.000000
++ t=25454.000000
++ echo 'tiempo = 25454.000000'
+++ echo '5739403.000000 + 25454.000000'
+++ bc
++ TOTAL=5764857.000000
++ COUNT=201
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 12 ']'
++ echo '=== ECR gate en qubits 10 12 ==='
+++ ./proba_ECR_gate_host 20 10 12
++ out=27399.000000
++ t=27399.000000
++ echo 'tiempo = 27399.000000'
+++ echo '5764857.000000 + 27399.000000'
+++ bc
++ TOTAL=5792256.000000
++ COUNT=202
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 13 ']'
++ echo '=== ECR gate en qubits 10 13 ==='
+++ ./proba_ECR_gate_host 20 10 13
++ out=26639.000000
++ t=26639.000000
++ echo 'tiempo = 26639.000000'
+++ echo '5792256.000000 + 26639.000000'
+++ bc
++ TOTAL=5818895.000000
++ COUNT=203
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 14 ']'
++ echo '=== ECR gate en qubits 10 14 ==='
+++ ./proba_ECR_gate_host 20 10 14
++ out=25719.000000
++ t=25719.000000
++ echo 'tiempo = 25719.000000'
+++ echo '5818895.000000 + 25719.000000'
+++ bc
++ TOTAL=5844614.000000
++ COUNT=204
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 15 ']'
++ echo '=== ECR gate en qubits 10 15 ==='
+++ ./proba_ECR_gate_host 20 10 15
++ out=30032.000000
++ t=30032.000000
++ echo 'tiempo = 30032.000000'
+++ echo '5844614.000000 + 30032.000000'
+++ bc
++ TOTAL=5874646.000000
++ COUNT=205
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 16 ']'
++ echo '=== ECR gate en qubits 10 16 ==='
+++ ./proba_ECR_gate_host 20 10 16
++ out=27358.000000
++ t=27358.000000
++ echo 'tiempo = 27358.000000'
+++ echo '5874646.000000 + 27358.000000'
+++ bc
++ TOTAL=5902004.000000
++ COUNT=206
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 17 ']'
++ echo '=== ECR gate en qubits 10 17 ==='
+++ ./proba_ECR_gate_host 20 10 17
++ out=25835.000000
++ t=25835.000000
++ echo 'tiempo = 25835.000000'
+++ echo '5902004.000000 + 25835.000000'
+++ bc
++ TOTAL=5927839.000000
++ COUNT=207
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 18 ']'
++ echo '=== ECR gate en qubits 10 18 ==='
+++ ./proba_ECR_gate_host 20 10 18
++ out=25781.000000
++ t=25781.000000
++ echo 'tiempo = 25781.000000'
+++ echo '5927839.000000 + 25781.000000'
+++ bc
++ TOTAL=5953620.000000
++ COUNT=208
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 10 -ne 19 ']'
++ echo '=== ECR gate en qubits 10 19 ==='
+++ ./proba_ECR_gate_host 20 10 19
++ out=23485.000000
++ t=23485.000000
++ echo 'tiempo = 23485.000000'
+++ echo '5953620.000000 + 23485.000000'
+++ bc
++ TOTAL=5977105.000000
++ COUNT=209
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 0 ']'
++ echo '=== ECR gate en qubits 11 0 ==='
+++ ./proba_ECR_gate_host 20 11 0
++ out=36191.000000
++ t=36191.000000
++ echo 'tiempo = 36191.000000'
+++ echo '5977105.000000 + 36191.000000'
+++ bc
++ TOTAL=6013296.000000
++ COUNT=210
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 1 ']'
++ echo '=== ECR gate en qubits 11 1 ==='
+++ ./proba_ECR_gate_host 20 11 1
++ out=24056.000000
++ t=24056.000000
++ echo 'tiempo = 24056.000000'
+++ echo '6013296.000000 + 24056.000000'
+++ bc
++ TOTAL=6037352.000000
++ COUNT=211
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 2 ']'
++ echo '=== ECR gate en qubits 11 2 ==='
+++ ./proba_ECR_gate_host 20 11 2
++ out=30821.000000
++ t=30821.000000
++ echo 'tiempo = 30821.000000'
+++ echo '6037352.000000 + 30821.000000'
+++ bc
++ TOTAL=6068173.000000
++ COUNT=212
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 3 ']'
++ echo '=== ECR gate en qubits 11 3 ==='
+++ ./proba_ECR_gate_host 20 11 3
++ out=24308.000000
++ t=24308.000000
++ echo 'tiempo = 24308.000000'
+++ echo '6068173.000000 + 24308.000000'
+++ bc
++ TOTAL=6092481.000000
++ COUNT=213
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 4 ']'
++ echo '=== ECR gate en qubits 11 4 ==='
+++ ./proba_ECR_gate_host 20 11 4
++ out=27166.000000
++ t=27166.000000
++ echo 'tiempo = 27166.000000'
+++ echo '6092481.000000 + 27166.000000'
+++ bc
++ TOTAL=6119647.000000
++ COUNT=214
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 5 ']'
++ echo '=== ECR gate en qubits 11 5 ==='
+++ ./proba_ECR_gate_host 20 11 5
++ out=23417.000000
++ t=23417.000000
++ echo 'tiempo = 23417.000000'
+++ echo '6119647.000000 + 23417.000000'
+++ bc
++ TOTAL=6143064.000000
++ COUNT=215
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 6 ']'
++ echo '=== ECR gate en qubits 11 6 ==='
+++ ./proba_ECR_gate_host 20 11 6
++ out=30891.000000
++ t=30891.000000
++ echo 'tiempo = 30891.000000'
+++ echo '6143064.000000 + 30891.000000'
+++ bc
++ TOTAL=6173955.000000
++ COUNT=216
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 7 ']'
++ echo '=== ECR gate en qubits 11 7 ==='
+++ ./proba_ECR_gate_host 20 11 7
++ out=24614.000000
++ t=24614.000000
++ echo 'tiempo = 24614.000000'
+++ echo '6173955.000000 + 24614.000000'
+++ bc
++ TOTAL=6198569.000000
++ COUNT=217
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 8 ']'
++ echo '=== ECR gate en qubits 11 8 ==='
+++ ./proba_ECR_gate_host 20 11 8
++ out=24105.000000
++ t=24105.000000
++ echo 'tiempo = 24105.000000'
+++ echo '6198569.000000 + 24105.000000'
+++ bc
++ TOTAL=6222674.000000
++ COUNT=218
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 9 ']'
++ echo '=== ECR gate en qubits 11 9 ==='
+++ ./proba_ECR_gate_host 20 11 9
++ out=27788.000000
++ t=27788.000000
++ echo 'tiempo = 27788.000000'
+++ echo '6222674.000000 + 27788.000000'
+++ bc
++ TOTAL=6250462.000000
++ COUNT=219
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 10 ']'
++ echo '=== ECR gate en qubits 11 10 ==='
+++ ./proba_ECR_gate_host 20 11 10
++ out=24114.000000
++ t=24114.000000
++ echo 'tiempo = 24114.000000'
+++ echo '6250462.000000 + 24114.000000'
+++ bc
++ TOTAL=6274576.000000
++ COUNT=220
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 11 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 12 ']'
++ echo '=== ECR gate en qubits 11 12 ==='
+++ ./proba_ECR_gate_host 20 11 12
++ out=26803.000000
++ t=26803.000000
++ echo 'tiempo = 26803.000000'
+++ echo '6274576.000000 + 26803.000000'
+++ bc
++ TOTAL=6301379.000000
++ COUNT=221
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 13 ']'
++ echo '=== ECR gate en qubits 11 13 ==='
+++ ./proba_ECR_gate_host 20 11 13
++ out=26081.000000
++ t=26081.000000
++ echo 'tiempo = 26081.000000'
+++ echo '6301379.000000 + 26081.000000'
+++ bc
++ TOTAL=6327460.000000
++ COUNT=222
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 14 ']'
++ echo '=== ECR gate en qubits 11 14 ==='
+++ ./proba_ECR_gate_host 20 11 14
++ out=25875.000000
++ t=25875.000000
++ echo 'tiempo = 25875.000000'
+++ echo '6327460.000000 + 25875.000000'
+++ bc
++ TOTAL=6353335.000000
++ COUNT=223
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 15 ']'
++ echo '=== ECR gate en qubits 11 15 ==='
+++ ./proba_ECR_gate_host 20 11 15
++ out=23112.000000
++ t=23112.000000
++ echo 'tiempo = 23112.000000'
+++ echo '6353335.000000 + 23112.000000'
+++ bc
++ TOTAL=6376447.000000
++ COUNT=224
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 16 ']'
++ echo '=== ECR gate en qubits 11 16 ==='
+++ ./proba_ECR_gate_host 20 11 16
++ out=25252.000000
++ t=25252.000000
++ echo 'tiempo = 25252.000000'
+++ echo '6376447.000000 + 25252.000000'
+++ bc
++ TOTAL=6401699.000000
++ COUNT=225
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 17 ']'
++ echo '=== ECR gate en qubits 11 17 ==='
+++ ./proba_ECR_gate_host 20 11 17
++ out=23639.000000
++ t=23639.000000
++ echo 'tiempo = 23639.000000'
+++ echo '6401699.000000 + 23639.000000'
+++ bc
++ TOTAL=6425338.000000
++ COUNT=226
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 18 ']'
++ echo '=== ECR gate en qubits 11 18 ==='
+++ ./proba_ECR_gate_host 20 11 18
++ out=30410.000000
++ t=30410.000000
++ echo 'tiempo = 30410.000000'
+++ echo '6425338.000000 + 30410.000000'
+++ bc
++ TOTAL=6455748.000000
++ COUNT=227
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 11 -ne 19 ']'
++ echo '=== ECR gate en qubits 11 19 ==='
+++ ./proba_ECR_gate_host 20 11 19
++ out=25420.000000
++ t=25420.000000
++ echo 'tiempo = 25420.000000'
+++ echo '6455748.000000 + 25420.000000'
+++ bc
++ TOTAL=6481168.000000
++ COUNT=228
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 0 ']'
++ echo '=== ECR gate en qubits 12 0 ==='
+++ ./proba_ECR_gate_host 20 12 0
++ out=39248.000000
++ t=39248.000000
++ echo 'tiempo = 39248.000000'
+++ echo '6481168.000000 + 39248.000000'
+++ bc
++ TOTAL=6520416.000000
++ COUNT=229
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 1 ']'
++ echo '=== ECR gate en qubits 12 1 ==='
+++ ./proba_ECR_gate_host 20 12 1
++ out=26067.000000
++ t=26067.000000
++ echo 'tiempo = 26067.000000'
+++ echo '6520416.000000 + 26067.000000'
+++ bc
++ TOTAL=6546483.000000
++ COUNT=230
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 2 ']'
++ echo '=== ECR gate en qubits 12 2 ==='
+++ ./proba_ECR_gate_host 20 12 2
++ out=26095.000000
++ t=26095.000000
++ echo 'tiempo = 26095.000000'
+++ echo '6546483.000000 + 26095.000000'
+++ bc
++ TOTAL=6572578.000000
++ COUNT=231
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 3 ']'
++ echo '=== ECR gate en qubits 12 3 ==='
+++ ./proba_ECR_gate_host 20 12 3
++ out=23067.000000
++ t=23067.000000
++ echo 'tiempo = 23067.000000'
+++ echo '6572578.000000 + 23067.000000'
+++ bc
++ TOTAL=6595645.000000
++ COUNT=232
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 4 ']'
++ echo '=== ECR gate en qubits 12 4 ==='
+++ ./proba_ECR_gate_host 20 12 4
++ out=23853.000000
++ t=23853.000000
++ echo 'tiempo = 23853.000000'
+++ echo '6595645.000000 + 23853.000000'
+++ bc
++ TOTAL=6619498.000000
++ COUNT=233
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 5 ']'
++ echo '=== ECR gate en qubits 12 5 ==='
+++ ./proba_ECR_gate_host 20 12 5
++ out=29093.000000
++ t=29093.000000
++ echo 'tiempo = 29093.000000'
+++ echo '6619498.000000 + 29093.000000'
+++ bc
++ TOTAL=6648591.000000
++ COUNT=234
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 6 ']'
++ echo '=== ECR gate en qubits 12 6 ==='
+++ ./proba_ECR_gate_host 20 12 6
++ out=27803.000000
++ t=27803.000000
++ echo 'tiempo = 27803.000000'
+++ echo '6648591.000000 + 27803.000000'
+++ bc
++ TOTAL=6676394.000000
++ COUNT=235
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 7 ']'
++ echo '=== ECR gate en qubits 12 7 ==='
+++ ./proba_ECR_gate_host 20 12 7
++ out=24565.000000
++ t=24565.000000
++ echo 'tiempo = 24565.000000'
+++ echo '6676394.000000 + 24565.000000'
+++ bc
++ TOTAL=6700959.000000
++ COUNT=236
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 8 ']'
++ echo '=== ECR gate en qubits 12 8 ==='
+++ ./proba_ECR_gate_host 20 12 8
++ out=24455.000000
++ t=24455.000000
++ echo 'tiempo = 24455.000000'
+++ echo '6700959.000000 + 24455.000000'
+++ bc
++ TOTAL=6725414.000000
++ COUNT=237
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 9 ']'
++ echo '=== ECR gate en qubits 12 9 ==='
+++ ./proba_ECR_gate_host 20 12 9
++ out=26716.000000
++ t=26716.000000
++ echo 'tiempo = 26716.000000'
+++ echo '6725414.000000 + 26716.000000'
+++ bc
++ TOTAL=6752130.000000
++ COUNT=238
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 10 ']'
++ echo '=== ECR gate en qubits 12 10 ==='
+++ ./proba_ECR_gate_host 20 12 10
++ out=29030.000000
++ t=29030.000000
++ echo 'tiempo = 29030.000000'
+++ echo '6752130.000000 + 29030.000000'
+++ bc
++ TOTAL=6781160.000000
++ COUNT=239
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 11 ']'
++ echo '=== ECR gate en qubits 12 11 ==='
+++ ./proba_ECR_gate_host 20 12 11
++ out=31816.000000
++ t=31816.000000
++ echo 'tiempo = 31816.000000'
+++ echo '6781160.000000 + 31816.000000'
+++ bc
++ TOTAL=6812976.000000
++ COUNT=240
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 12 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 13 ']'
++ echo '=== ECR gate en qubits 12 13 ==='
+++ ./proba_ECR_gate_host 20 12 13
++ out=27119.000000
++ t=27119.000000
++ echo 'tiempo = 27119.000000'
+++ echo '6812976.000000 + 27119.000000'
+++ bc
++ TOTAL=6840095.000000
++ COUNT=241
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 14 ']'
++ echo '=== ECR gate en qubits 12 14 ==='
+++ ./proba_ECR_gate_host 20 12 14
++ out=27562.000000
++ t=27562.000000
++ echo 'tiempo = 27562.000000'
+++ echo '6840095.000000 + 27562.000000'
+++ bc
++ TOTAL=6867657.000000
++ COUNT=242
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 15 ']'
++ echo '=== ECR gate en qubits 12 15 ==='
+++ ./proba_ECR_gate_host 20 12 15
++ out=22416.000000
++ t=22416.000000
++ echo 'tiempo = 22416.000000'
+++ echo '6867657.000000 + 22416.000000'
+++ bc
++ TOTAL=6890073.000000
++ COUNT=243
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 16 ']'
++ echo '=== ECR gate en qubits 12 16 ==='
+++ ./proba_ECR_gate_host 20 12 16
++ out=25798.000000
++ t=25798.000000
++ echo 'tiempo = 25798.000000'
+++ echo '6890073.000000 + 25798.000000'
+++ bc
++ TOTAL=6915871.000000
++ COUNT=244
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 17 ']'
++ echo '=== ECR gate en qubits 12 17 ==='
+++ ./proba_ECR_gate_host 20 12 17
++ out=22686.000000
++ t=22686.000000
++ echo 'tiempo = 22686.000000'
+++ echo '6915871.000000 + 22686.000000'
+++ bc
++ TOTAL=6938557.000000
++ COUNT=245
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 18 ']'
++ echo '=== ECR gate en qubits 12 18 ==='
+++ ./proba_ECR_gate_host 20 12 18
++ out=23190.000000
++ t=23190.000000
++ echo 'tiempo = 23190.000000'
+++ echo '6938557.000000 + 23190.000000'
+++ bc
++ TOTAL=6961747.000000
++ COUNT=246
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 12 -ne 19 ']'
++ echo '=== ECR gate en qubits 12 19 ==='
+++ ./proba_ECR_gate_host 20 12 19
++ out=32777.000000
++ t=32777.000000
++ echo 'tiempo = 32777.000000'
+++ echo '6961747.000000 + 32777.000000'
+++ bc
++ TOTAL=6994524.000000
++ COUNT=247
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 0 ']'
++ echo '=== ECR gate en qubits 13 0 ==='
+++ ./proba_ECR_gate_host 20 13 0
++ out=39354.000000
++ t=39354.000000
++ echo 'tiempo = 39354.000000'
+++ echo '6994524.000000 + 39354.000000'
+++ bc
++ TOTAL=7033878.000000
++ COUNT=248
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 1 ']'
++ echo '=== ECR gate en qubits 13 1 ==='
+++ ./proba_ECR_gate_host 20 13 1
++ out=25246.000000
++ t=25246.000000
++ echo 'tiempo = 25246.000000'
+++ echo '7033878.000000 + 25246.000000'
+++ bc
++ TOTAL=7059124.000000
++ COUNT=249
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 2 ']'
++ echo '=== ECR gate en qubits 13 2 ==='
+++ ./proba_ECR_gate_host 20 13 2
++ out=27939.000000
++ t=27939.000000
++ echo 'tiempo = 27939.000000'
+++ echo '7059124.000000 + 27939.000000'
+++ bc
++ TOTAL=7087063.000000
++ COUNT=250
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 3 ']'
++ echo '=== ECR gate en qubits 13 3 ==='
+++ ./proba_ECR_gate_host 20 13 3
++ out=26925.000000
++ t=26925.000000
++ echo 'tiempo = 26925.000000'
+++ echo '7087063.000000 + 26925.000000'
+++ bc
++ TOTAL=7113988.000000
++ COUNT=251
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 4 ']'
++ echo '=== ECR gate en qubits 13 4 ==='
+++ ./proba_ECR_gate_host 20 13 4
++ out=31753.000000
++ t=31753.000000
++ echo 'tiempo = 31753.000000'
+++ echo '7113988.000000 + 31753.000000'
+++ bc
++ TOTAL=7145741.000000
++ COUNT=252
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 5 ']'
++ echo '=== ECR gate en qubits 13 5 ==='
+++ ./proba_ECR_gate_host 20 13 5
++ out=28691.000000
++ t=28691.000000
++ echo 'tiempo = 28691.000000'
+++ echo '7145741.000000 + 28691.000000'
+++ bc
++ TOTAL=7174432.000000
++ COUNT=253
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 6 ']'
++ echo '=== ECR gate en qubits 13 6 ==='
+++ ./proba_ECR_gate_host 20 13 6
++ out=24874.000000
++ t=24874.000000
++ echo 'tiempo = 24874.000000'
+++ echo '7174432.000000 + 24874.000000'
+++ bc
++ TOTAL=7199306.000000
++ COUNT=254
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 7 ']'
++ echo '=== ECR gate en qubits 13 7 ==='
+++ ./proba_ECR_gate_host 20 13 7
++ out=24227.000000
++ t=24227.000000
++ echo 'tiempo = 24227.000000'
+++ echo '7199306.000000 + 24227.000000'
+++ bc
++ TOTAL=7223533.000000
++ COUNT=255
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 8 ']'
++ echo '=== ECR gate en qubits 13 8 ==='
+++ ./proba_ECR_gate_host 20 13 8
++ out=22531.000000
++ t=22531.000000
++ echo 'tiempo = 22531.000000'
+++ echo '7223533.000000 + 22531.000000'
+++ bc
++ TOTAL=7246064.000000
++ COUNT=256
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 9 ']'
++ echo '=== ECR gate en qubits 13 9 ==='
+++ ./proba_ECR_gate_host 20 13 9
++ out=26073.000000
++ t=26073.000000
++ echo 'tiempo = 26073.000000'
+++ echo '7246064.000000 + 26073.000000'
+++ bc
++ TOTAL=7272137.000000
++ COUNT=257
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 10 ']'
++ echo '=== ECR gate en qubits 13 10 ==='
+++ ./proba_ECR_gate_host 20 13 10
++ out=22869.000000
++ t=22869.000000
++ echo 'tiempo = 22869.000000'
+++ echo '7272137.000000 + 22869.000000'
+++ bc
++ TOTAL=7295006.000000
++ COUNT=258
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 11 ']'
++ echo '=== ECR gate en qubits 13 11 ==='
+++ ./proba_ECR_gate_host 20 13 11
++ out=25641.000000
++ t=25641.000000
++ echo 'tiempo = 25641.000000'
+++ echo '7295006.000000 + 25641.000000'
+++ bc
++ TOTAL=7320647.000000
++ COUNT=259
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 12 ']'
++ echo '=== ECR gate en qubits 13 12 ==='
+++ ./proba_ECR_gate_host 20 13 12
++ out=27931.000000
++ t=27931.000000
++ echo 'tiempo = 27931.000000'
+++ echo '7320647.000000 + 27931.000000'
+++ bc
++ TOTAL=7348578.000000
++ COUNT=260
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 13 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 14 ']'
++ echo '=== ECR gate en qubits 13 14 ==='
+++ ./proba_ECR_gate_host 20 13 14
++ out=26779.000000
++ t=26779.000000
++ echo 'tiempo = 26779.000000'
+++ echo '7348578.000000 + 26779.000000'
+++ bc
++ TOTAL=7375357.000000
++ COUNT=261
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 15 ']'
++ echo '=== ECR gate en qubits 13 15 ==='
+++ ./proba_ECR_gate_host 20 13 15
++ out=26799.000000
++ t=26799.000000
++ echo 'tiempo = 26799.000000'
+++ echo '7375357.000000 + 26799.000000'
+++ bc
++ TOTAL=7402156.000000
++ COUNT=262
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 16 ']'
++ echo '=== ECR gate en qubits 13 16 ==='
+++ ./proba_ECR_gate_host 20 13 16
++ out=26414.000000
++ t=26414.000000
++ echo 'tiempo = 26414.000000'
+++ echo '7402156.000000 + 26414.000000'
+++ bc
++ TOTAL=7428570.000000
++ COUNT=263
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 17 ']'
++ echo '=== ECR gate en qubits 13 17 ==='
+++ ./proba_ECR_gate_host 20 13 17
++ out=26922.000000
++ t=26922.000000
++ echo 'tiempo = 26922.000000'
+++ echo '7428570.000000 + 26922.000000'
+++ bc
++ TOTAL=7455492.000000
++ COUNT=264
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 18 ']'
++ echo '=== ECR gate en qubits 13 18 ==='
+++ ./proba_ECR_gate_host 20 13 18
++ out=25830.000000
++ t=25830.000000
++ echo 'tiempo = 25830.000000'
+++ echo '7455492.000000 + 25830.000000'
+++ bc
++ TOTAL=7481322.000000
++ COUNT=265
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 13 -ne 19 ']'
++ echo '=== ECR gate en qubits 13 19 ==='
+++ ./proba_ECR_gate_host 20 13 19
++ out=30539.000000
++ t=30539.000000
++ echo 'tiempo = 30539.000000'
+++ echo '7481322.000000 + 30539.000000'
+++ bc
++ TOTAL=7511861.000000
++ COUNT=266
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 0 ']'
++ echo '=== ECR gate en qubits 14 0 ==='
+++ ./proba_ECR_gate_host 20 14 0
++ out=37924.000000
++ t=37924.000000
++ echo 'tiempo = 37924.000000'
+++ echo '7511861.000000 + 37924.000000'
+++ bc
++ TOTAL=7549785.000000
++ COUNT=267
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 1 ']'
++ echo '=== ECR gate en qubits 14 1 ==='
+++ ./proba_ECR_gate_host 20 14 1
++ out=24336.000000
++ t=24336.000000
++ echo 'tiempo = 24336.000000'
+++ echo '7549785.000000 + 24336.000000'
+++ bc
++ TOTAL=7574121.000000
++ COUNT=268
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 2 ']'
++ echo '=== ECR gate en qubits 14 2 ==='
+++ ./proba_ECR_gate_host 20 14 2
++ out=30161.000000
++ t=30161.000000
++ echo 'tiempo = 30161.000000'
+++ echo '7574121.000000 + 30161.000000'
+++ bc
++ TOTAL=7604282.000000
++ COUNT=269
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 3 ']'
++ echo '=== ECR gate en qubits 14 3 ==='
+++ ./proba_ECR_gate_host 20 14 3
++ out=25896.000000
++ t=25896.000000
++ echo 'tiempo = 25896.000000'
+++ echo '7604282.000000 + 25896.000000'
+++ bc
++ TOTAL=7630178.000000
++ COUNT=270
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 4 ']'
++ echo '=== ECR gate en qubits 14 4 ==='
+++ ./proba_ECR_gate_host 20 14 4
++ out=26443.000000
++ t=26443.000000
++ echo 'tiempo = 26443.000000'
+++ echo '7630178.000000 + 26443.000000'
+++ bc
++ TOTAL=7656621.000000
++ COUNT=271
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 5 ']'
++ echo '=== ECR gate en qubits 14 5 ==='
+++ ./proba_ECR_gate_host 20 14 5
++ out=31681.000000
++ t=31681.000000
++ echo 'tiempo = 31681.000000'
+++ echo '7656621.000000 + 31681.000000'
+++ bc
++ TOTAL=7688302.000000
++ COUNT=272
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 6 ']'
++ echo '=== ECR gate en qubits 14 6 ==='
+++ ./proba_ECR_gate_host 20 14 6
++ out=30136.000000
++ t=30136.000000
++ echo 'tiempo = 30136.000000'
+++ echo '7688302.000000 + 30136.000000'
+++ bc
++ TOTAL=7718438.000000
++ COUNT=273
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 7 ']'
++ echo '=== ECR gate en qubits 14 7 ==='
+++ ./proba_ECR_gate_host 20 14 7
++ out=24781.000000
++ t=24781.000000
++ echo 'tiempo = 24781.000000'
+++ echo '7718438.000000 + 24781.000000'
+++ bc
++ TOTAL=7743219.000000
++ COUNT=274
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 8 ']'
++ echo '=== ECR gate en qubits 14 8 ==='
+++ ./proba_ECR_gate_host 20 14 8
++ out=22555.000000
++ t=22555.000000
++ echo 'tiempo = 22555.000000'
+++ echo '7743219.000000 + 22555.000000'
+++ bc
++ TOTAL=7765774.000000
++ COUNT=275
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 9 ']'
++ echo '=== ECR gate en qubits 14 9 ==='
+++ ./proba_ECR_gate_host 20 14 9
++ out=25170.000000
++ t=25170.000000
++ echo 'tiempo = 25170.000000'
+++ echo '7765774.000000 + 25170.000000'
+++ bc
++ TOTAL=7790944.000000
++ COUNT=276
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 10 ']'
++ echo '=== ECR gate en qubits 14 10 ==='
+++ ./proba_ECR_gate_host 20 14 10
++ out=23105.000000
++ t=23105.000000
++ echo 'tiempo = 23105.000000'
+++ echo '7790944.000000 + 23105.000000'
+++ bc
++ TOTAL=7814049.000000
++ COUNT=277
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 11 ']'
++ echo '=== ECR gate en qubits 14 11 ==='
+++ ./proba_ECR_gate_host 20 14 11
++ out=26142.000000
++ t=26142.000000
++ echo 'tiempo = 26142.000000'
+++ echo '7814049.000000 + 26142.000000'
+++ bc
++ TOTAL=7840191.000000
++ COUNT=278
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 12 ']'
++ echo '=== ECR gate en qubits 14 12 ==='
+++ ./proba_ECR_gate_host 20 14 12
++ out=29366.000000
++ t=29366.000000
++ echo 'tiempo = 29366.000000'
+++ echo '7840191.000000 + 29366.000000'
+++ bc
++ TOTAL=7869557.000000
++ COUNT=279
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 13 ']'
++ echo '=== ECR gate en qubits 14 13 ==='
+++ ./proba_ECR_gate_host 20 14 13
++ out=27848.000000
++ t=27848.000000
++ echo 'tiempo = 27848.000000'
+++ echo '7869557.000000 + 27848.000000'
+++ bc
++ TOTAL=7897405.000000
++ COUNT=280
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 14 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 15 ']'
++ echo '=== ECR gate en qubits 14 15 ==='
+++ ./proba_ECR_gate_host 20 14 15
++ out=26523.000000
++ t=26523.000000
++ echo 'tiempo = 26523.000000'
+++ echo '7897405.000000 + 26523.000000'
+++ bc
++ TOTAL=7923928.000000
++ COUNT=281
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 16 ']'
++ echo '=== ECR gate en qubits 14 16 ==='
+++ ./proba_ECR_gate_host 20 14 16
++ out=26271.000000
++ t=26271.000000
++ echo 'tiempo = 26271.000000'
+++ echo '7923928.000000 + 26271.000000'
+++ bc
++ TOTAL=7950199.000000
++ COUNT=282
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 17 ']'
++ echo '=== ECR gate en qubits 14 17 ==='
+++ ./proba_ECR_gate_host 20 14 17
++ out=26499.000000
++ t=26499.000000
++ echo 'tiempo = 26499.000000'
+++ echo '7950199.000000 + 26499.000000'
+++ bc
++ TOTAL=7976698.000000
++ COUNT=283
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 18 ']'
++ echo '=== ECR gate en qubits 14 18 ==='
+++ ./proba_ECR_gate_host 20 14 18
++ out=26132.000000
++ t=26132.000000
++ echo 'tiempo = 26132.000000'
+++ echo '7976698.000000 + 26132.000000'
+++ bc
++ TOTAL=8002830.000000
++ COUNT=284
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 14 -ne 19 ']'
++ echo '=== ECR gate en qubits 14 19 ==='
+++ ./proba_ECR_gate_host 20 14 19
++ out=27199.000000
++ t=27199.000000
++ echo 'tiempo = 27199.000000'
+++ echo '8002830.000000 + 27199.000000'
+++ bc
++ TOTAL=8030029.000000
++ COUNT=285
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 0 ']'
++ echo '=== ECR gate en qubits 15 0 ==='
+++ ./proba_ECR_gate_host 20 15 0
++ out=38695.000000
++ t=38695.000000
++ echo 'tiempo = 38695.000000'
+++ echo '8030029.000000 + 38695.000000'
+++ bc
++ TOTAL=8068724.000000
++ COUNT=286
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 1 ']'
++ echo '=== ECR gate en qubits 15 1 ==='
+++ ./proba_ECR_gate_host 20 15 1
++ out=23540.000000
++ t=23540.000000
++ echo 'tiempo = 23540.000000'
+++ echo '8068724.000000 + 23540.000000'
+++ bc
++ TOTAL=8092264.000000
++ COUNT=287
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 2 ']'
++ echo '=== ECR gate en qubits 15 2 ==='
+++ ./proba_ECR_gate_host 20 15 2
++ out=26229.000000
++ t=26229.000000
++ echo 'tiempo = 26229.000000'
+++ echo '8092264.000000 + 26229.000000'
+++ bc
++ TOTAL=8118493.000000
++ COUNT=288
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 3 ']'
++ echo '=== ECR gate en qubits 15 3 ==='
+++ ./proba_ECR_gate_host 20 15 3
++ out=24665.000000
++ t=24665.000000
++ echo 'tiempo = 24665.000000'
+++ echo '8118493.000000 + 24665.000000'
+++ bc
++ TOTAL=8143158.000000
++ COUNT=289
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 4 ']'
++ echo '=== ECR gate en qubits 15 4 ==='
+++ ./proba_ECR_gate_host 20 15 4
++ out=29336.000000
++ t=29336.000000
++ echo 'tiempo = 29336.000000'
+++ echo '8143158.000000 + 29336.000000'
+++ bc
++ TOTAL=8172494.000000
++ COUNT=290
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 5 ']'
++ echo '=== ECR gate en qubits 15 5 ==='
+++ ./proba_ECR_gate_host 20 15 5
++ out=26799.000000
++ t=26799.000000
++ echo 'tiempo = 26799.000000'
+++ echo '8172494.000000 + 26799.000000'
+++ bc
++ TOTAL=8199293.000000
++ COUNT=291
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 6 ']'
++ echo '=== ECR gate en qubits 15 6 ==='
+++ ./proba_ECR_gate_host 20 15 6
++ out=24030.000000
++ t=24030.000000
++ echo 'tiempo = 24030.000000'
+++ echo '8199293.000000 + 24030.000000'
+++ bc
++ TOTAL=8223323.000000
++ COUNT=292
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 7 ']'
++ echo '=== ECR gate en qubits 15 7 ==='
+++ ./proba_ECR_gate_host 20 15 7
++ out=24359.000000
++ t=24359.000000
++ echo 'tiempo = 24359.000000'
+++ echo '8223323.000000 + 24359.000000'
+++ bc
++ TOTAL=8247682.000000
++ COUNT=293
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 8 ']'
++ echo '=== ECR gate en qubits 15 8 ==='
+++ ./proba_ECR_gate_host 20 15 8
++ out=29575.000000
++ t=29575.000000
++ echo 'tiempo = 29575.000000'
+++ echo '8247682.000000 + 29575.000000'
+++ bc
++ TOTAL=8277257.000000
++ COUNT=294
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 9 ']'
++ echo '=== ECR gate en qubits 15 9 ==='
+++ ./proba_ECR_gate_host 20 15 9
++ out=28352.000000
++ t=28352.000000
++ echo 'tiempo = 28352.000000'
+++ echo '8277257.000000 + 28352.000000'
+++ bc
++ TOTAL=8305609.000000
++ COUNT=295
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 10 ']'
++ echo '=== ECR gate en qubits 15 10 ==='
+++ ./proba_ECR_gate_host 20 15 10
++ out=30379.000000
++ t=30379.000000
++ echo 'tiempo = 30379.000000'
+++ echo '8305609.000000 + 30379.000000'
+++ bc
++ TOTAL=8335988.000000
++ COUNT=296
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 11 ']'
++ echo '=== ECR gate en qubits 15 11 ==='
+++ ./proba_ECR_gate_host 20 15 11
++ out=27309.000000
++ t=27309.000000
++ echo 'tiempo = 27309.000000'
+++ echo '8335988.000000 + 27309.000000'
+++ bc
++ TOTAL=8363297.000000
++ COUNT=297
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 12 ']'
++ echo '=== ECR gate en qubits 15 12 ==='
+++ ./proba_ECR_gate_host 20 15 12
++ out=25035.000000
++ t=25035.000000
++ echo 'tiempo = 25035.000000'
+++ echo '8363297.000000 + 25035.000000'
+++ bc
++ TOTAL=8388332.000000
++ COUNT=298
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 13 ']'
++ echo '=== ECR gate en qubits 15 13 ==='
+++ ./proba_ECR_gate_host 20 15 13
++ out=25408.000000
++ t=25408.000000
++ echo 'tiempo = 25408.000000'
+++ echo '8388332.000000 + 25408.000000'
+++ bc
++ TOTAL=8413740.000000
++ COUNT=299
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 14 ']'
++ echo '=== ECR gate en qubits 15 14 ==='
+++ ./proba_ECR_gate_host 20 15 14
++ out=22360.000000
++ t=22360.000000
++ echo 'tiempo = 22360.000000'
+++ echo '8413740.000000 + 22360.000000'
+++ bc
++ TOTAL=8436100.000000
++ COUNT=300
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 15 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 16 ']'
++ echo '=== ECR gate en qubits 15 16 ==='
+++ ./proba_ECR_gate_host 20 15 16
++ out=24632.000000
++ t=24632.000000
++ echo 'tiempo = 24632.000000'
+++ echo '8436100.000000 + 24632.000000'
+++ bc
++ TOTAL=8460732.000000
++ COUNT=301
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 17 ']'
++ echo '=== ECR gate en qubits 15 17 ==='
+++ ./proba_ECR_gate_host 20 15 17
++ out=25195.000000
++ t=25195.000000
++ echo 'tiempo = 25195.000000'
+++ echo '8460732.000000 + 25195.000000'
+++ bc
++ TOTAL=8485927.000000
++ COUNT=302
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 18 ']'
++ echo '=== ECR gate en qubits 15 18 ==='
+++ ./proba_ECR_gate_host 20 15 18
++ out=29115.000000
++ t=29115.000000
++ echo 'tiempo = 29115.000000'
+++ echo '8485927.000000 + 29115.000000'
+++ bc
++ TOTAL=8515042.000000
++ COUNT=303
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 15 -ne 19 ']'
++ echo '=== ECR gate en qubits 15 19 ==='
+++ ./proba_ECR_gate_host 20 15 19
++ out=27482.000000
++ t=27482.000000
++ echo 'tiempo = 27482.000000'
+++ echo '8515042.000000 + 27482.000000'
+++ bc
++ TOTAL=8542524.000000
++ COUNT=304
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 0 ']'
++ echo '=== ECR gate en qubits 16 0 ==='
+++ ./proba_ECR_gate_host 20 16 0
++ out=38975.000000
++ t=38975.000000
++ echo 'tiempo = 38975.000000'
+++ echo '8542524.000000 + 38975.000000'
+++ bc
++ TOTAL=8581499.000000
++ COUNT=305
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 1 ']'
++ echo '=== ECR gate en qubits 16 1 ==='
+++ ./proba_ECR_gate_host 20 16 1
++ out=24141.000000
++ t=24141.000000
++ echo 'tiempo = 24141.000000'
+++ echo '8581499.000000 + 24141.000000'
+++ bc
++ TOTAL=8605640.000000
++ COUNT=306
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 2 ']'
++ echo '=== ECR gate en qubits 16 2 ==='
+++ ./proba_ECR_gate_host 20 16 2
++ out=27368.000000
++ t=27368.000000
++ echo 'tiempo = 27368.000000'
+++ echo '8605640.000000 + 27368.000000'
+++ bc
++ TOTAL=8633008.000000
++ COUNT=307
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 3 ']'
++ echo '=== ECR gate en qubits 16 3 ==='
+++ ./proba_ECR_gate_host 20 16 3
++ out=25261.000000
++ t=25261.000000
++ echo 'tiempo = 25261.000000'
+++ echo '8633008.000000 + 25261.000000'
+++ bc
++ TOTAL=8658269.000000
++ COUNT=308
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 4 ']'
++ echo '=== ECR gate en qubits 16 4 ==='
+++ ./proba_ECR_gate_host 20 16 4
++ out=23060.000000
++ t=23060.000000
++ echo 'tiempo = 23060.000000'
+++ echo '8658269.000000 + 23060.000000'
+++ bc
++ TOTAL=8681329.000000
++ COUNT=309
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 5 ']'
++ echo '=== ECR gate en qubits 16 5 ==='
+++ ./proba_ECR_gate_host 20 16 5
++ out=27150.000000
++ t=27150.000000
++ echo 'tiempo = 27150.000000'
+++ echo '8681329.000000 + 27150.000000'
+++ bc
++ TOTAL=8708479.000000
++ COUNT=310
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 6 ']'
++ echo '=== ECR gate en qubits 16 6 ==='
+++ ./proba_ECR_gate_host 20 16 6
++ out=25381.000000
++ t=25381.000000
++ echo 'tiempo = 25381.000000'
+++ echo '8708479.000000 + 25381.000000'
+++ bc
++ TOTAL=8733860.000000
++ COUNT=311
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 7 ']'
++ echo '=== ECR gate en qubits 16 7 ==='
+++ ./proba_ECR_gate_host 20 16 7
++ out=24701.000000
++ t=24701.000000
++ echo 'tiempo = 24701.000000'
+++ echo '8733860.000000 + 24701.000000'
+++ bc
++ TOTAL=8758561.000000
++ COUNT=312
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 8 ']'
++ echo '=== ECR gate en qubits 16 8 ==='
+++ ./proba_ECR_gate_host 20 16 8
++ out=27498.000000
++ t=27498.000000
++ echo 'tiempo = 27498.000000'
+++ echo '8758561.000000 + 27498.000000'
+++ bc
++ TOTAL=8786059.000000
++ COUNT=313
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 9 ']'
++ echo '=== ECR gate en qubits 16 9 ==='
+++ ./proba_ECR_gate_host 20 16 9
++ out=26943.000000
++ t=26943.000000
++ echo 'tiempo = 26943.000000'
+++ echo '8786059.000000 + 26943.000000'
+++ bc
++ TOTAL=8813002.000000
++ COUNT=314
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 10 ']'
++ echo '=== ECR gate en qubits 16 10 ==='
+++ ./proba_ECR_gate_host 20 16 10
++ out=28153.000000
++ t=28153.000000
++ echo 'tiempo = 28153.000000'
+++ echo '8813002.000000 + 28153.000000'
+++ bc
++ TOTAL=8841155.000000
++ COUNT=315
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 11 ']'
++ echo '=== ECR gate en qubits 16 11 ==='
+++ ./proba_ECR_gate_host 20 16 11
++ out=28414.000000
++ t=28414.000000
++ echo 'tiempo = 28414.000000'
+++ echo '8841155.000000 + 28414.000000'
+++ bc
++ TOTAL=8869569.000000
++ COUNT=316
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 12 ']'
++ echo '=== ECR gate en qubits 16 12 ==='
+++ ./proba_ECR_gate_host 20 16 12
++ out=27120.000000
++ t=27120.000000
++ echo 'tiempo = 27120.000000'
+++ echo '8869569.000000 + 27120.000000'
+++ bc
++ TOTAL=8896689.000000
++ COUNT=317
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 13 ']'
++ echo '=== ECR gate en qubits 16 13 ==='
+++ ./proba_ECR_gate_host 20 16 13
++ out=26935.000000
++ t=26935.000000
++ echo 'tiempo = 26935.000000'
+++ echo '8896689.000000 + 26935.000000'
+++ bc
++ TOTAL=8923624.000000
++ COUNT=318
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 14 ']'
++ echo '=== ECR gate en qubits 16 14 ==='
+++ ./proba_ECR_gate_host 20 16 14
++ out=28777.000000
++ t=28777.000000
++ echo 'tiempo = 28777.000000'
+++ echo '8923624.000000 + 28777.000000'
+++ bc
++ TOTAL=8952401.000000
++ COUNT=319
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 15 ']'
++ echo '=== ECR gate en qubits 16 15 ==='
+++ ./proba_ECR_gate_host 20 16 15
++ out=24900.000000
++ t=24900.000000
++ echo 'tiempo = 24900.000000'
+++ echo '8952401.000000 + 24900.000000'
+++ bc
++ TOTAL=8977301.000000
++ COUNT=320
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 16 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 17 ']'
++ echo '=== ECR gate en qubits 16 17 ==='
+++ ./proba_ECR_gate_host 20 16 17
++ out=22205.000000
++ t=22205.000000
++ echo 'tiempo = 22205.000000'
+++ echo '8977301.000000 + 22205.000000'
+++ bc
++ TOTAL=8999506.000000
++ COUNT=321
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 18 ']'
++ echo '=== ECR gate en qubits 16 18 ==='
+++ ./proba_ECR_gate_host 20 16 18
++ out=22182.000000
++ t=22182.000000
++ echo 'tiempo = 22182.000000'
+++ echo '8999506.000000 + 22182.000000'
+++ bc
++ TOTAL=9021688.000000
++ COUNT=322
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 16 -ne 19 ']'
++ echo '=== ECR gate en qubits 16 19 ==='
+++ ./proba_ECR_gate_host 20 16 19
++ out=29374.000000
++ t=29374.000000
++ echo 'tiempo = 29374.000000'
+++ echo '9021688.000000 + 29374.000000'
+++ bc
++ TOTAL=9051062.000000
++ COUNT=323
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 0 ']'
++ echo '=== ECR gate en qubits 17 0 ==='
+++ ./proba_ECR_gate_host 20 17 0
++ out=41459.000000
++ t=41459.000000
++ echo 'tiempo = 41459.000000'
+++ echo '9051062.000000 + 41459.000000'
+++ bc
++ TOTAL=9092521.000000
++ COUNT=324
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 1 ']'
++ echo '=== ECR gate en qubits 17 1 ==='
+++ ./proba_ECR_gate_host 20 17 1
++ out=27753.000000
++ t=27753.000000
++ echo 'tiempo = 27753.000000'
+++ echo '9092521.000000 + 27753.000000'
+++ bc
++ TOTAL=9120274.000000
++ COUNT=325
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 2 ']'
++ echo '=== ECR gate en qubits 17 2 ==='
+++ ./proba_ECR_gate_host 20 17 2
++ out=27395.000000
++ t=27395.000000
++ echo 'tiempo = 27395.000000'
+++ echo '9120274.000000 + 27395.000000'
+++ bc
++ TOTAL=9147669.000000
++ COUNT=326
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 3 ']'
++ echo '=== ECR gate en qubits 17 3 ==='
+++ ./proba_ECR_gate_host 20 17 3
++ out=27535.000000
++ t=27535.000000
++ echo 'tiempo = 27535.000000'
+++ echo '9147669.000000 + 27535.000000'
+++ bc
++ TOTAL=9175204.000000
++ COUNT=327
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 4 ']'
++ echo '=== ECR gate en qubits 17 4 ==='
+++ ./proba_ECR_gate_host 20 17 4
++ out=29496.000000
++ t=29496.000000
++ echo 'tiempo = 29496.000000'
+++ echo '9175204.000000 + 29496.000000'
+++ bc
++ TOTAL=9204700.000000
++ COUNT=328
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 5 ']'
++ echo '=== ECR gate en qubits 17 5 ==='
+++ ./proba_ECR_gate_host 20 17 5
++ out=30408.000000
++ t=30408.000000
++ echo 'tiempo = 30408.000000'
+++ echo '9204700.000000 + 30408.000000'
+++ bc
++ TOTAL=9235108.000000
++ COUNT=329
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 6 ']'
++ echo '=== ECR gate en qubits 17 6 ==='
+++ ./proba_ECR_gate_host 20 17 6
++ out=24291.000000
++ t=24291.000000
++ echo 'tiempo = 24291.000000'
+++ echo '9235108.000000 + 24291.000000'
+++ bc
++ TOTAL=9259399.000000
++ COUNT=330
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 7 ']'
++ echo '=== ECR gate en qubits 17 7 ==='
+++ ./proba_ECR_gate_host 20 17 7
++ out=24982.000000
++ t=24982.000000
++ echo 'tiempo = 24982.000000'
+++ echo '9259399.000000 + 24982.000000'
+++ bc
++ TOTAL=9284381.000000
++ COUNT=331
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 8 ']'
++ echo '=== ECR gate en qubits 17 8 ==='
+++ ./proba_ECR_gate_host 20 17 8
++ out=25274.000000
++ t=25274.000000
++ echo 'tiempo = 25274.000000'
+++ echo '9284381.000000 + 25274.000000'
+++ bc
++ TOTAL=9309655.000000
++ COUNT=332
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 9 ']'
++ echo '=== ECR gate en qubits 17 9 ==='
+++ ./proba_ECR_gate_host 20 17 9
++ out=25026.000000
++ t=25026.000000
++ echo 'tiempo = 25026.000000'
+++ echo '9309655.000000 + 25026.000000'
+++ bc
++ TOTAL=9334681.000000
++ COUNT=333
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 10 ']'
++ echo '=== ECR gate en qubits 17 10 ==='
+++ ./proba_ECR_gate_host 20 17 10
++ out=22456.000000
++ t=22456.000000
++ echo 'tiempo = 22456.000000'
+++ echo '9334681.000000 + 22456.000000'
+++ bc
++ TOTAL=9357137.000000
++ COUNT=334
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 11 ']'
++ echo '=== ECR gate en qubits 17 11 ==='
+++ ./proba_ECR_gate_host 20 17 11
++ out=23123.000000
++ t=23123.000000
++ echo 'tiempo = 23123.000000'
+++ echo '9357137.000000 + 23123.000000'
+++ bc
++ TOTAL=9380260.000000
++ COUNT=335
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 12 ']'
++ echo '=== ECR gate en qubits 17 12 ==='
+++ ./proba_ECR_gate_host 20 17 12
++ out=29884.000000
++ t=29884.000000
++ echo 'tiempo = 29884.000000'
+++ echo '9380260.000000 + 29884.000000'
+++ bc
++ TOTAL=9410144.000000
++ COUNT=336
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 13 ']'
++ echo '=== ECR gate en qubits 17 13 ==='
+++ ./proba_ECR_gate_host 20 17 13
++ out=30483.000000
++ t=30483.000000
++ echo 'tiempo = 30483.000000'
+++ echo '9410144.000000 + 30483.000000'
+++ bc
++ TOTAL=9440627.000000
++ COUNT=337
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 14 ']'
++ echo '=== ECR gate en qubits 17 14 ==='
+++ ./proba_ECR_gate_host 20 17 14
++ out=26667.000000
++ t=26667.000000
++ echo 'tiempo = 26667.000000'
+++ echo '9440627.000000 + 26667.000000'
+++ bc
++ TOTAL=9467294.000000
++ COUNT=338
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 15 ']'
++ echo '=== ECR gate en qubits 17 15 ==='
+++ ./proba_ECR_gate_host 20 17 15
++ out=26853.000000
++ t=26853.000000
++ echo 'tiempo = 26853.000000'
+++ echo '9467294.000000 + 26853.000000'
+++ bc
++ TOTAL=9494147.000000
++ COUNT=339
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 16 ']'
++ echo '=== ECR gate en qubits 17 16 ==='
+++ ./proba_ECR_gate_host 20 17 16
++ out=24576.000000
++ t=24576.000000
++ echo 'tiempo = 24576.000000'
+++ echo '9494147.000000 + 24576.000000'
+++ bc
++ TOTAL=9518723.000000
++ COUNT=340
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 17 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 18 ']'
++ echo '=== ECR gate en qubits 17 18 ==='
+++ ./proba_ECR_gate_host 20 17 18
++ out=29410.000000
++ t=29410.000000
++ echo 'tiempo = 29410.000000'
+++ echo '9518723.000000 + 29410.000000'
+++ bc
++ TOTAL=9548133.000000
++ COUNT=341
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 17 -ne 19 ']'
++ echo '=== ECR gate en qubits 17 19 ==='
+++ ./proba_ECR_gate_host 20 17 19
++ out=30622.000000
++ t=30622.000000
++ echo 'tiempo = 30622.000000'
+++ echo '9548133.000000 + 30622.000000'
+++ bc
++ TOTAL=9578755.000000
++ COUNT=342
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 0 ']'
++ echo '=== ECR gate en qubits 18 0 ==='
+++ ./proba_ECR_gate_host 20 18 0
++ out=36119.000000
++ t=36119.000000
++ echo 'tiempo = 36119.000000'
+++ echo '9578755.000000 + 36119.000000'
+++ bc
++ TOTAL=9614874.000000
++ COUNT=343
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 1 ']'
++ echo '=== ECR gate en qubits 18 1 ==='
+++ ./proba_ECR_gate_host 20 18 1
++ out=25521.000000
++ t=25521.000000
++ echo 'tiempo = 25521.000000'
+++ echo '9614874.000000 + 25521.000000'
+++ bc
++ TOTAL=9640395.000000
++ COUNT=344
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 2 ']'
++ echo '=== ECR gate en qubits 18 2 ==='
+++ ./proba_ECR_gate_host 20 18 2
++ out=25540.000000
++ t=25540.000000
++ echo 'tiempo = 25540.000000'
+++ echo '9640395.000000 + 25540.000000'
+++ bc
++ TOTAL=9665935.000000
++ COUNT=345
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 3 ']'
++ echo '=== ECR gate en qubits 18 3 ==='
+++ ./proba_ECR_gate_host 20 18 3
++ out=25774.000000
++ t=25774.000000
++ echo 'tiempo = 25774.000000'
+++ echo '9665935.000000 + 25774.000000'
+++ bc
++ TOTAL=9691709.000000
++ COUNT=346
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 4 ']'
++ echo '=== ECR gate en qubits 18 4 ==='
+++ ./proba_ECR_gate_host 20 18 4
++ out=25733.000000
++ t=25733.000000
++ echo 'tiempo = 25733.000000'
+++ echo '9691709.000000 + 25733.000000'
+++ bc
++ TOTAL=9717442.000000
++ COUNT=347
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 5 ']'
++ echo '=== ECR gate en qubits 18 5 ==='
+++ ./proba_ECR_gate_host 20 18 5
++ out=22628.000000
++ t=22628.000000
++ echo 'tiempo = 22628.000000'
+++ echo '9717442.000000 + 22628.000000'
+++ bc
++ TOTAL=9740070.000000
++ COUNT=348
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 6 ']'
++ echo '=== ECR gate en qubits 18 6 ==='
+++ ./proba_ECR_gate_host 20 18 6
++ out=30120.000000
++ t=30120.000000
++ echo 'tiempo = 30120.000000'
+++ echo '9740070.000000 + 30120.000000'
+++ bc
++ TOTAL=9770190.000000
++ COUNT=349
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 7 ']'
++ echo '=== ECR gate en qubits 18 7 ==='
+++ ./proba_ECR_gate_host 20 18 7
++ out=27639.000000
++ t=27639.000000
++ echo 'tiempo = 27639.000000'
+++ echo '9770190.000000 + 27639.000000'
+++ bc
++ TOTAL=9797829.000000
++ COUNT=350
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 8 ']'
++ echo '=== ECR gate en qubits 18 8 ==='
+++ ./proba_ECR_gate_host 20 18 8
++ out=24905.000000
++ t=24905.000000
++ echo 'tiempo = 24905.000000'
+++ echo '9797829.000000 + 24905.000000'
+++ bc
++ TOTAL=9822734.000000
++ COUNT=351
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 9 ']'
++ echo '=== ECR gate en qubits 18 9 ==='
+++ ./proba_ECR_gate_host 20 18 9
++ out=26975.000000
++ t=26975.000000
++ echo 'tiempo = 26975.000000'
+++ echo '9822734.000000 + 26975.000000'
+++ bc
++ TOTAL=9849709.000000
++ COUNT=352
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 10 ']'
++ echo '=== ECR gate en qubits 18 10 ==='
+++ ./proba_ECR_gate_host 20 18 10
++ out=24606.000000
++ t=24606.000000
++ echo 'tiempo = 24606.000000'
+++ echo '9849709.000000 + 24606.000000'
+++ bc
++ TOTAL=9874315.000000
++ COUNT=353
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 11 ']'
++ echo '=== ECR gate en qubits 18 11 ==='
+++ ./proba_ECR_gate_host 20 18 11
++ out=29101.000000
++ t=29101.000000
++ echo 'tiempo = 29101.000000'
+++ echo '9874315.000000 + 29101.000000'
+++ bc
++ TOTAL=9903416.000000
++ COUNT=354
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 12 ']'
++ echo '=== ECR gate en qubits 18 12 ==='
+++ ./proba_ECR_gate_host 20 18 12
++ out=30720.000000
++ t=30720.000000
++ echo 'tiempo = 30720.000000'
+++ echo '9903416.000000 + 30720.000000'
+++ bc
++ TOTAL=9934136.000000
++ COUNT=355
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 13 ']'
++ echo '=== ECR gate en qubits 18 13 ==='
+++ ./proba_ECR_gate_host 20 18 13
++ out=24545.000000
++ t=24545.000000
++ echo 'tiempo = 24545.000000'
+++ echo '9934136.000000 + 24545.000000'
+++ bc
++ TOTAL=9958681.000000
++ COUNT=356
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 14 ']'
++ echo '=== ECR gate en qubits 18 14 ==='
+++ ./proba_ECR_gate_host 20 18 14
++ out=24436.000000
++ t=24436.000000
++ echo 'tiempo = 24436.000000'
+++ echo '9958681.000000 + 24436.000000'
+++ bc
++ TOTAL=9983117.000000
++ COUNT=357
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 15 ']'
++ echo '=== ECR gate en qubits 18 15 ==='
+++ ./proba_ECR_gate_host 20 18 15
++ out=23466.000000
++ t=23466.000000
++ echo 'tiempo = 23466.000000'
+++ echo '9983117.000000 + 23466.000000'
+++ bc
++ TOTAL=10006583.000000
++ COUNT=358
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 16 ']'
++ echo '=== ECR gate en qubits 18 16 ==='
+++ ./proba_ECR_gate_host 20 18 16
++ out=25251.000000
++ t=25251.000000
++ echo 'tiempo = 25251.000000'
+++ echo '10006583.000000 + 25251.000000'
+++ bc
++ TOTAL=10031834.000000
++ COUNT=359
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 17 ']'
++ echo '=== ECR gate en qubits 18 17 ==='
+++ ./proba_ECR_gate_host 20 18 17
++ out=25083.000000
++ t=25083.000000
++ echo 'tiempo = 25083.000000'
+++ echo '10031834.000000 + 25083.000000'
+++ bc
++ TOTAL=10056917.000000
++ COUNT=360
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 18 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 18 -ne 19 ']'
++ echo '=== ECR gate en qubits 18 19 ==='
+++ ./proba_ECR_gate_host 20 18 19
++ out=23193.000000
++ t=23193.000000
++ echo 'tiempo = 23193.000000'
+++ echo '10056917.000000 + 23193.000000'
+++ bc
++ TOTAL=10080110.000000
++ COUNT=361
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
++ (( j=0 ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 0 ']'
++ echo '=== ECR gate en qubits 19 0 ==='
+++ ./proba_ECR_gate_host 20 19 0
++ out=41363.000000
++ t=41363.000000
++ echo 'tiempo = 41363.000000'
+++ echo '10080110.000000 + 41363.000000'
+++ bc
++ TOTAL=10121473.000000
++ COUNT=362
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 1 ']'
++ echo '=== ECR gate en qubits 19 1 ==='
+++ ./proba_ECR_gate_host 20 19 1
++ out=27703.000000
++ t=27703.000000
++ echo 'tiempo = 27703.000000'
+++ echo '10121473.000000 + 27703.000000'
+++ bc
++ TOTAL=10149176.000000
++ COUNT=363
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 2 ']'
++ echo '=== ECR gate en qubits 19 2 ==='
+++ ./proba_ECR_gate_host 20 19 2
++ out=27804.000000
++ t=27804.000000
++ echo 'tiempo = 27804.000000'
+++ echo '10149176.000000 + 27804.000000'
+++ bc
++ TOTAL=10176980.000000
++ COUNT=364
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 3 ']'
++ echo '=== ECR gate en qubits 19 3 ==='
+++ ./proba_ECR_gate_host 20 19 3
++ out=24950.000000
++ t=24950.000000
++ echo 'tiempo = 24950.000000'
+++ echo '10176980.000000 + 24950.000000'
+++ bc
++ TOTAL=10201930.000000
++ COUNT=365
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 4 ']'
++ echo '=== ECR gate en qubits 19 4 ==='
+++ ./proba_ECR_gate_host 20 19 4
++ out=24785.000000
++ t=24785.000000
++ echo 'tiempo = 24785.000000'
+++ echo '10201930.000000 + 24785.000000'
+++ bc
++ TOTAL=10226715.000000
++ COUNT=366
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 5 ']'
++ echo '=== ECR gate en qubits 19 5 ==='
+++ ./proba_ECR_gate_host 20 19 5
++ out=22301.000000
++ t=22301.000000
++ echo 'tiempo = 22301.000000'
+++ echo '10226715.000000 + 22301.000000'
+++ bc
++ TOTAL=10249016.000000
++ COUNT=367
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 6 ']'
++ echo '=== ECR gate en qubits 19 6 ==='
+++ ./proba_ECR_gate_host 20 19 6
++ out=24876.000000
++ t=24876.000000
++ echo 'tiempo = 24876.000000'
+++ echo '10249016.000000 + 24876.000000'
+++ bc
++ TOTAL=10273892.000000
++ COUNT=368
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 7 ']'
++ echo '=== ECR gate en qubits 19 7 ==='
+++ ./proba_ECR_gate_host 20 19 7
++ out=29380.000000
++ t=29380.000000
++ echo 'tiempo = 29380.000000'
+++ echo '10273892.000000 + 29380.000000'
+++ bc
++ TOTAL=10303272.000000
++ COUNT=369
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 8 ']'
++ echo '=== ECR gate en qubits 19 8 ==='
+++ ./proba_ECR_gate_host 20 19 8
++ out=24510.000000
++ t=24510.000000
++ echo 'tiempo = 24510.000000'
+++ echo '10303272.000000 + 24510.000000'
+++ bc
++ TOTAL=10327782.000000
++ COUNT=370
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 9 ']'
++ echo '=== ECR gate en qubits 19 9 ==='
+++ ./proba_ECR_gate_host 20 19 9
++ out=27150.000000
++ t=27150.000000
++ echo 'tiempo = 27150.000000'
+++ echo '10327782.000000 + 27150.000000'
+++ bc
++ TOTAL=10354932.000000
++ COUNT=371
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 10 ']'
++ echo '=== ECR gate en qubits 19 10 ==='
+++ ./proba_ECR_gate_host 20 19 10
++ out=24598.000000
++ t=24598.000000
++ echo 'tiempo = 24598.000000'
+++ echo '10354932.000000 + 24598.000000'
+++ bc
++ TOTAL=10379530.000000
++ COUNT=372
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 11 ']'
++ echo '=== ECR gate en qubits 19 11 ==='
+++ ./proba_ECR_gate_host 20 19 11
++ out=26508.000000
++ t=26508.000000
++ echo 'tiempo = 26508.000000'
+++ echo '10379530.000000 + 26508.000000'
+++ bc
++ TOTAL=10406038.000000
++ COUNT=373
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 12 ']'
++ echo '=== ECR gate en qubits 19 12 ==='
+++ ./proba_ECR_gate_host 20 19 12
++ out=26736.000000
++ t=26736.000000
++ echo 'tiempo = 26736.000000'
+++ echo '10406038.000000 + 26736.000000'
+++ bc
++ TOTAL=10432774.000000
++ COUNT=374
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 13 ']'
++ echo '=== ECR gate en qubits 19 13 ==='
+++ ./proba_ECR_gate_host 20 19 13
++ out=30995.000000
++ t=30995.000000
++ echo 'tiempo = 30995.000000'
+++ echo '10432774.000000 + 30995.000000'
+++ bc
++ TOTAL=10463769.000000
++ COUNT=375
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 14 ']'
++ echo '=== ECR gate en qubits 19 14 ==='
+++ ./proba_ECR_gate_host 20 19 14
++ out=24223.000000
++ t=24223.000000
++ echo 'tiempo = 24223.000000'
+++ echo '10463769.000000 + 24223.000000'
+++ bc
++ TOTAL=10487992.000000
++ COUNT=376
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 15 ']'
++ echo '=== ECR gate en qubits 19 15 ==='
+++ ./proba_ECR_gate_host 20 19 15
++ out=26825.000000
++ t=26825.000000
++ echo 'tiempo = 26825.000000'
+++ echo '10487992.000000 + 26825.000000'
+++ bc
++ TOTAL=10514817.000000
++ COUNT=377
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 16 ']'
++ echo '=== ECR gate en qubits 19 16 ==='
+++ ./proba_ECR_gate_host 20 19 16
++ out=21979.000000
++ t=21979.000000
++ echo 'tiempo = 21979.000000'
+++ echo '10514817.000000 + 21979.000000'
+++ bc
++ TOTAL=10536796.000000
++ COUNT=378
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 17 ']'
++ echo '=== ECR gate en qubits 19 17 ==='
+++ ./proba_ECR_gate_host 20 19 17
++ out=25190.000000
++ t=25190.000000
++ echo 'tiempo = 25190.000000'
+++ echo '10536796.000000 + 25190.000000'
+++ bc
++ TOTAL=10561986.000000
++ COUNT=379
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 18 ']'
++ echo '=== ECR gate en qubits 19 18 ==='
+++ ./proba_ECR_gate_host 20 19 18
++ out=25608.000000
++ t=25608.000000
++ echo 'tiempo = 25608.000000'
+++ echo '10561986.000000 + 25608.000000'
+++ bc
++ TOTAL=10587594.000000
++ COUNT=380
++ (( j++ ))
++ (( j<NQUBITS ))
++ '[' 19 -ne 19 ']'
++ (( j++ ))
++ (( j<NQUBITS ))
++ (( i++ ))
++ (( i<NQUBITS ))
+++ echo 'scale=6; 10587594.000000 / 380'
+++ bc
++ MEDIA=27862.089473
++ echo ==============================
++ echo 'MEDIA FINAL: 27862.089473 ns'
++ echo ==============================

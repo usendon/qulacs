@@ -1,0 +1,70 @@
+qmio/hpc unloaded
+autotools loaded
+prun/2.2 loaded
+gnu12/12.2.0 loaded
+hwloc/2.7.2 loaded
+ucx/1.11.2 loaded
+libfabric/1.13.0 loaded
+openmpi4/4.1.4 loaded
+ohpc loaded
+autotools loaded
+prun/2.2 loaded
+gnu12/12.2.0 loaded
+hwloc/2.7.2 loaded
+ucx/1.11.2 loaded
+libfabric/1.13.0 loaded
+openmpi4/4.1.4 loaded
+ohpc loaded
+gnu12/12.2.0 unloaded
+hwloc/2.7.2 unloaded
+ucx/1.11.2 unloaded
+libfabric/1.13.0 unloaded
+openmpi4/4.1.4 unloaded
+gnu12/12.2.0 loaded
+hwloc/2.7.2 loaded
+ucx/1.11.2 loaded
+libfabric/1.13.0 loaded
+openmpi4/4.1.4 loaded
+hwloc/2.7.2 unloaded
+ucx/1.11.2 unloaded
+libfabric/1.13.0 unloaded
+openmpi4/4.1.4 unloaded
+hwloc/2.7.2 loaded
+ucx/1.11.2 loaded
+libfabric/1.13.0 loaded
+openmpi4/4.1.4 loaded
+boost/1.80.0 loaded
+cmake/3.24.2 loaded
++ GCC_COMMAND=mpicc
++ GXX_COMMAND=mpicxx
++ USE_TEST=No
++ USE_GPU=No
++ USE_MPI=Yes
++ COVERAGE=No
++ CMAKE_OPS='-D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx -D CMAKE_BUILD_TYPE=Release'
++ CMAKE_OPS='-D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx -D CMAKE_BUILD_TYPE=Release -D USE_MPI=Yes -D USE_GPU=No'
++ CMAKE_OPS='-D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx -D CMAKE_BUILD_TYPE=Release -D USE_MPI=Yes -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No'
++ CMAKE_OPS='-D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx -D CMAKE_BUILD_TYPE=Release -D USE_MPI=Yes -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No -DUSE_PYTHON=OFF -DBUILD_PYTHON=OFF -DENABLE_PYTHON=OFF -DCMAKE_DISABLE_FIND_PACKAGE_Python3=ON -DCMAKE_DISABLE_FIND_PACKAGE_PythonInterp=ON'
++ mkdir -p ./build_arm
++ cd ./build_arm
++ '[' __UNSET__ = __UNSET__ ']'
++ cmake -G 'Unix Makefiles' -D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx -D CMAKE_BUILD_TYPE=Release -D USE_MPI=Yes -D USE_GPU=No -D USE_TEST=No -D COVERAGE=No -DUSE_PYTHON=OFF -DBUILD_PYTHON=OFF -DENABLE_PYTHON=OFF -DCMAKE_DISABLE_FIND_PACKAGE_Python3=ON -DCMAKE_DISABLE_FIND_PACKAGE_PythonInterp=ON ..
+FATAL_ERROR,USE_MPI must be used in mpicc/mpicxx.
+You have changed variables that require your cache to be deleted.
+Configure will be re-run and you may have to reset some variables.
+The following variables have changed:
+CMAKE_C_COMPILER= mpicc
+CMAKE_CXX_COMPILER= mpicxx
+
+CMake Error at /opt/ohpc/pub/utils/cmake/3.24.2/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find PythonInterp: Found unsuitable version "3.6.8", but required
+  is at least "3.7" (found /bin/python3)
+Call Stack (most recent call first):
+  /opt/ohpc/pub/utils/cmake/3.24.2/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:592 (_FPHSA_FAILURE_MESSAGE)
+  /opt/ohpc/pub/utils/cmake/3.24.2/share/cmake-3.24/Modules/FindPythonInterp.cmake:169 (FIND_PACKAGE_HANDLE_STANDARD_ARGS)
+  build_arm/_deps/pybind11_fetch-src/tools/FindPythonLibsNew.cmake:114 (find_package)
+  build_arm/_deps/pybind11_fetch-src/tools/pybind11Tools.cmake:50 (find_package)
+  build_arm/_deps/pybind11_fetch-src/tools/pybind11Common.cmake:228 (include)
+  build_arm/_deps/pybind11_fetch-src/CMakeLists.txt:249 (include)
+
+

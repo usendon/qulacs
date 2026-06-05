@@ -52,22 +52,30 @@ void ECR_gate(UINT target_qubit_index_0, UINT target_qubit_index_1,
 
 void ECR_gate_parallel_unroll(UINT target_qubit_index_0,
     UINT target_qubit_index_1, CTYPE* state, ITYPE dim) {
-    //std::cout << "Entra en ECR_gate_parallel_unroll" << std::endl;
+    std::cout << "Entra en ECR_gate_parallel_unroll" << std::endl;
     const ITYPE loop_dim = dim / 4;
 
     const ITYPE mask_0 = 1ULL << target_qubit_index_0;
+    std::cout << "mask_0 = " << mask_0 << std::endl;
     const ITYPE mask_1 = 1ULL << target_qubit_index_1;
+    std::cout << "mask_1 = " << mask_1 << std::endl;
     const ITYPE mask = mask_0 + mask_1;
+    std::cout << "mask = " << mask << std::endl;
 
     const UINT min_qubit_index =
         get_min_ui(target_qubit_index_0, target_qubit_index_1);
     const UINT max_qubit_index =
         get_max_ui(target_qubit_index_0, target_qubit_index_1);
     const ITYPE min_qubit_mask = 1ULL << min_qubit_index;
+    std::cout << "min_qubit_mask = " << min_qubit_mask << std::endl;
     const ITYPE max_qubit_mask = 1ULL << (max_qubit_index - 1);
+    std::cout << "max_qubit_mask = " << max_qubit_mask << std::endl;
     const ITYPE low_mask = min_qubit_mask - 1;
+    std::cout << "low_mask = " << low_mask << std::endl;
     const ITYPE mid_mask = (max_qubit_mask - 1) ^ low_mask;
+    std::cout << "mid_mask = " << mid_mask << std::endl;
     const ITYPE high_mask = ~(max_qubit_mask - 1);
+    std::cout << "high_mask = " << high_mask << std::endl;
 
     const double sqrt2inv = 1. / sqrt(2.);
 
@@ -183,7 +191,7 @@ void ECR_gate_parallel_simd(UINT target_qubit_index_0,
 
 /////////////////////
 
-#include <inttypes.h>  // para PRIu64 (portable)
+/* #include <inttypes.h>  // para PRIu64 (portable)
 
 static void print_svuint64(svuint64_t v) {
     uint64_t tmp[svcntd()];                // buffer temporal
@@ -194,7 +202,7 @@ static void print_svuint64(svuint64_t v) {
         printf("%" PRIu64 " ", tmp[i]);    // impresión portable
     }
     printf("\n");
-}
+} */
 
 ////////////////////
 
@@ -254,6 +262,7 @@ void ECR_gate_parallel_sve(UINT target_qubit_index_0,
 
     // # of complex128 numbers in an SVE register
     ITYPE VL = svcntd() / 2;
+    //std::cout << "VL =  " << VL << std::endl;
 
 
     if ((dim > VL) && (min_qubit_mask >= VL)) {

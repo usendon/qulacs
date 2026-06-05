@@ -1,29 +1,64 @@
 #!/bin/bash
+#SBATCH -p a64
 #SBATCH --job-name=MPI
-#SBATCH -o benchmark/benchmark_%j.out
-#SBATCH -e benchmark/benchmark_%j.error
+#SBATCH -o benchmark_a64/benchmark_%j.out
+#SBATCH -e benchmark_a64/benchmark_%j.error
 #SBATCH --time=22:00:00
 #SBATCH -N 16     # <-- esto cambia: 1, 2, 4, 8, 16, 32, 64
 #SBATCH -n 16       # <-- esto cambia igual que -N
-#SBATCH --mem=1000G     # usa toda la RAM disponible por nodo
+#SBATCH --mem=28G     # usa toda la RAM disponible por nodo
 #SBATCH --exclusive
+
+
+date
 
 echo "Nodos asignados: $SLURM_JOB_NUM_NODES"
 echo "Tasks totales: $SLURM_NTASKS"
 echo "Nodos: $SLURM_NODELIST"
 
-uptime
-
 module --force purge
-ml qmio/hpc gcc/12.3.0 gcccore/12.3.0 impi/2021.13.0 boost/1.85.0 cmake/3.27.6 nlohmann_json/3.11.3 python/3.9.9
+
+source /etc/profile
+
+ml gnu12/12.2.0  openmpi4/4.1.4 boost/1.80.0 cmake/3.24.2 
 
 export OMP_NUM_THREADS=1
 export OMP_PROC_BIND=true
 export OMP_PLACES=cores
 export I_MPI_DEBUG=0
 
-cd /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/
-source script/build_mpicc.sh
+cd ../..
+
+set -eux
+
+GCC_COMMAND=${C_COMPILER:-"mpicc"}
+GXX_COMMAND=${CXX_COMPILER:-"mpicxx"}
+
+USE_TEST=${USE_TEST:-"No"}
+USE_GPU=${USE_GPU:-"No"}
+USE_MPI=${USE_MPI:-"Yes"}
+COVERAGE=${COVERAGE:-"No"}
+
+CMAKE_OPS="-D CMAKE_C_COMPILER=$GCC_COMMAND -D CMAKE_CXX_COMPILER=$GXX_COMMAND -D CMAKE_BUILD_TYPE=Release"
+CMAKE_OPS="${CMAKE_OPS} -D USE_MPI=${USE_MPI} -D USE_GPU=${USE_GPU}"
+CMAKE_OPS="${CMAKE_OPS} -D USE_TEST=${USE_TEST} -D COVERAGE=${COVERAGE}"
+CMAKE_OPS="${CMAKE_OPS} -DUSE_PYTHON=OFF \
+-DBUILD_PYTHON=OFF \
+-DENABLE_PYTHON=OFF \
+-DCMAKE_DISABLE_FIND_PACKAGE_Python3=ON \
+-DCMAKE_DISABLE_FIND_PACKAGE_PythonInterp=ON"
+
+mkdir -p ./build_arm
+cd ./build_arm
+if [ "${QULACS_OPT_FLAGS:-"__UNSET__"}" = "__UNSET__" ]; then
+  cmake -G "Unix Makefiles" ${CMAKE_OPS} ..
+else
+  cmake -G "Unix Makefiles" ${CMAKE_OPS} -D OPT_FLAGS="${QULACS_OPT_FLAGS}" ..
+fi
+make -j $(nproc)
+cd ../
+
+
 
 WORKDIR=/mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/usendon_tests/mpi_scalability_analysis
 cd $WORKDIR
@@ -37,7 +72,7 @@ claude_benchmark.cpp -o claude_benchmark \
 -lcppsim_static -lcsim_static -lvqcsim_static \
 -fopenmp -D_USE_MPI
 
-RESULTS="$WORKDIR/resultados_ecr_ilk.csv"
+RESULTS="$WORKDIR/resultados_ecr_a64.csv"
 EXEC="$WORKDIR/claude_benchmark"
 
 # Cabecera CSV
@@ -54,10 +89,11 @@ run_benchmark() {
     local q1=$3
     local q2=$4
 
-    srun --nodes=$nodos \
-         --ntasks=$nodos \
-         --ntasks-per-node=1 \
-         $EXEC $nqubits $q1 $q2 >> $RESULTS
+    mpirun \
+        --bind-to core \
+        --map-by node \
+        -np $nodos \
+        $EXEC $nqubits $q1 $q2 >> $RESULTS
 }
 
 # ═════════════════════════════════════════════
@@ -97,6 +133,7 @@ run_benchmark 16 30  0  1    # LL
 run_benchmark 16 30  0 26    # LG: más local con primer global
 run_benchmark 16 30 26 27    # GG: primeros dos globales
 
+
 # ═════════════════════════════════════════════
 # WEAK SCALING — 30 qubits por proceso
 # Aumentamos 1 qubit al doblar nodos
@@ -131,5 +168,6 @@ echo "# Weak: 16 nodos n=34 (m=30)" >> $RESULTS
 run_benchmark 16 34  0  1
 run_benchmark 16 34  0 30   # LG
 run_benchmark 16 34 30 31   # GG
+
 
 echo "Benchmark completado. Resultados en $RESULTS"
