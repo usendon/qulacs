@@ -200,19 +200,19 @@ ax.text(x2 + col_w/2,
         "Process p", ha="center", va="center", fontsize=16, color=green)
 ax.text(x2 + col_w/2,
         c2_D_y + c2_proc_h - c2_pad_top - c2_title_h - c2_between - c2_subtitle_h/2,
-        "global bit = 0 in rank",
+        f"bit $(q_1 - m)$ = 0 in rank",
         ha="center", va="center", fontsize=13, color=green)
 rounded_box(ax, (x2 + (col_w - amp2_w)/2,
                  c2_D_y + c2_pad_bot),
             amp2_w, amp2_h,
-            text="$\\alpha_{...0...}$\n(global=0)", fc="#eef7f3", ec=green, fontsize=15)
+            text="$\\alpha_{...0...}$", fc="#eef7f3", ec=green, fontsize=15)
 
 # ── Box C: MPI exchange bar ──
 c2_C_h   = 0.034
 c2_C_top = c2_D_y - VGAP
 c2_C_y   = c2_C_top - c2_C_h
 rounded_box(ax, (x2, c2_C_y), col_w, c2_C_h,
-            text="MPI exchange 1 (flip bit global)",
+            text=f"MPI exchange (flip bit $(q_1-m)$)",
             fc=purple_fill, ec=purple, lw=1.3, fontsize=13, textcolor=purple)
 
 arrow_x = x2 + col_w/2
@@ -235,12 +235,12 @@ ax.text(x2 + col_w/2,
         "Process p′", ha="center", va="center", fontsize=16, color=purple)
 ax.text(x2 + col_w/2,
         c2_B_y + c2_proc_h - c2_pad_top - c2_title_h - c2_between - c2_subtitle_h/2,
-        "global bit = 1 in rank",
+        f"bit $(q_1-m)$ = 1 in rank",
         ha="center", va="center", fontsize=13, color=purple)
 rounded_box(ax, (x2 + (col_w - amp2_w)/2,
                  c2_B_y + c2_pad_bot),
             amp2_w, amp2_h,
-            text="$\\alpha_{...1...}$\n(global=1)", fc="#faf9ff", ec=purple, fontsize=15)
+            text="$\\alpha_{...1...}$", fc="#faf9ff", ec=purple, fontsize=15)
 
 # ══════════════════════════════════════════════════════════════
 # CASE 3 — both global
@@ -312,7 +312,7 @@ c3_F_bottom = draw_proc3(
 c3_E_bottom = draw_mpi3(
     ax, x3, col_w,
     c3_F_bottom - VGAP,
-    "MPI exchange 1  (flip bit q₀)",
+    f"MPI exchange 1  (flip bit $(q_0-m)$)",
     c3_mpi_h
 )
 
@@ -343,7 +343,7 @@ c3_D_bottom = draw_proc3(
 c3_C_bottom = draw_mpi3(
     ax, x3, col_w,
     c3_D_bottom - VGAP,
-    "MPI exchange 2  (flip bits q₀ and q₁)",
+    f"MPI exchange 2 \n (flip bits $(q_0-m)$ and $(q_1-m)$)",
     c3_mpi_h
 )
 

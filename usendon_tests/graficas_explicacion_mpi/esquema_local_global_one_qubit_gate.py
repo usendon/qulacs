@@ -88,7 +88,7 @@ gap = 0.18
 y = 9.9
 
 labels_local = ["0", "1", "⋯", "q", "⋯", "m-1"]
-labels_global = ["m", "q", "⋯", "⋯", "⋯", "n-1"]
+labels_global = ["m", "m+1", "⋯", "q", "⋯", "n-1"]
 
 
 # =========================================================
@@ -435,7 +435,7 @@ ax.text(
 ax.text(
     global_center,
     7.15,
-    "bit q = 0 in rank index",
+    "bit (q-m) = 0 in rank index",
     fontsize=13,
     ha="center",
     color="#8f5fc5"
@@ -483,7 +483,7 @@ ax.text(
 ax.text(
     global_center,
     4.15,
-    "bit q = 1 in rank index",
+    "bit (q-m) = 1 in rank index",
     fontsize=13,
     ha="center",
     color="#8f5fc5"
