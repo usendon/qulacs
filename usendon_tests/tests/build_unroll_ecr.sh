@@ -27,10 +27,10 @@ g++ -O2 -I /mnt/netapp1/Store_CESGA/home/cesga/usendon/qulacs_fork/qulacs/includ
 
 EXECUTABLE="./proba_unroll"
 
-NQUBITS=7
+NQUBITS=5
 
-for ((i=3; i<4; i++)); do
-    for ((j=6; j<7; j++)); do
+for ((i=1; i<2; i++)); do
+    for ((j=3; j<4; j++)); do
         if [ $i -ne $j ]; then
             echo "=== ECR gate en qubits $i $j ==="
             $EXECUTABLE $NQUBITS $i $j 
