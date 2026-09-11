@@ -64,7 +64,7 @@ ci = [
 doc = [
     "mypy",
     "pybind11-stubgen",
-    "sphinx==7.*",
+    "sphinx==9.*",
     "sphinx-rtd-theme",
     "breathe",
     "exhale",
@@ -72,7 +72,7 @@ doc = [
     "myst-parser",
     "sphinx-copybutton",
     "ipykernel",
-    "sphinx-autoapi==3.0.0"
+    "sphinx-autoapi==3.6.*"
 ]
 
 [tool.setuptools]
@@ -93,6 +93,10 @@ tar -zxf boost_1_76_0.tar.gz && \
 cd boost_1_76_0 && ./bootstrap.sh && ./b2 headers && \
 cp -r boost /usr/local/include && rm -rf {project}/build \
 """
+
+[[tool.cibuildwheel.overrides]]
+select = "*-manylinux_aarch64"
+environment = { QULACS_OPT_FLAGS = "-march=armv8-a" }
 
 [tool.cibuildwheel.windows]
 environment = { QULACS_OPT_FLAGS = "-mtune=haswell -mfpmath=both" }

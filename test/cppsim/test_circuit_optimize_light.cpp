@@ -175,6 +175,40 @@ TEST(CircuitTest, CircuitOptimizeLightParameterUnchanged) {
     delete copy_circuit;
 }
 
+// Regression test for #718.
+// Before the fix, blocking a merge attempt on a parametric gate left the
+// optimizer's per-qubit tracking pointing at the gate *before* the
+// parametric one, so a later non-parametric gate could be merged directly
+// with that earlier gate, silently skipping over the parametric gate
+// sandwiched between them and reordering the circuit incorrectly.
+TEST(CircuitTest, CircuitOptimizeLightParametricGateNotSkipped) {
+    const UINT n = 1;
+    const UINT dim = 1ULL << n;
+
+    QuantumState state(n), test_state(n);
+    state.set_Haar_random_state();
+    test_state.load(&state);
+    ParametricQuantumCircuit circuit(n);
+
+    circuit.add_X_gate(0);
+    circuit.add_parametric_RX_gate(0, 0.1);
+    circuit.add_Y_gate(0);
+    UINT expected_depth = 3;
+    UINT expected_gate_count = 3;
+
+    ParametricQuantumCircuit* copy_circuit = circuit.copy();
+    QuantumCircuitOptimizer qco;
+    qco.optimize_light(copy_circuit);
+    circuit.update_quantum_state(&test_state);
+    copy_circuit->update_quantum_state(&state);
+
+    ASSERT_STATE_NEAR(state, test_state, eps);
+    ASSERT_EQ(copy_circuit->calculate_depth(), expected_depth);
+    ASSERT_EQ(copy_circuit->gate_list.size(), expected_gate_count);
+    ASSERT_EQ(copy_circuit->get_parameter_count(), 1);
+    delete copy_circuit;
+}
+
 TEST(CircuitTest, RandomCircuitOptimizeLight) {
     const UINT n = 5;
     const UINT dim = 1ULL << n;
